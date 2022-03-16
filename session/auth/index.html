@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - StageTracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-divider@0.2.0/dist/css/bulma-divider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+    <script defer src="https://www.jsdelivr.com/package/npm/@creativebulma/bulma-divider"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bulma-toast@2.4.1/dist/bulma-toast.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.0.0/animate.min.css" />
+    <link rel="stylesheet" href="src/css/connection.css">
+    <script defer src="src/js/connection.js"></script>
+</head>
+
+<body>
+    <!-- Block numero 1-->
+    <nav class="navigation">
+        <div class="navbar is-transparent">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="https://bulma.io">
+                    <img src="https://bulma.io/images/bulma-logo.png"
+                        alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                </a>
+                <div class="navbar-burger" data-target="navbarExampleTransparentExample">
+                </div>
+            </div>
+
+            <div id="navbarExampleTransparentExample" class="navbar-menu">
+
+                <!--Début de la navbar-->
+                <div class="navbar-start">
+                    <a class="navbar-item" href="https://bulma.io/"> Home </a>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
+                            Docs
+                        </a>
+                        <div class="navbar-dropdown is-boxed">
+                            <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
+                                Overview
+                            </a>
+                            <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
+                                Modifiers
+                            </a>
+                            <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
+                                Columns
+                            </a>
+                            <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
+                                Layout
+                            </a>
+                            <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
+                                Form
+                            </a>
+                            <hr class="navbar-divider" />
+                            <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
+                                Elements
+                            </a>
+                            <a class="navbar-item is-active"
+                                href="https://bulma.io/documentation/components/breadcrumb/">FF
+                                Components
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Début de la navbar-->
+
+
+                <!--Fin de la navbar-->
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="field is-grouped">
+                            <p class="control is-expanded">
+                                <input class="input" type="text" placeholder="Rechercher une offre">
+                            </p>
+                            <p class="control">
+                                <a class="button is-primary">
+                                    <strong>Search</strong>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-primary">
+                                <strong>S'inscrire</strong>
+                            </a>
+                            <a class="button is-light">
+                                Se connecter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Fin de la navbar-->
+
+            </div>
+        </div>
+    </nav>
+    <!-- Block numero 1-->
+
+    <!-- Block numero 2-->
+    <section class="section" style="padding: 15rem.5rem;">
+        <div class="columns is-centered">
+            <div class="column is-3">
+                <form class="box">
+                    <h1 class="title">Connectez-vous</h1>
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control has-icons-left">
+                            <input class="input" type="email" placeholder="e.g. alex@example.com">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Password</label>
+                        <div class="control has-icons-left">
+                            <input class="input" type="password" placeholder="********">
+                            <span class="icon is-small is-left">
+                                <i class="fa-solid fa-lock"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="message is-danger">
+                                <div class="message-header">
+                                    Erreur
+                                    <button class="delete"></button>
+                                </div>
+                                <div class="message-body">
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem magnam
+                                    necessitatibus
+                                    quibusdam commodi
+                                    doloribus optio deserunt ea modi, adipisci sequi a vero consectetur velit cumque
+                                    esse
+                                    eveniet exercitationem
+                                    dicta natus?
+                                </div>
+                                
+                            </div>
+                            <div class="buttons is-pulled-right">
+                                <button class="button is-light">Mot de passe oublié</button>
+                                <button class="button is-primary">Sign in</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Block numero 2-->
+</body>
+
+</html>
