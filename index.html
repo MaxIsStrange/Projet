@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accueil - StageTracker</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-divider@0.2.0/dist/css/bulma-divider.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+  <script defer src="https://www.jsdelivr.com/package/npm/@creativebulma/bulma-divider"></script>
+  <link rel="stylesheet" href="src/css/home.css" />
+  <script defer src="src/js/home.js"></script>
+
+</head>
+
+<body>
+  <!-- Block numero 1-->
+  <nav class="navigation">
+    <div class="navbar is-transparent">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox"
+            width="112" height="28" />
+        </a>
+        <div class="navbar-burger" data-target="navbarExampleTransparentExample">
+        </div>
+      </div>
+
+      <div id="navbarExampleTransparentExample" class="navbar-menu">
+
+        <!--Début de la navbar-->
+        <div class="navbar-start">
+          <a class="navbar-item" href="https://bulma.io/"> Home </a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
+              Docs
+            </a>
+            <div class="navbar-dropdown is-boxed">
+              <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
+                Overview
+              </a>
+              <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
+                Modifiers
+              </a>
+              <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
+                Columns
+              </a>
+              <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
+                Layout
+              </a>
+              <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
+                Form
+              </a>
+              <hr class="navbar-divider" />
+              <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
+                Elements
+              </a>
+              <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">FF
+                Components
+              </a>
+            </div>
+          </div>
+        </div>
+        <!--Début de la navbar-->
+
+
+        <!--Fin de la navbar-->
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="field is-grouped">
+              <p class="control is-expanded">
+                <input class="input" type="text" placeholder="Rechercher une offre">
+              </p>
+              <p class="control">
+                <a class="button is-primary">
+                  <strong>Search</strong>
+                </a>
+              </p>
+            </div>
+          </div>
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary">
+                <strong>S'inscrire</strong>
+              </a>
+              <a class="button is-light">
+                Se connecter
+              </a>
+            </div>
+          </div>
+        </div>
+        <!--Fin de la navbar-->
+
+      </div>
+    </div>
+  </nav>
+  <!-- Block numero 1-->
+
+  <!--Block numero 2-->
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Bonjour utilisateur
+      </h1>
+      <h2 class="subtitle">
+        Bienvenue sur le meilleur site de recherche de stage
+      </h2>
+    </div>
+  </section>
+  <!--Block numero 2-->
+
+  <!--Block numero 3-->
+  <section class="section">
+    <div class="container is-clipped">
+      <div id="slider">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-16by9 is-covered">
+              <img
+                src="https://images.unsplash.com/photo-1550921082-c282cdc432d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                alt="" />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="item__title">
+              Mon titre 1
+            </div>
+            <div class="item__description">
+              Ici une petite description pour tester le slider
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-16by9 is-covered">
+              <img
+                src="https://images.unsplash.com/photo-1550945771-515f118cef86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
+                alt="" />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="item__title">
+              Mon titre 2
+            </div>
+            <div class="item__description">
+              Ici une petite description pour tester le slider
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-16by9 is-covered">
+              <img
+                src="https://images.unsplash.com/photo-1550971264-3f7e4a7bb349?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                alt="" />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="item__title">
+              Mon titre 3
+            </div>
+            <div class="item__description">
+              Ici une petite description pour tester le slider
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-16by9 is-covered">
+              <img
+                src="https://images.unsplash.com/photo-1550931937-2dfd45a40da0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                alt="" />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="item__title">
+              Mon titre 4
+            </div>
+            <div class="item__description">
+              Ici une petite description pour tester le slider
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-16by9 is-covered">
+              <img
+                src="https://images.unsplash.com/photo-1550930516-af8b8cc4f871?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
+                alt="" />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="item__title">
+              Mon titre 5
+            </div>
+            <div class="item__description">
+              Ici une petite description pour tester le slider
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image">
+            <figure class="image video-container is-16by9">
+              <iframe type="text/html" src="https://www.youtube.com/embed/H0v773vKS_U" frameborder="0"></iframe>
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="item__title">
+              Mon titre 6
+            </div>
+            <div class="item__description">
+              Ici une petite description pour tester le slider
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Block numero 3-->
+
+  <!--Block numero 4-->
+  <section class="section">
+    <h1 class="title is-1 has-text-centered"> Traque les dernières offres de stage</h1>
+    <div class="columns is-flex mt-3">
+      <div class="column is-three-quarters">
+        <div class="field">
+          <p class="control is-expanded">
+            <input class="input" type="text" placeholder="Rechercher une offre">
+          </p>
+        </div>
+      </div>
+      <div class="column has-text-centered">
+        <p class="control">
+          <a class="button is-primary">
+            <strong>Search</strong>
+          </a>
+        </p>
+      </div>
+  </section>
+
+
+  </div>
+  <!--Block numero 4-->
+
+  <!--Block numero 5-->
+  <div class="block">
+    <div class="hero is-light is is-medium">
+      <section class="section">
+        <div class="content">
+          <div class="hero-head">
+            <h1 class="title">
+              StageTracker
+            </h1>
+          </div>
+          <div class="hero-body">
+            <p>
+              Text du hero
+            </p>
+          </div>
+          <div class="hero-foot">
+            <nav class="level is-mobile">
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="heading">Tweets</p>
+                  <p class="title">3,456</p>
+                </div>
+              </div>
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="heading">Following</p>
+                  <p class="title">123</p>
+                </div>
+              </div>
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="heading">Followers</p>
+                  <p class="title">456K</p>
+                </div>
+              </div>
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="heading">Likes</p>
+                  <p class="title">789</p>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+  <!--Block numero 5-->
+
+  <!--Block numero 6-->
+  <section class="section">
+    <div class="block">
+      <h1 class="title has-text-centered">
+        Dernières offres
+      </h1>
+    </div>
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-4">John Smith</p>
+                  <p class="subtitle is-6">@johnsmith</p>
+                </div>
+              </div>
+
+              <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                <a href="#">#css</a> <a href="#">#responsive</a>
+                <br>
+                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-4">John Smith</p>
+                  <p class="subtitle is-6">@johnsmith</p>
+                </div>
+              </div>
+
+              <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                <a href="#">#css</a> <a href="#">#responsive</a>
+                <br>
+                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-4">John Smith</p>
+                  <p class="subtitle is-6">@johnsmith</p>
+                </div>
+              </div>
+
+              <div class="content">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                <a href="#">#css</a> <a href="#">#responsive</a>
+                <br>
+                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Block numero 6-->
+
+  <!--Footer-->
+  <footer class="footer">
+    <div class="block">
+      <div class="container">
+        <div class="columns">
+          <div class="column">
+            <div class="container has-text-centered">
+              <h1 class="tiles is-1">
+                Service
+              </h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure consequuntur eaque debitis eos odio
+                eveniet cum officia ducimus dolorem, modi excepturi voluptatem! Laboriosam vitae, error velit aspernatur
+                corporis adipisci? Tempora.
+              </p>
+            </div>
+          </div>
+          <div class="is-divider-vertical"></div>
+          <div class="column">
+            <div class="container has-text-centered">
+              <h1 class="tiles is-1">
+                Categories
+              </h1>
+              <ul>
+                <li><a href="#">Product</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Crew</a></li>
+                <li><a href="#">Price table</a></li>
+                <li><a href="#">Portfolio</a></li>
+              </ul>
+
+            </div>
+          </div>
+          <div class="is-divider-vertical"></div>
+          <div class="column">
+            <div class="container has-text-centered">
+              <h1 class="tiles is-1">
+                Partenaire
+              </h1>
+              <ul>
+                <li><a href="#">Partenaire1</a></li>
+                <li><a href="#">Partenaire2</a></li>
+                <li><a href="#">Partenaire3</a></li>
+                <li><a href="#">Partenaire4</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container has-text-centered">
+        <div class="columns">
+          <div class="column"></div>
+          <div class="column">
+            <section class="section">
+              Icon linkedin Icon meta Icon insta
+            </section>
+          </div>
+          <div class="column"></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--Footer-->
+</body>
+
+</html>
