@@ -1,13 +1,12 @@
-html{
-    overflow: hidden;
-}
-
-body{
+body {
     margin: 0;
     padding: 0;
 }
 
-#form-connect{
+#btn-align {
     margin-left: auto;
-    margin-right: auto;
+}
+
+#form-connect{
+    vertical-align: middle;
 }
