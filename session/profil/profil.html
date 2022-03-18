@@ -16,102 +16,93 @@
 
 <body>
     <!-- Block numero 1-->
-    <nav class="navigation">
-        <div class="navbar is-transparent">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="https://bulma.io">
-                    <img src="https://bulma.io/images/bulma-logo.png"
-                        alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
-                </a>
-                <div class="navbar-burger" data-target="navbarExampleTransparentExample">
-                </div>
-            </div>
-
-            <div id="navbarExampleTransparentExample" class="navbar-menu">
-
-                <!--Début de la navbar-->
-                <div class="navbar-start">
-                    <a class="navbar-item" href="https://bulma.io/"> Home </a>
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
-                            Docs
-                        </a>
-                        <div class="navbar-dropdown is-boxed">
-                            <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
-                                Overview
-                            </a>
-                            <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-                                Modifiers
-                            </a>
-                            <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-                                Columns
-                            </a>
-                            <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-                                Layout
-                            </a>
-                            <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-                                Form
-                            </a>
-                            <hr class="navbar-divider" />
-                            <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-                                Elements
-                            </a>
-                            <a class="navbar-item is-active"
-                                href="https://bulma.io/documentation/components/breadcrumb/">FF
-                                Components
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Début de la navbar-->
-
-
-                <!--Fin de la navbar-->
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="field is-grouped">
-                            <p class="control is-expanded">
-                                <input class="input" type="text" placeholder="Rechercher une offre">
-                            </p>
-                            <p class="control">
-                                <a class="button is-primary">
-                                    <strong>Search</strong>
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="navbar-item">
-                        <div class="buttons">
-                            <a class="button is-primary">
-                                <strong>S'inscrire</strong>
-                            </a>
-                            <a class="button is-light">
-                                Se connecter
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Fin de la navbar-->
-
-            </div>
+  <nav class="navigation">
+    <div class="navbar is-transparent is-fixed-top">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox"
+            width="112" height="28" />
+        </a>
+        <div class="navbar-burger" data-target="navbarExampleTransparentExample">
         </div>
-    </nav>
-    <!-- Block numero 1-->
+      </div>
+
+      <div id="navbarExampleTransparentExample" class="navbar-menu">
+
+        <!--Début de la navbar-->
+        <div class="navbar-start">
+          <a class="navbar-item" href="index.html"> Accueil </a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
+              Tracker
+            </a>
+            <div class="navbar-dropdown is-boxed">
+              <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
+                Une Entreprise
+              </a>
+              <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
+                Les offres
+              </a>
+              <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
+                Un profil
+              </a>
+            </div>
+          </div>
+        </div>
+        <!--Début de la navbar-->
+
+
+        <!--Fin de la navbar-->
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="field is-grouped">
+              <p class="control is-expanded">
+                <input class="input" type="text" placeholder="Rechercher une offre">
+              </p>
+              <p class="control">
+                <a class="button is-primary">
+                  <strong>Recherche</strong>
+                </a>
+              </p>
+            </div>
+          </div>
+          <div id="btns-connec" class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary">
+                <strong>S'inscrire</strong>
+              </a>
+              <a href="session\auth\index.html" class="button is-light">
+                Se connecter
+              </a>
+            </div>
+          </div>
+          <div id="btns-profil"  class="navbar-item">
+            <div class="buttons">
+              <a href="session\profil\profil.html" class="button is-primary">Mon profil</a>
+            </div>
+          </div>
+        </div>
+        <!--Fin de la navbar-->
+
+      </div>
+    </div>
+  </nav>
+  <!-- Block numero 1-->
 
     <!--Block numero 3-->
     <section class="section">
         <div class="container is-hidden-tablet">
-            <figure class="image is-128x128 mx-auto my-6">
+            <figure class="image is-128x128">
                 <img src="https://bulma.io/images/placeholders/128x128.png" alt="Photo de profil">
             </figure>
         </div>
         <div class="columns">
-            <div id="col-r" class="column">
+            <div id="col-r" class="column ">
 
                 <div class="is-flex">
                     <h1 id="margin-name" class="title is-1"> Nom Prénom</h1>
                     <div id="margin-edit-profil" class="buttons">
-                        <a href="edit\index.html" class="button is-link">Modifier le profil</a>
+                        <a href="edit\" class="button is-link">Modifier le profil</a>
                     </div>
                 </div>
 
@@ -125,7 +116,7 @@
                     </ul>
                 </div>
             </div>
-            <div id="col-l" class="column is-one-fifth">
+            <div id="col-l" class="column is-full-mobile is-two-fifths-tablet is-two-fifths-desktop is-one-fifth-widescreen is-one-fifth-fullhd">
                 <div class="is-flex is-hidden-mobile">
                     <figure id="align-pp" class="image is-128x128 mx-auto my-6">
                         <img src="https://bulma.io/images/placeholders/128x128.png" alt="Photo de profil">
