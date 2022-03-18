@@ -1,3 +1,9 @@
-body{
-     background-color: blueviolet;
+#margin-navbar{
+    margin-bottom: 3rem;
+}
+
+.margin-pp{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
 }

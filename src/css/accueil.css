@@ -4,6 +4,9 @@
 
 
 #btns-connec{
-    /* visibility: collapse; */
-    display: none ;
+    visibility: collapse;
+}
+
+#margin-navbar{
+    margin-bottom: 3rem;
 }

@@ -1,88 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Modifier Profil - StageTracker</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-divider@0.2.0/dist/css/bulma-divider.min.css">
-        <script defer src="https://www.jsdelivr.com/package/npm/@creativebulma/bulma-divider"></script>
-        <link rel="stylesheet" href="src/css/edit-profil.css" />
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier Profil - StageTracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-divider@0.2.0/dist/css/bulma-divider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <script defer src="https://www.jsdelivr.com/package/npm/@creativebulma/bulma-divider"></script>
+    <link rel="stylesheet" href="src/css/edit-profil.css" />
+</head>
+
 <body>
-     <!-- Block numero 1-->
-  <nav class="navigation">
-    <div class="navbar is-transparent is-fixed-top">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
-          <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox"
-            width="112" height="28" />
-        </a>
-        <div class="navbar-burger" data-target="navbarExampleTransparentExample">
-        </div>
-      </div>
-
-      <div id="navbarExampleTransparentExample" class="navbar-menu">
-
-        <!--Début de la navbar-->
-        <div class="navbar-start">
-          <a class="navbar-item" href="index.html"> Accueil </a>
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
-              Tracker
-            </a>
-            <div class="navbar-dropdown is-boxed">
-              <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
-                Une Entreprise
-              </a>
-              <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-                Les offres
-              </a>
-              <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-                Un profil
-              </a>
-            </div>
-          </div>
-        </div>
-        <!--Début de la navbar-->
-
-
-        <!--Fin de la navbar-->
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="field is-grouped">
-              <p class="control is-expanded">
-                <input class="input" type="text" placeholder="Rechercher une offre">
-              </p>
-              <p class="control">
-                <a class="button is-primary">
-                  <strong>Recherche</strong>
+    <!-- Block numero 1-->
+    <nav id="margin-navbar" class="navigation">
+        <div class="navbar is-transparent is-fixed-top">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="https://bulma.io">
+                    <img src="https://bulma.io/images/bulma-logo.png"
+                        alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
                 </a>
-              </p>
+                <div class="navbar-burger" data-target="navbarExampleTransparentExample">
+                </div>
             </div>
-          </div>
-          <div id="btns-connec" class="navbar-item">
-            <div class="buttons">
-              <a class="button is-primary">
-                <strong>S'inscrire</strong>
-              </a>
-              <a href="session\auth\index.html" class="button is-light">
-                Se connecter
-              </a>
-            </div>
-          </div>
-          <div id="btns-profil"  class="navbar-item">
-            <div class="buttons">
-              <a href="session\profil\profil.html" class="button is-primary">Mon profil</a>
-            </div>
-          </div>
-        </div>
-        <!--Fin de la navbar-->
 
-      </div>
-    </div>
-  </nav>
-  <!-- Block numero 1-->
+            <div id="navbarExampleTransparentExample" class="navbar-menu">
+
+                <!--Début de la navbar-->
+                <div class="navbar-start">
+                    <a class="navbar-item" href="index.html"> Accueil </a>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
+                            Tracker
+                        </a>
+                        <div class="navbar-dropdown is-boxed">
+                            <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
+                                Une Entreprise
+                            </a>
+                            <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
+                                Les offres
+                            </a>
+                            <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
+                                Un profil
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Début de la navbar-->
+
+
+                <!--Fin de la navbar-->
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="field is-grouped">
+                            <p class="control is-expanded">
+                                <input class="input" type="text" placeholder="Rechercher une offre">
+                            </p>
+                            <p class="control">
+                                <a class="button is-primary">
+                                    <strong>Recherche</strong>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div id="btns-connec" class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-primary">
+                                <strong>S'inscrire</strong>
+                            </a>
+                            <a href="session\auth\index.html" class="button is-light">
+                                Se connecter
+                            </a>
+                        </div>
+                    </div>
+                    <div id="btns-profil" class="navbar-item">
+                        <div class="buttons">
+                            <a href="session\profil\profil.html" class="button is-primary">Mon profil</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Fin de la navbar-->
+
+            </div>
+        </div>
+    </nav>
+    <!-- Block numero 1-->
+
+    <section class="section">
+        <div class="box">
+            <h1 class="title is-1">Informations du compte</h1>
+            <div class="columns">
+                <div
+                    class="column is-full-mobile is-two-fifths-tablet is-two-fifths-desktop is-one-fifth-widescreen is-one-fifth-fullhd">
+                    <div>
+                        <figure class="image is-128x128 margin-pp">
+                            <img src="https://bulma.io/images/placeholders/128x128.png" alt="Photo de profil">
+                        </figure>
+                    </div>
+                </div>
+                <div class="is-divider-vertical"></div>
+                <div class="column">
+                    <form action="">
+                        <h2 class="title is-2">Informations générales</h2>
+                        <div class="field">
+                            <label class="label">Nom *</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Ex: Smith">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Prénom *</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Ex: Alex">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Date d'anniversaire *</label>
+                            <div class="control">
+                                <input class="input" type="date">
+                            </div>
+                        </div>
+                        <div class="is-divider"></div>
+                        <h2 class="title is-2">Informations de contact</h2>
+                        <div class="box">
+                            <h3 class="title is-3">Adresse postale</h3>
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Numero</label>
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="Ex: 1bis (Falcutatif)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Rue *</label>
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="Ex: Champs de mars">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Code Postal/ZIP *</label>
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="Ex: 16000">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Ville *</label>
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="Ex: Angoulême">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Complément d'adresse</label>
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="Appartement 5">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="field">
+                                        <label class="label">Pays *</label>
+                                        <div class="control">
+                                            <input class="input" type="text" placeholder="Ex: France">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Téléphone *</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Ex: 0102030405">
+                            </div>
+                        </div>
+                        <div class="is-divider"></div>
+                        <h2 class="title is-2">Recherche de stage</h2>
+                        <div class="field">
+                            <label class="label">Description</label>
+                            <div class="control">
+                                <textarea class="textarea" placeholder="Ex: Lorem ipsum ..."></textarea>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Curriculum Vitae</label>
+                            <div class="file">
+                                <label class="file-label">
+                                    <input class="file-input" type="file" name="resume">
+                                    <span class="file-cta">
+                                        <span class="file-icon">
+                                            <i class="fas fa-upload"></i>
+                                        </span>
+                                        <span class="file-label">
+                                            Choisir un fichier...
+                                        </span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="field is-grouped is-grouped-right">
+                            <div class="control">
+                                <button class="button is-primary is-light ">Annuler</button>
+                            </div>
+                            <div class="control">
+                                <button class="button is-primary ">Sauvegarder les modifications</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="is-divider"></div>
+                    <form action="">
+                        <h2 class="title is-2">Compte</h2>
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control has-icons-left">
+                                <input class="input" type="email" placeholder="Ex: alex@example.com">
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Ancien mot de passe</label>
+                            <div class="control has-icons-left">
+                                <input class="input" type="password" placeholder="********">
+                                <span class="icon is-small is-left">
+                                    <i class="fa-solid fa-lock"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="columns">
+                            <div class="column">
+                                <div class="field">
+                                    <label class="label">Nouveau mot de passe</label>
+                                    <div class="control has-icons-left">
+                                        <input class="input" type="password" placeholder="********">
+                                        <span class="icon is-small is-left">
+                                            <i class="fa-solid fa-lock"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="field">
+                                    <label class="label">Confirmer le nouveau mot de passe</label>
+                                    <div class="control has-icons-left">
+                                        <input class="input" type="password" placeholder="********">
+                                        <span class="icon is-small is-left">
+                                            <i class="fa-solid fa-lock"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field is-grouped is-grouped-right">
+                            <div class="control">
+                                <button class="button is-primary is-light">Annuler</button>
+                            </div>
+                            <div class="control">
+                                <button class="button is-primary">Sauvegarder les modifications</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>
