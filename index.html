@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-divider@0.2.0/dist/css/bulma-divider.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
   <script defer src="https://www.jsdelivr.com/package/npm/@creativebulma/bulma-divider"></script>
-  <link rel="stylesheet" href="src/css/home.css" />
+  <link rel="stylesheet" href="src/css/accueil.css" />
   <script defer src="src/js/home.js"></script>
 
 </head>
@@ -33,33 +33,20 @@
 
         <!--Début de la navbar-->
         <div class="navbar-start">
-          <a class="navbar-item" href="https://bulma.io/"> Home </a>
+          <a class="navbar-item" href="index.html"> Accueil </a>
           <div class="navbar-item has-dropdown is-hoverable">
             <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
-              Docs
+              Tracker
             </a>
             <div class="navbar-dropdown is-boxed">
               <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
-                Overview
+                Une Entreprise
               </a>
               <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-                Modifiers
+                Les offres
               </a>
               <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-                Columns
-              </a>
-              <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-                Layout
-              </a>
-              <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-                Form
-              </a>
-              <hr class="navbar-divider" />
-              <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-                Elements
-              </a>
-              <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">FF
-                Components
+                Un profil
               </a>
             </div>
           </div>
@@ -76,19 +63,24 @@
               </p>
               <p class="control">
                 <a class="button is-primary">
-                  <strong>Search</strong>
+                  <strong>Recherche</strong>
                 </a>
               </p>
             </div>
           </div>
-          <div class="navbar-item">
+          <div id="btns-connec" class="navbar-item">
             <div class="buttons">
               <a class="button is-primary">
                 <strong>S'inscrire</strong>
               </a>
-              <a class="button is-light">
+              <a href="session\auth\index.html" class="button is-light">
                 Se connecter
               </a>
+            </div>
+          </div>
+          <div id="btns-profil"  class="navbar-item">
+            <div class="buttons">
+              <a href="session\profil\profil.html" class="button is-primary">Mon profil</a>
             </div>
           </div>
         </div>

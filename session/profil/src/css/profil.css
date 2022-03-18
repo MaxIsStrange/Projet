@@ -1,4 +1,10 @@
-.btn-edit{
+#margin-name{
+    margin-left: 0;
+    margin-right: auto;
+}
+
+
+#margin-edit-profil{
     margin-left: auto;
-    margin-right: 0rem;
+    margin-right: 0;
 }

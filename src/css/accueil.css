@@ -1,0 +1,9 @@
+/* #btns-profil{
+    visibility: collapse;
+} */
+
+
+#btns-connec{
+    /* visibility: collapse; */
+    display: none ;
+}
