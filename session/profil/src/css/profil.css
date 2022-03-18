@@ -8,3 +8,16 @@
     margin-left: auto;
     margin-right: 0;
 }
+
+#col-l{
+    order: 1;
+}
+
+#col-r{
+    order: 2;
+}
+
+#align-pp{
+    margin-right: auto;
+    margin-left: auto;
+}

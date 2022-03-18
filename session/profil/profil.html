@@ -100,10 +100,34 @@
 
     <!--Block numero 3-->
     <section class="section">
+        <div class="container is-hidden-tablet">
+            <figure class="image is-128x128 mx-auto my-6">
+                <img src="https://bulma.io/images/placeholders/128x128.png" alt="Photo de profil">
+            </figure>
+        </div>
         <div class="columns">
-            <div class="column is-one-fifth">
+            <div id="col-r" class="column">
+
                 <div class="is-flex">
-                    <figure class="image is-128x128 mx-auto my-6">
+                    <h1 id="margin-name" class="title is-1"> Nom Prénom</h1>
+                    <div id="margin-edit-profil" class="buttons">
+                        <a href="edit\index.html" class="button is-link">Modifier le profil</a>
+                    </div>
+                </div>
+
+                <h2 class="subtitle">Poste actuel</h2>
+                <div class="tabs">
+                    <ul>
+                        <li class="is-active"><a>Pictures</a></li>
+                        <li><a>Music</a></li>
+                        <li><a>Videos</a></li>
+                        <li><a>Documents</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="col-l" class="column is-one-fifth">
+                <div class="is-flex is-hidden-mobile">
+                    <figure id="align-pp" class="image is-128x128 mx-auto my-6">
                         <img src="https://bulma.io/images/placeholders/128x128.png" alt="Photo de profil">
                     </figure>
                 </div>
@@ -124,25 +148,6 @@
                     </p>
                 </nav>
                 <!--Panel de compétences-->
-            </div>
-            <div class="column">
-
-                <div class="is-flex">
-                    <h1 id="margin-name" class="title is-1"> Nom Prénom</h1>
-                    <div id="margin-edit-profil" class="buttons">
-                        <a href="edit\index.html" class="button is-link">Modifier le profil</a>
-                    </div>
-                </div>
-
-                <h2 class="subtitle">Poste actuel</h2>
-                <div class="tabs">
-                    <ul>
-                        <li class="is-active"><a>Pictures</a></li>
-                        <li><a>Music</a></li>
-                        <li><a>Videos</a></li>
-                        <li><a>Documents</a></li>
-                    </ul>
-                </div>
             </div>
         </div>
     </section>
