@@ -3,10 +3,24 @@
 } */
 
 
-#btns-connec{
+#btns-connec {
     visibility: collapse;
 }
 
-#margin-navbar{
+#margin-navbar {
     margin-bottom: 3rem;
+}
+
+
+#search-bar {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slider-navigation-next {
+    margin-right: 1rem;
+}
+
+.slider-navigation-previous {
+    margin-left: 1rem;
 }

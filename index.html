@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Accueil - StageTracker</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-divider@0.2.0/dist/css/bulma-divider.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
@@ -18,45 +19,50 @@
 
 <body>
   <!-- Block numero 1-->
-  <nav id="margin-navbar" class="navigation">
-    <div class="navbar is-transparent is-fixed-top">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
-          <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox"
-            width="112" height="28" />
-        </a>
-        <div class="navbar-burger" data-target="navbarExampleTransparentExample">
-        </div>
-      </div>
+  <nav id="margin-navbar" class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
 
-      <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox"
+          width="112" height="28" />
+      </a>
 
-        <!--Début de la navbar-->
-        <div class="navbar-start">
-          <a class="navbar-item" href="index.html"> Accueil </a>
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
-              Tracker
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="main-navbar">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="main-navbar" class="navbar-menu">
+
+      <!--Début de la navbar-->
+      <div class="navbar-start">
+        <a class="navbar-item" href="index.html"> Accueil </a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Tracker
+          </a>
+          <div class="navbar-dropdown is-boxed">
+            <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
+              Une Entreprise
             </a>
-            <div class="navbar-dropdown is-boxed">
-              <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
-                Une Entreprise
-              </a>
-              <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-                Les offres
-              </a>
-              <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-                Un profil
-              </a>
-            </div>
+            <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
+              Les offres
+            </a>
+            <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
+              Un profil
+            </a>
           </div>
         </div>
-        <!--Début de la navbar-->
+      </div>
+      <!--Début de la navbar-->
 
 
-        <!--Fin de la navbar-->
-        <div class="navbar-end">
-          <div class="navbar-item">
+      <!--Fin de la navbar-->
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <form action="">
             <div class="field is-grouped">
               <p class="control is-expanded">
                 <input class="input" type="text" placeholder="Rechercher une offre">
@@ -67,26 +73,26 @@
                 </a>
               </p>
             </div>
-          </div>
-          <div id="btns-connec" class="navbar-item">
-            <div class="buttons">
-              <a class="button is-primary">
-                <strong>S'inscrire</strong>
-              </a>
-              <a href="session\auth\index.html" class="button is-light">
-                Se connecter
-              </a>
-            </div>
-          </div>
-          <div id="btns-profil"  class="navbar-item">
-            <div class="buttons">
-              <a href="session\profil\profil.html" class="button is-primary">Mon profil</a>
-            </div>
+          </form>
+        </div>
+        <div id="btns-connec" class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary">
+              <strong>S'inscrire</strong>
+            </a>
+            <a href="session\auth\index.html" class="button is-light">
+              Se connecter
+            </a>
           </div>
         </div>
-        <!--Fin de la navbar-->
-
+        <div id="btns-profil" class="navbar-item">
+          <div class="buttons">
+            <a href="session\profil\profil.html" class="button is-primary">Mon profil</a>
+          </div>
+        </div>
       </div>
+      <!--Fin de la navbar-->
+
     </div>
   </nav>
   <!-- Block numero 1-->
@@ -205,22 +211,23 @@
   <!--Block numero 4-->
   <section class="section">
     <h1 class="title is-1 has-text-centered"> Traque les dernières offres de stage</h1>
-    <div class="columns is-flex mt-3">
-      <div class="column is-three-quarters">
-        <div class="field">
-          <p class="control is-expanded">
+    <form action="">
+      <div class="is-flex">
+        <div id="search-bar" class="field has-addons">
+          <p class="control">
             <input class="input" type="text" placeholder="Rechercher une offre">
+          </p>
+
+          <p class="control">
+            <a class="button is-primary">
+              <strong>Rechercher</strong>
+            </a>
           </p>
         </div>
       </div>
-      <div class="column has-text-centered">
-        <p class="control">
-          <a class="button is-primary">
-            <strong>Search</strong>
-          </a>
-        </p>
-      </div>
-    </div>
+    </form>
+
+
   </section>
 
 
@@ -229,51 +236,59 @@
   <!--Block numero 5-->
   <div class="block">
     <div class="hero is-light is is-medium">
-      <section class="section">
-        <div class="content">
-          <div class="hero-head">
-            <h1 class="title">
-              StageTracker
-            </h1>
-          </div>
-          <div class="hero-body">
-            <p>
-              Text du hero
-            </p>
-          </div>
-          <div class="hero-foot">
-            <nav class="level is-mobile">
-              <div class="level-item has-text-centered">
-                <div>
+      <sectio class="section">
+        <div class="hero-head">
+          <h1 class="title is-1">
+            StageTracker
+          </h1>
+        </div>
+
+        <div class="section">
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro magni ipsam itaque molestias incidunt
+            deserunt, blanditiis, impedit nulla fugit nam, quo doloribus suscipit voluptate quos numquam possimus qui
+            accusamus in! Lorem ipsum dolor sit amet consectetur adipisicing elit. At maiores voluptatem fugiat, eaque
+            exercitationem mollitia ut voluptatum soluta perspiciatis et voluptas neque nulla cumque fuga nemo dolores
+            vitae ullam impedit! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus distinctio
+            fuga sequi maiores. Veniam, laboriosam. Exercitationem officia nam commodi quos, velit ullam laborum
+            consequatur cupiditate autem corporis explicabo laudantium enim!
+          </p>
+        </div>
+
+        <div class="hero-foot">
+          <nav class="level">
+            <div class="level-item has-text-centered">
+              <div>
+                <div class="box" style="background-color: lightblue;width: 200px;height: 100px;">
                   <p class="heading">Tweets</p>
                   <p class="title">3,456</p>
                 </div>
               </div>
-              <div class="level-item has-text-centered">
-                <div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <div class="box" style="background-color: lightsalmon;width: 200px;height: 100px;">
                   <p class="heading">Following</p>
                   <p class="title">123</p>
                 </div>
               </div>
-              <div class="level-item has-text-centered">
-                <div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <div class="box" style="background-color: lightgreen;width: 200px;height: 100px;">
                   <p class="heading">Followers</p>
                   <p class="title">456K</p>
                 </div>
               </div>
-              <div class="level-item has-text-centered">
-                <div>
-                  <p class="heading">Likes</p>
-                  <p class="title">789</p>
-                </div>
-              </div>
-            </nav>
-          </div>
+            </div>
+          </nav>
         </div>
-      </section>
+
+
 
     </div>
   </div>
+
   <!--Block numero 5-->
 
   <!--Block numero 6-->
@@ -392,7 +407,8 @@
               </h1>
               <p>
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure consequuntur eaque debitis eos odio
-                eveniet cum officia ducimus dolorem, modi excepturi voluptatem! Laboriosam vitae, error velit aspernatur
+                eveniet cum officia ducimus dolorem, modi excepturi voluptatem! Laboriosam vitae, error velit
+                aspernatur
                 corporis adipisci? Tempora.
               </p>
             </div>
@@ -401,14 +417,14 @@
           <div class="column">
             <div class="container has-text-centered">
               <h1 class="tiles is-1">
-                Categories
+                Catégories
               </h1>
               <ul>
                 <li><a href="#">Product</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Crew</a></li>
                 <li><a href="#">Price table</a></li>
-                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">À propos</a></li>
               </ul>
 
             </div>
@@ -434,7 +450,21 @@
           <div class="column"></div>
           <div class="column">
             <section class="section">
-              Icon linkedin Icon meta Icon insta
+              <a href="https://fr-fr.facebook.com/">
+                <span class="icon is-large">
+                  <i class="fa-brands fa-2x fa-instagram"></i>
+                </span>
+              </a>
+              <a href="https://fr.linkedin.com">
+                <span class="icon is-large">
+                  <i class="fa-brands fa-2x fa-linkedin"></i>
+                </span>
+              </a>
+              <a href="https://www.instagram.com">
+                <span class="icon is-medium">
+                  <i class="fa-brands fa-2x fa-facebook"></i>
+                </span>
+              </a>
             </section>
           </div>
           <div class="column"></div>
