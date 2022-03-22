@@ -15,92 +15,13 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bulma-toast@2.4.1/dist/bulma-toast.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.0.0/animate.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/bulma-toast@2.4.1,npm/@vizuaalog/bulmajs@0.12.1">
-    <link rel="stylesheet" href="src/css/connection.css">
-    <script defer src="src/js/connection.js"></script>
+    <link rel="stylesheet" href="../session/profil/auth/src/css/connection.css">
+    <script defer src="../session/profil/auth/src/js/connection.js"></script>
 </head>
 
 <body>
     <!-- Block numero 1-->
-    <nav class="navigation">
-        <div class="navbar is-transparent">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="https://bulma.io">
-                    <img src="https://bulma.io/images/bulma-logo.png"
-                        alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
-                </a>
-                <div class="navbar-burger" data-target="navbarExampleTransparentExample">
-                </div>
-            </div>
-
-            <div id="navbarExampleTransparentExample" class="navbar-menu">
-
-                <!--Début de la navbar-->
-                <div class="navbar-start">
-                    <a class="navbar-item" href="https://bulma.io/"> Home </a>
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
-                            Docs
-                        </a>
-                        <div class="navbar-dropdown is-boxed">
-                            <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
-                                Overview
-                            </a>
-                            <a class="navbar-item" href="https://bulma.io/documentation/overview/modifiers/">
-                                Modifiers
-                            </a>
-                            <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-                                Columns
-                            </a>
-                            <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
-                                Layout
-                            </a>
-                            <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
-                                Form
-                            </a>
-                            <hr class="navbar-divider" />
-                            <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
-                                Elements
-                            </a>
-                            <a class="navbar-item is-active"
-                                href="https://bulma.io/documentation/components/breadcrumb/">FF
-                                Components
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Début de la navbar-->
-
-
-                <!--Fin de la navbar-->
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="field is-grouped">
-                            <p class="control is-expanded">
-                                <input class="input" type="text" placeholder="Rechercher une offre">
-                            </p>
-                            <p class="control">
-                                <a class="button is-primary">
-                                    <strong>Search</strong>
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="navbar-item">
-                        <div class="buttons">
-                            <a class="button is-primary">
-                                <strong>S'inscrire</strong>
-                            </a>
-                            <a class="button is-light">
-                                Se connecter
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Fin de la navbar-->
-
-            </div>
-        </div>
-    </nav>
+    {% include 'navbar.twig' %}
     <!-- Block numero 1-->
 
     <!-- Block numero 2-->
