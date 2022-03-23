@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - StageTracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-divider@0.2.0/dist/css/bulma-divider.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+    <script defer src="https://www.jsdelivr.com/package/npm/@creativebulma/bulma-divider"></script>
+    <link rel="stylesheet" href="src/css/profil.css" />
+</head>
+
+<body>
+    <!-- Block numero 1-->
+  {% include 'navbar.twig' %}
+  <!-- Block numero 1-->
+
+    <!--Block numero 3-->
+    <section class="section">
+        <div class="container is-hidden-tablet">
+            <figure class="image is-128x128">
+                <img class="is-rounded" src="{{album.Avatar_album}}" alt="Photo de profil">
+            </figure>
+        </div>
+        <div class="columns">
+            <div id="col-r" class="column ">
+
+                <div class="is-flex">
+                    <h1 id="margin-name" class="title is-1"> {{session.USER_FNAME}} {{session.USER_NAME}}</h1>
+                    <div id="margin-edit-profil" class="buttons">
+                        <a href="edit\" class="button is-link">Modifier le profil</a>
+                    </div>
+                </div>
+
+                <h2 class="subtitle">Poste actuel</h2>
+                <div class="tabs">
+                    <ul>
+                        <li class="is-active"><a>Pictures</a></li>
+                        <li><a>Music</a></li>
+                        <li><a>Videos</a></li>
+                        <li><a>Documents</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="col-l" class="column is-full-mobile is-two-fifths-tablet is-two-fifths-desktop is-one-fifth-widescreen is-one-fifth-fullhd">
+                <div class="is-flex is-hidden-mobile">
+                    <figure id="align-pp" class="image is-256x256 mx-auto mb-6">
+                        <img class="is-rounded" src="{{album.Avatar_album}}" alt="Photo de profil">
+                    </figure>
+                </div>
+
+                <!--Panel de compétences-->
+                <nav class="panel">
+                    <p class="panel-heading">
+                        Compétences
+                    </p>
+                    <p class="panel-block">
+                        buldo
+                    </p>
+                    <p class="panel-block">
+                        buldair
+                    </p>
+                    <p class="panel-block">
+                        buldter
+                    </p>
+                </nav>
+                <!--Panel de compétences-->
+            </div>
+        </div>
+    </section>
+    <!--Block numero 3-->
+
+    <!--Footer-->
+    {% include 'footer.twig' %}
+    <!--Footer-->
+</body>
+
+</html>

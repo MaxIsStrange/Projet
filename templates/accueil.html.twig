@@ -93,7 +93,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="card">
           <div class="card-image">
             <figure class="image is-16by9 is-covered">
@@ -221,7 +221,7 @@
     </div>
     <div class="container">
       <div class="columns is-multiline">
-        {% for i in 0..variable %}
+        {% for result in cartes %}
           {% include 'latestcard.twig' %}
         {% endfor %}
       </div>
