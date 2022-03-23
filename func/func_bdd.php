@@ -311,13 +311,6 @@ class dataBDD
 }
 
 
-        return $result;
-    }
-}
-
-
-
-
 
 
 
