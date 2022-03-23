@@ -9,7 +9,8 @@ include_once "func/func_session.php";
 if (isset($_SESSION['USER_FNAME'])) {
   echo $twig->render('accueil.html.twig', ['userfname' => $_SESSION['USER_FNAME']]);
 } else {
-  echo $twig->render('accueil.html.twig', ['userfname' => 'utilisateur']);
+  $variable=12;
+  echo $twig->render('accueil.html.twig', ['userfname' => 'utilisateur', 'variable' => $variable]);
 }
 
 function debole($data)
