@@ -24,7 +24,7 @@ if (isset($_SESSION['USER_FNAME'])) {
   echo $twig->render('accueil.html.twig', ['userfname' => $_SESSION['USER_FNAME'], 'cartes' => $lastoffers]);
 } else {
 
-  echo $twig->render('accueil.html.twig', ['userfname' => 'utilisateur', 'cartes' => $lastoffers]);
+  echo $twig->render('accueil.html.twig', ['userfname' => '', 'cartes' => $lastoffers]);
 }
 
 
