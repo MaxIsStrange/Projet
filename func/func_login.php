@@ -75,7 +75,7 @@ class login
 
     function inscription($mail, $tabInfo)
     {
-        echo "<br><br> ############# OUAIS ! ############ <br><br>";
+      
         if (!$this->data->chkMail($mail)) {
 
             $adr = [

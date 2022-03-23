@@ -28,12 +28,8 @@ class ConnectBDD
             $this->bdd = new PDO($this->dsn, $this->user, $this->pass);
             //Désactive l'émulation des requètes
             $this->bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-
-            //Affichage du résultat de la connexion
-            if ($this->bdd) {
-                echo "<br>Connexion réussie.<br><br>";
-            }
         } catch (PDOException $e) {
+
             //Affichage de l'erreur de connexion
             echo "Erreur : " . $e->getMessage();
             die();
@@ -193,7 +189,6 @@ class dataBDD
     public function getUserID($mail_user)
     {
 
-
         $this->conn->setQuery("SELECT ID_user FROM User WHERE Mail_user = :mail");
         $this->conn->execQuery(['mail' => $mail_user], 0);
 
@@ -244,22 +239,11 @@ class dataBDD
     public function getPerm($id)
     {
 
-        // SELECT ID_perm FROM User INNER JOIN A_acces ON User.ID_Grp = A_acces.ID_Grp WHERE ID_user = (20);
-
-
         $this->conn->setQuery("SELECT ID_perm FROM User INNER JOIN A_acces ON User.ID_Grp = A_acces.ID_Grp WHERE ID_user = :id");
 
-        $this->conn->execQuery(['id' => $id], 1);
+        $this->conn->execQuery(['id' => $id], 0);
 
         $result = $this->conn->getResult();
-
-        // foreach ($result as $row) {
-        //     echo "<br>oui<br><pre>";
-        //     print_r($row);
-        //     echo "</pre><br>";
-        // }
-
-
 
         return $result;
     }
