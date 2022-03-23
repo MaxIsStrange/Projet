@@ -310,6 +310,23 @@ class dataBDD
 
         return $result;
     }
+
+    public function getComp($mail)
+    {
+        $id = self::getUserID($mail);
+
+        $this->conn->setQuery("SELECT Nom_comp,LVL_comp,IsLang_comp FROM Competence INNER JOIN Sait_faire ON Competence.ID_comp=Sait_faire.ID_comp INNER JOIN User ON Sait_faire.ID_user=User.ID_user WHERE User.ID_User= :id");
+
+        $this->conn->execQuery(['id' => $id], 1);
+
+        $result = $this->conn->getResult();
+
+         //echo "<br><br><pre>";
+         //print_r($result);
+         //echo "</pre><br>";
+
+        return $result;;
+    }
 }
 
 
