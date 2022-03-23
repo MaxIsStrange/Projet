@@ -327,6 +327,54 @@ class dataBDD
 
         return $result;;
     }
+
+    public function getNbOffres()
+    {
+
+        $this->conn->setQuery("SELECT count(ID_offre) FROM Offre;");
+
+        $this->conn->execQuery([], 1);
+
+        $result = $this->conn->getResult();
+
+         //echo "<br><br><pre>";
+         //print_r($result);
+         //echo "</pre><br>";
+
+        return $result;;
+    }
+
+    public function getNbStages()
+    {
+
+        $this->conn->setQuery("SELECT count(Step) FROM User where Step>=6;");
+
+        $this->conn->execQuery([], 1);
+
+        $result = $this->conn->getResult();
+
+         //echo "<br><br><pre>";
+         //print_r($result);
+         //echo "</pre><br>";
+
+        return $result;;
+    }
+
+    public function getNbInsc()
+    {
+
+        $this->conn->setQuery("SELECT count(ID_User) FROM User where ID_Grp>=3;");
+
+        $this->conn->execQuery([], 1);
+
+        $result = $this->conn->getResult();
+
+         //echo "<br><br><pre>";
+         //print_r($result);
+         //echo "</pre><br>";
+
+        return $result;;
+    }
 }
 
 

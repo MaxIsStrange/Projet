@@ -11,6 +11,9 @@ $twig = new \Twig\Environment($loader);
 
 
 $lastoffers = $data->lastOffre();
+$nboffres = $data -> getNbOffres();
+$nbstages = $data -> getNbStages();
+$nbinsc = $data -> getNbInsc();
 
 // if (isset($perm)) {
 // echo "<code><pre><br><br><br>";
@@ -21,10 +24,10 @@ $lastoffers = $data->lastOffre();
 // }
 
 if (isset($_SESSION['USER_FNAME'])) {
-  echo $twig->render('accueil.html.twig', ['userfname' => $_SESSION['USER_FNAME'], 'cartes' => $lastoffers]);
+  echo $twig->render('accueil.html.twig', ['userfname' => $_SESSION['USER_FNAME'], 'cartes' => $lastoffers, 'nboffres' => $nboffres, 'nbstages'=>$nbstages, 'nbinsc' => $nbinsc]);
 } else {
 
-  echo $twig->render('accueil.html.twig', ['userfname' => '', 'cartes' => $lastoffers]);
+  echo $twig->render('accueil.html.twig', ['userfname' => '', 'cartes' => $lastoffers,'nboffres' => $nboffres,'nbstages'=>$nbstages,'nbinsc' => $nbinsc]);
 }
 
 
