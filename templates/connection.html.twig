@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -28,13 +28,15 @@
     <section class="section">
         <div class="columns is-centered">
             <div
-                class="column is-full-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-two-quarter-fullhd">
-                <form class="box">
+                class="box column is-full-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-two-quarter-fullhd">
+                <form  method="post" action="index.php">
                     <h1 class="title">Connectez-vous</h1>
                     <div class="field">
                         <label class="label">Email</label>
                         <div class="control has-icons-left">
-                            <input class="input" type="email" placeholder="ex. alex@exemple.com">
+
+                            <input class="input"  name="mail" type="email" placeholder="ex. alex@exemple.com">
+
                             <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                             </span>
@@ -44,7 +46,7 @@
                     <div class="field">
                         <label class="label">Mot de passe</label>
                         <div class="control has-icons-left">
-                            <input class="input" type="password" placeholder="********">
+                            <input class="input" type="password" name="pass" placeholder="********">
                             <span class="icon is-small is-left">
                                 <i class="fa-solid fa-lock"></i>
                             </span>
@@ -52,13 +54,16 @@
                     </div>
                     <div class="columns">
                         <div class="column">
+                            
                             <div class="buttons">
                                 <button id="btn-align" class="button is-light">Mot de passe oublié</button>
-                                <button id="btn-align" class="button is-primary">Se connecter</button>
+                                <input type="submit" id="btn-align"class="button is-primary" value="Se connecter">
+
                             </div>
                         </div>
                     </div>
                 </form>
+                {# Ici git l'erreur #}
             </div>
         </div>
     </section>
