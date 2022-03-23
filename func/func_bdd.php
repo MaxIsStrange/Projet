@@ -284,7 +284,7 @@ class dataBDD
     function lastOffre()
     {
         $this->conn->setQuery('SELECT Offre.Nom_poste_offre,Offre.Date_offre,Adresse.Ville_adr,Adresse.CP_adr,Offre.Desc_offre,Entreprise.Nom_ent,Album.Banniere_album FROM Offre INNER JOIN Adresse ON Offre.ID_adr=Adresse.ID_adr INNER JOIN Entreprise ON Offre.ID_ent=Entreprise.ID_ent INNER JOIN Album On Entreprise.ID_album=Album.ID_album ORDER BY Offre.Date_offre DESC LIMIT 3;');
-        $this->conn->execQuery([], 0);
+        $this->conn->execQuery([], 1);
 
         $result = $this->conn->getResult();
 
