@@ -11,7 +11,7 @@ require_once('../../../vendor/autoload.php');
 if (isset($_POST['mail']) && isset($_POST['pass'])) {
   if ($log->chkLogin($_POST['mail'], $_POST['pass'])) {
     header("Location: ../../../index.php");
-    die();
+    exit();
   } else {
     echo $twig->render('connection.html.twig');
 
