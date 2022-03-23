@@ -28,6 +28,8 @@ class ConnectBDD
             $this->bdd = new PDO($this->dsn, $this->user, $this->pass);
             //Désactive l'émulation des requètes
             $this->bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+            
         } catch (PDOException $e) {
 
             //Affichage de l'erreur de connexion
@@ -241,7 +243,7 @@ class dataBDD
 
         $this->conn->setQuery("SELECT ID_perm FROM User INNER JOIN A_acces ON User.ID_Grp = A_acces.ID_Grp WHERE ID_user = :id");
 
-        $this->conn->execQuery(['id' => $id], 0);
+        $this->conn->execQuery(['id' => $id], 1);
 
         $result = $this->conn->getResult();
 

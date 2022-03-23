@@ -26,9 +26,6 @@ class login
             //On démarre une session
             $this->initSession($mail);
 
-            //On redirige sur l'accueil
-            header("Location: ../index.php");
-
             return true;
         } else {
             return false;

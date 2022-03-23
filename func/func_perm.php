@@ -36,6 +36,6 @@ class Permissions
     }
 }
 
-if (isset($_SESSION['PERM'])) {
-    $perm = new Permissions($data);
-}
+// if (isset($_SESSION['PERM'])) {
+//     $perm = new Permissions($data);
+// }
