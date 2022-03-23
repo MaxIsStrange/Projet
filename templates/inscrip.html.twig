@@ -26,13 +26,14 @@
     <!-- Block numero 2-->
     <section class="section">
         <div class="box">
-            <form action="">
+        {# ------------- FORM ---------------------------- #}
+            <form action="index.php" method="POST"> 
                 <h1 class="title is-1">Inscription</h1>
                 <div class="box">
                     <div class="field">
                         <label class="label">Email</label>
                         <div class="control has-icons-left">
-                            <input class="input" type="email" placeholder="Ex: alex@example.com">
+                            <input class="input" type="email" name="mail" placeholder="ex: alex@example.com">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                             </span>
@@ -43,7 +44,7 @@
                             <div class="field">
                                 <label class="label">Mot de passe</label>
                                 <div class="control has-icons-left">
-                                    <input class="input" type="password" placeholder="********">
+                                    <input class="input" type="password" name="pass" placeholder="********">
                                     <span class="icon is-small is-left">
                                         <i class="fa-solid fa-lock"></i>
                                     </span>
@@ -54,7 +55,7 @@
                             <div class="field">
                                 <label class="label">Confirmer le mot de passe</label>
                                 <div class="control has-icons-left">
-                                    <input class="input" type="password" placeholder="********">
+                                    <input class="input" type="password" name="pass2" placeholder="********">
                                     <span class="icon is-small is-left">
                                         <i class="fa-solid fa-lock"></i>
                                     </span>
@@ -67,7 +68,7 @@
                             <div class="field">
                                 <label class="label">Nom *</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="Ex: Smith">
+                                    <input class="input" type="text" name="name" placeholder="Ex: Smith">
                                 </div>
                             </div>
                         </div>
@@ -75,7 +76,7 @@
                             <div class="field">
                                 <label class="label">Prénom *</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="Ex: Alex">
+                                    <input class="input" type="text" name="fname" placeholder="Ex: Alex">
                                 </div>
                             </div>
                         </div>
@@ -89,7 +90,7 @@
                             <div class="field">
                                 <label class="label">Numero</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="Ex: 1bis (Falcutatif)">
+                                    <input class="input" type="text" name="adr_num" placeholder="Ex: 1bis (Falcutatif)">
                                 </div>
                             </div>
                         </div>
@@ -97,7 +98,7 @@
                             <div class="field">
                                 <label class="label">Rue *</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="Ex: Champs de mars">
+                                    <input class="input" type="text" name="adr_rue" placeholder="Ex: Champs de mars">
                                 </div>
                             </div>
                         </div>
@@ -107,7 +108,7 @@
                             <div class="field">
                                 <label class="label">Code Postal/ZIP *</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="Ex: 16000">
+                                    <input class="input" type="text" name="adr_cp" placeholder="Ex: 16000">
                                 </div>
                             </div>
                         </div>
@@ -115,7 +116,7 @@
                             <div class="field">
                                 <label class="label">Ville *</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="Ex: Angoulême">
+                                    <input class="input" type="text" name="adr_city" placeholder="Ex: Angoulême">
                                 </div>
                             </div>
                         </div>
@@ -125,7 +126,7 @@
                             <div class="field">
                                 <label class="label">Complément d'adresse</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="Appartement 5">
+                                    <input class="input" type="text" name="adr_comp" placeholder="Appartement 5">
                                 </div>
                             </div>
                         </div>
@@ -133,7 +134,7 @@
                             <div class="field">
                                 <label class="label">Pays *</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="Ex: France">
+                                    <input class="input" type="text" name="adr_pays" placeholder="Ex: France">
                                 </div>
                             </div>
                         </div>
@@ -144,7 +145,7 @@
                     <div class="field">
                         <label class="label">Téléphone *</label>
                         <div class="control">
-                            <input class="input" type="text" placeholder="Ex: 0102030405">
+                            <input class="input" type="text" name="tel" placeholder="Ex: 0102030405">
                         </div>
                     </div>
                 </div>
@@ -155,7 +156,7 @@
                             <div>
                                 <label class="checkbox">
                                     <input type="checkbox">
-                                    J'accepte les <a href="#">condition générales d'utilisations</a> de StageTracker et
+                                    J'accepte les <a href="#">conditions générales d'utilisations</a> de StageTracker et
                                     j'accepte que StageTracker gère les données fournies
                                 </label>
                             </div>
@@ -169,10 +170,11 @@
                         <button class="button is-primary is-light">Annuler</button>
                     </div>
                     <div class="control">
-                        <button class="button is-primary">S'inscrire</button>
+                        <input type="submit" name="submit" class="button is-primary">S'inscrire</button>
                     </div>
                 </div>
             </form>
+            {# --------------- FORM ----------------- #}
         </div>
     </section>
     <!-- Block numero 2-->

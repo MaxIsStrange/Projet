@@ -72,6 +72,49 @@ class login
         $_SESSION['ROLE'] = $this->data->getRole($id);
         $_SESSION['PERM'] = $this->data->getPerm($id);
     }
+
+    function inscription($mail, $tabInfo)
+    {
+        echo "<br><br> ############# OUAIS ! ############ <br><br>";
+        if (!$this->data->chkMail($mail)) {
+
+            $adr = [
+                'num' => $tabInfo['num'],
+                'rue' => $tabInfo['rue'],
+                'cp' => $tabInfo['cp'],
+                'city' => $tabInfo['city'],
+                'pays' => $tabInfo['pays'],
+                'comp' => $tabInfo['comp']
+            ];
+
+            $this->data->addAddr($adr);
+
+            $user = [
+                'nom' => $tabInfo['name'],
+                'prenom' => $tabInfo['fName'],
+                'bd' => null,
+                'tel' => $tabInfo['tel'],
+                'mail' => $mail,
+                'step' => 0,
+                'pass' => $this->hashMDP($tabInfo['pass']),
+                'idAdr' => $this->data->chkMaxIDAdr()['ID_adr'],
+                'idGrp' => 4
+            ];
+
+            $this->data->addUser($user);
+
+            $result = [
+                $user,
+                $adr
+            ];
+
+            return $result;
+        } else {
+            echo "Cette addresse mail existe déjà ! ";
+        }
+    }
+
+    
 }
 
 

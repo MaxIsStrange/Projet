@@ -170,11 +170,10 @@ class dataBDD
     public function addUser($user)
     {
 
-        //Gérer la duplication d'adresses mail 
-
-
-        $this->conn->setQuery("INSERT INTO User (Nom_user,Prenom_user,BD_user,Tel_user,Mail_user,Step,MDP_user,ID_adr,ID_Grp)
-   VALUES (:nom,:prenom,:bd,:tel,:mail,:step,:pass,:idAdr,:idGrp);");
+        $this->conn->setQuery(
+            "INSERT INTO User (Nom_user,Prenom_user,BD_user,Tel_user,Mail_user,Step,MDP_user,ID_adr,ID_Grp)
+   VALUES (:nom,:prenom,:bd,:tel,:mail,:step,:pass,:idAdr,:idGrp);"
+        );
 
         $this->conn->execQuery([
             'nom' => $user['nom'],
@@ -290,6 +289,36 @@ class dataBDD
     {
         $this->conn->setQuery("SELECT Nom_user,Prenom_user FROM User WHERE Nom_user LIKE :inputN OR Prenom_User LIKE :inputP");
         $this->conn->execQuery(['inputN' => "$input" . '%', 'inputP' => "$input" . '%'], 1);
+
+        $result = $this->conn->getResult();
+
+        return $result;
+    }
+
+    function lastOffre()
+    {
+        $this->conn->setQuery('SELECT Offre.Nom_poste_offre,Offre.Date_offre,Adresse.Ville_adr,Adresse.CP_adr,Offre.Desc_offre,Entreprise.Nom_ent,Album.Banniere_album FROM Offre INNER JOIN Adresse ON Offre.ID_adr=Adresse.ID_adr INNER JOIN Entreprise ON Offre.ID_ent=Entreprise.ID_ent INNER JOIN Album On Entreprise.ID_album=Album.ID_album ORDER BY Offre.Date_offre DESC LIMIT 3;');
+        $this->conn->execQuery([], 0);
+
+        $result = $this->conn->getResult();
+
+        return $result;
+    }
+
+    function addAddr($input)
+    {
+        $this->conn->setQuery('INSERT INTO Adresse (Num_adr,Rue_adr,CP_adr,Ville_adr,Pays_adr,Comp_adr) VALUES (:num, :rue, :cp, :city,:pays,:comp);');
+        $this->conn->execQuery(['num' => $input['num'], 'rue' => $input['rue'], 'cp' => $input['cp'], 'city' => $input['city'], 'pays' => $input['pays'], 'comp' => $input['comp']], 0);
+
+        $result = $this->conn->getResult();
+
+        return $result;
+    }
+
+    function chkMaxIDAdr()
+    {
+        $this->conn->setQuery('SELECT ID_adr FROM Adresse ORDER BY ID_ADR DESC limit 1');
+        $this->conn->execQuery([], 0);
 
         $result = $this->conn->getResult();
 
