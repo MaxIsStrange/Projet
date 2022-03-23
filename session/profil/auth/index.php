@@ -7,7 +7,7 @@ require_once('../../../vendor/autoload.php');
   $twig = new \Twig\Environment($loader);
 
 
-if (isset($_POST['mail']) && isset($_POST['pass'])) {
+if (isset($_POST['mail']) && isset($_POST['pass']) && strlen( $_POST['mail']) > 5) {
   if ($log->chkLogin($_POST['mail'], $_POST['pass'])) {
     header("Location: ../../../index.php");
     die();
