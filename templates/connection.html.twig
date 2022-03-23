@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -15,8 +15,8 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bulma-toast@2.4.1/dist/bulma-toast.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.0.0/animate.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/bulma-toast@2.4.1,npm/@vizuaalog/bulmajs@0.12.1">
-    <link rel="stylesheet" href="../session/profil/auth/src/css/connection.css">
-    <script defer src="../session/profil/auth/src/js/connection.js"></script>
+    <link rel="stylesheet" href="src/css/connection.css">
+    <script defer src="src/js/connection.js"></script>
 </head>
 
 <body>
@@ -28,13 +28,13 @@
     <section class="section">
         <div class="columns is-centered">
             <div
-                class="column is-full-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-two-quarter-fullhd">
-                <form class="box">
+                class="box column is-full-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-two-quarter-fullhd">
+                <form  method="post" action="index.php">
                     <h1 class="title">Connectez-vous</h1>
                     <div class="field">
                         <label class="label">Email</label>
                         <div class="control has-icons-left">
-                            <input class="input" type="email" placeholder="e.g. alex@example.com">
+                            <input class="input"  name="mail" type="email" placeholder="e.g. alex@example.com">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                             </span>
@@ -44,7 +44,7 @@
                     <div class="field">
                         <label class="label">Mot de passe</label>
                         <div class="control has-icons-left">
-                            <input class="input" type="password" placeholder="********">
+                            <input class="input" type="password" name="pass" placeholder="********">
                             <span class="icon is-small is-left">
                                 <i class="fa-solid fa-lock"></i>
                             </span>
@@ -52,28 +52,15 @@
                     </div>
                     <div class="columns">
                         <div class="column">
-                            <div class="message is-danger">
-                                <div class="message-header">
-                                    Erreur
-                                    <button class="delete""></button>
-                                </div>
-                                <div class="message-body">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem magnam
-                                    necessitatibus
-                                    quibusdam commodi
-                                    doloribus optio deserunt ea modi, adipisci sequi a vero consectetur velit cumque
-                                    esse
-                                    eveniet exercitationem
-                                    dicta natus?
-                                </div>
-                            </div>
+                            
                             <div class="buttons">
                                 <button id="btn-align" class="button is-light">Mot de passe oublié</button>
-                                <button id="btn-align"class="button is-primary">Se connecter</button>
+                                <input type="submit" id="btn-align"class="button is-primary" value="Se connecter">
                             </div>
                         </div>
                     </div>
                 </form>
+                {# Ici git l'erreur #}
             </div>
         </div>
     </section>
