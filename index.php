@@ -9,7 +9,7 @@ include_once "func/func_bdd.php";
 
 
 if (isset($_SESSION['USER_FNAME'])) {
-  echo $twig->render('accueil.html.twig', ['userfname' => $_SESSION['USER_FNAME']]);
+  echo $twig->render('accueil.html.twig', ['userfname' => $_SESSION['USER_FNAME'], 'cartes' => $lastoffers]);
 } else {
   $variable=12;
   echo $twig->render('accueil.html.twig', ['userfname' => 'utilisateur', 'cartes' => $lastoffers]);
