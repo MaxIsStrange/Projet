@@ -19,10 +19,3 @@ if (isset($_POST['mail']) && isset($_POST['pass'])) {
 } else {
   echo $twig->render('connection.html.twig');
 }
-
-
-
-
-
-
-
