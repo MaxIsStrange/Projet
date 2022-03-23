@@ -8,13 +8,16 @@ include_once "func/func_perm.php";
   require_once('vendor/autoload.php');
   $loader = new \Twig\Loader\FilesystemLoader('templates');
   $twig = new \Twig\Environment($loader);
-$lastoffers = $data->lastOffre();
+
+
+  $lastoffers = $data->lastOffre();
 
 if (isset($perm)) {
 echo "<code><pre><br><br><br>";
-  print_r($_SESSION);
-  
-  //$perm->chkPerm(1) ? "Vous pouvez vous identifier" : "Vous ne pouvez pas vous identifier boloss.");
+
+print_r($perm->chkPerm(1) ? "Vous pouvez vous identifier" : "Vous ne pouvez pas vous identifier boloss.");
+
+
 echo "<br></pre></code>";
 }
 
