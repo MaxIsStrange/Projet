@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<meta>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Tracker une offre - StageTracker</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"/>
+	<script src="https://kit.fontawesome.com/d2fdcc8c83.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-divider@0.2.0/dist/css/bulma-divider.min.css">
+	<script defer src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
+	<script defer src="https://www.jsdelivr.com/package/npm/@creativebulma/bulma-divider"></script>
+</html></head><body>
+<!-- Block numero 1-->
+{% include 'navbar.twig' %}
+<!-- Block numero 1-->
+
+<section
+	class="section">
+	<!-- Search bar -->
+	<h1 class="title is-1 has-text-centered">
+		Traque les dernières offres de stage</h1>
+	<section class="section">
+		<div class="columns">
+			<form action="">
+				<div class="column">
+					<div class="is-flex">
+						<div id="search-bar" class="field has-addons">
+							<p class="control">
+								<input class="input" type="text" placeholder="Rechercher une offre">
+							</p>
+
+							<p class="control">
+								<a class="button is-primary">
+									<strong>Rechercher</strong>
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="column">
+
+					<div class="is-flex">
+						<div class="select">
+							<select>
+								<option>Choisit ta promo</option>
+								<option>{{result.promo}}</option>
+							</select>
+						</div>
+						<div class="select">
+							<select>
+								<option>Select dropdown</option>
+								<option>With options</option>
+							</select>
+						</div>
+					</div>
+
+				</div>
+			</form>
+		</div>
+	</section>
+	<div class="columns is-multiline">
+		{% include 'latestcard.twig' %}
+	</div>
+</section>
+
+<!--Footer-->
+{% include 'footer.twig' %}
+<!--Footer--></body></html>
