@@ -375,6 +375,23 @@ class dataBDD
 
         return $result;;
     }
+
+    public function getPoste($mail)
+    {
+        $id = self::getUserID($mail);
+
+        $this->conn->setQuery("SELECT Type_promo,Annee_promo FROM User INNER JOIN Promo ON User.ID_Promo=Promo.ID_Promo WHERE User.ID_user= :id");
+
+        $this->conn->execQuery(['id' => $id], 0);
+
+        $result = $this->conn->getResult();
+
+         echo "<br><br><pre>";
+         print_r($result);
+         echo "</pre><br>";
+
+        return $result;;
+    }
 }
 
 
