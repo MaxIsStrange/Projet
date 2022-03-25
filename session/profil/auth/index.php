@@ -1,6 +1,6 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . "/func/func_session.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/func/func_login.php";
+include_once "../../../func/func_session.php";
+include '../../../func/func_login.php';
 
 require_once('../../../vendor/autoload.php');
 
