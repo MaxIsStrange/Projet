@@ -20,13 +20,13 @@
   <!-- Block numero 1-->
 
     <!--Block numero 3-->
-    <section class="section">
-        <div class="container is-hidden-tablet">
+    <section class="section ">
+        <div class="container is-hidden-tablet mt-6">
             <figure class="image is-128x128">
                 <img class="is-rounded" src="{{album.Avatar_album}}" alt="Photo de profil">
             </figure>
         </div>
-        <div class="columns">
+        <div class="columns mt-6">
             <div id="col-r" class="column ">
 
                 <div class="is-flex">
@@ -36,20 +36,21 @@
                     </div>
                 </div>
 
-                <h2 class="subtitle">Poste actuel</h2>
+                <h2 class="subtitle">{{grp.Type_promo}} - {{grp.Annee_promo}}</h2>
                 <div class="tabs">
                     <ul>
-                        <li class="is-active"><a>Pictures</a></li>
-                        <li><a>Music</a></li>
-                        <li><a>Videos</a></li>
-                        <li><a>Documents</a></li>
+                        <li class="is-active"><a>Description</a></li>
+                        <li><a href="{{album.CV_album}}" target="_blank">CV</a></li>
+                        <li><a href="{{album.LM_album}}" target="_blank">Lettre de motivation</a></li>
+                        <li><a href="{{album.FV_album}}" target="_blank">Fiche de validation</a></li>
                     </ul>
-                </div>
 
+                </div>
+                <p>{{infos.Desc_user}}</p>
             </div>
             <div id="col-l" class="column is-full-mobile is-two-fifths-tablet is-two-fifths-desktop is-one-fifth-widescreen is-one-fifth-fullhd">
                 <div class="is-flex is-hidden-mobile">
-                    <figure id="align-pp" class="image is-256x256 mx-auto mb-6">
+                    <figure id="align-pp" class="image is-256x256 mx-auto mb-6 ">
                         <img class="is-rounded" src="{{album.Avatar_album}}" alt="Photo de profil">
                     </figure>
                 </div>
@@ -59,25 +60,19 @@
                     <p class="panel-heading">
                         Compétences
                     </p>
-                    <p class="panel-block">
-                        buldo
-                    </p>
-                    <p class="panel-block">
-                        buldair
-                    </p>
-                    <p class="panel-block">
-                        buldter
-                    </p>
+                    {% for result in comps %}
+                      {% include 'comp.twig' %}
+                    {% endfor %}
                 </nav>
                 <!--Panel de compétences-->
             </div>
+
         </div>
         <div id="margin-edit-profil" class="buttons">
             <a href="#" class="button is-link">Se déconnecter</a>
         </div>
     </section>
     <!--Block numero 3-->
-
     <!--Footer-->
     {% include 'footer.twig' %}
     <!--Footer-->

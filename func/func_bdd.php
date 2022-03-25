@@ -310,7 +310,101 @@ class dataBDD
 
         return $result;
     }
+  
+    public function getComp($mail)
+    {
+        $id = self::getUserID($mail);
 
+        $this->conn->setQuery("SELECT Nom_comp,LVL_comp,IsLang_comp FROM Competence INNER JOIN Sait_faire ON Competence.ID_comp=Sait_faire.ID_comp INNER JOIN User ON Sait_faire.ID_user=User.ID_user WHERE User.ID_User= :id");
+
+        $this->conn->execQuery(['id' => $id], 1);
+
+        $result = $this->conn->getResult();
+
+         //echo "<br><br><pre>";
+         //print_r($result);
+         //echo "</pre><br>";
+
+        return $result;;
+    }
+
+    public function getNbOffres()
+    {
+
+        $this->conn->setQuery("SELECT count(ID_offre) FROM Offre;");
+
+        $this->conn->execQuery([], 1);
+
+        $result = $this->conn->getResult();
+
+         //echo "<br><br><pre>";
+         //print_r($result);
+         //echo "</pre><br>";
+
+        return $result;;
+    }
+
+    public function getNbStages()
+    {
+
+        $this->conn->setQuery("SELECT count(Step) FROM User where Step>=6;");
+
+        $this->conn->execQuery([], 1);
+
+        $result = $this->conn->getResult();
+
+         //echo "<br><br><pre>";
+         //print_r($result);
+         //echo "</pre><br>";
+
+        return $result;;
+    }
+
+    public function getNbInsc()
+    {
+
+        $this->conn->setQuery("SELECT count(ID_User) FROM User where ID_Grp>=3;");
+
+        $this->conn->execQuery([], 1);
+
+        $result = $this->conn->getResult();
+
+         //echo "<br><br><pre>";
+         //print_r($result);
+         //echo "</pre><br>";
+
+        return $result;;
+    }
+
+    public function getPoste($mail)
+    {
+        $id = self::getUserID($mail);
+
+        $this->conn->setQuery("SELECT Type_promo,Annee_promo FROM User INNER JOIN Promo ON User.ID_Promo=Promo.ID_Promo WHERE User.ID_user= :id");
+
+        $this->conn->execQuery(['id' => $id], 0);
+
+        $result = $this->conn->getResult();
+
+        //  echo "<br><br><pre>";
+        //  print_r($result);
+        //  echo "</pre><br>";
+
+        return $result;}
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
     //----------------------------------------
 
     public function searchEnt($input)
@@ -335,6 +429,9 @@ class dataBDD
         $result = $this->conn->getResult();
 
         return $result;
+      
+
+
     }
 }
 
