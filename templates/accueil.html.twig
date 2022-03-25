@@ -89,7 +89,7 @@
               <h2 class="title is-5">Maxence : BDD et templates</h2>
             </div>
             <div class="item__description">
-              "J'adore ça"
+              "J'adore ça" cf. Un futur généraliste
             </div>
           </div>
         </div>
@@ -137,17 +137,17 @@
   <!--Block numero 4-->
   <section class="section">
     <h1 class="title is-1 has-text-centered"> Traque les dernières offres de stage</h1>
-    <form action="">
+    <form action="" method="POST">
       <div class="is-flex">
         <div id="search-bar" class="field has-addons">
           <p class="control">
-            <input class="input" type="text" placeholder="Rechercher une offre">
+            <input class="input" type="text" name="main-rb" placeholder="Rechercher une offre">
           </p>
 
           <p class="control">
-            <a class="button is-primary">
-              <strong>Rechercher</strong>
-            </a>
+            <input type="submit" class="button is-primary" value = "Rechercher">
+              {# <strong>Rechercher</strong>
+            </a> #}
           </p>
         </div>
       </div>

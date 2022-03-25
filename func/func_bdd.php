@@ -310,6 +310,32 @@ class dataBDD
 
         return $result;
     }
+
+    //----------------------------------------
+
+    public function searchEnt($input)
+    {
+
+        $this->conn->setQuery('SELECT * FROM Entreprise WHERE (Nom_ent LIKE :inputN) OR (Desc_ent LIKE :inputD) OR (Sect_ent LIKE :inputS)');
+        $input = '%' . htmlspecialchars($input) . '%';
+        $this->conn->execQuery(['inputN' => $input, 'inputD' => $input, 'inputS' => $input], 1);
+
+        $result = $this->conn->getResult();
+
+        return $result;
+    }
+
+    public function searchOffre($input)
+    {
+
+        $this->conn->setQuery('SELECT * FROM Offre WHERE (Nom_offre LIKE :inputN) OR (Desc_offre LIKE :inputD)');
+        $input = '%' . htmlspecialchars($input) . '%';
+        $this->conn->execQuery(['inputN' => $input, 'inputD' => $input], 1);
+
+        $result = $this->conn->getResult();
+
+        return $result;
+    }
 }
 
 
