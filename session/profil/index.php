@@ -1,6 +1,6 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . "/func/func_session.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/func/func_bdd.php";
+include_once "../../func/func_session.php";
+include_once "../../func/func_bdd.php";
 
 require_once('../../vendor/autoload.php');
 $loader = new \Twig\Loader\FilesystemLoader('../../templates');

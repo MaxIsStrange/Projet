@@ -1,8 +1,8 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . "/func/func_session.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/func/func_bdd.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/func/func_search.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/func/func_perm.php";
+include_once "func/func_session.php";
+include_once "func/func_bdd.php";
+include_once "func/func_search.php";
+include_once "func/func_perm.php";
 
 
 require_once('vendor/autoload.php');
@@ -11,9 +11,6 @@ $twig = new \Twig\Environment($loader);
 
 
 $lastoffers = $data->lastOffre();
-$nboffres = $data -> getNbOffres();
-$nbstages = $data -> getNbStages();
-$nbinsc = $data -> getNbInsc();
 
 
 // if (isset($_POST['main-rb'])) {
@@ -25,10 +22,10 @@ $nbinsc = $data -> getNbInsc();
 // }
 
 if (isset($_SESSION['USER_FNAME'])) {
-  echo $twig->render('accueil.html.twig', ['userfname' => $_SESSION['USER_FNAME'], 'cartes' => $lastoffers, 'nboffres' => $nboffres, 'nbstages'=>$nbstages, 'nbinsc' => $nbinsc]);
+  echo $twig->render('accueil.html.twig', ['userfname' => $_SESSION['USER_FNAME'], 'cartes' => $lastoffers]);
 } else {
 
-  echo $twig->render('accueil.html.twig', ['userfname' => '', 'cartes' => $lastoffers,'nboffres' => $nboffres,'nbstages'=>$nbstages,'nbinsc' => $nbinsc]);
+  echo $twig->render('accueil.html.twig', ['userfname' => 'utilisateur', 'cartes' => $lastoffers]);
 }
 
 if (isset($_POST['main-rb'])) {
