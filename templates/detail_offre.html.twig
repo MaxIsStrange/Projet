@@ -1,4 +1,16 @@
-<section class="section">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
+  <script src="https://kit.fontawesome.com/d2fdcc8c83.js" crossorigin="anonymous"></script>
+  <title>Détails - StageTracker</title>
+</head>
+<body>
+{% include 'navbar.twig'%}
+<section class="section ">
     <!-- Entête de l'offre -->
     <div>
       <h1 class="title is-1">
@@ -12,7 +24,7 @@
         <article class="media">
           <figure class="media-left">
             <p class="image is-64x64 is-rounded">
-              <img src="https://bulma.io/images/placeholders/128x128.png" alt="Logo entreprise">
+              <img src="{{result.Logo_album}}" alt="Logo entreprise">
             </p>
           </figure>
           <div class="media-content">
@@ -41,11 +53,11 @@
       <section class="section">
         <div class="content">
           <h2>Description</h2>
-          {{result.Desc_ent}}
+          {{result.Desc_offre}}
           <h2>Informations complémentaires</h2>
           <ul>
-            <li>Durée du stage: {{result.Duree_offre}}</li>
-            <li>Cible: {{result.Promo_offre}}</li>
+            <li>Durée du stage: {{result.Duree_offre}} semaines</li>
+            <li>Cible: {{result.Mineure_offre}}</li>
             <li>Renumération: {{result.Remun_offre}}</li>
             <li>Poste à pourvoir: {{result.Nb_poste_offre}}</li>
           </ul>
@@ -54,5 +66,6 @@
         </div>
       </section>
     </div>
-
   </section>
+  {% include 'footer.twig' %}
+</body>
