@@ -15,7 +15,7 @@ class Recherche
 
     public function setDico()
     {
-        $path = "func\dico.json";
+        $path = "../func/dico.json";
         $dicoBrut = file_get_contents($path);
 
         $dicoNet = json_decode($dicoBrut, true);
