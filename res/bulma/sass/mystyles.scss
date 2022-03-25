@@ -1,6 +1,7 @@
 @charset "utf-8";
 
 // Set your brand colors
+$dark-theme: #272727;
 $orange-flashy: #FA7921;
 $purple: #bb2288;
 $pink: #FA7C91;
@@ -13,6 +14,7 @@ $grey-dark: $brown;
 $grey-light: $beige-light;
 $primary: $purple;
 $link: $orange-flashy;
+$background: $dark-theme;
 
 // Update some of Bulma's component variables
 
