@@ -393,7 +393,26 @@ class dataBDD
         return $result;}
 
 
-  
+
+    function getOffreCard($id)
+    {
+        $this->conn->setQuery(
+            'SELECT Offre.Nom_offre,Offre.Nom_poste_offre,Offre.Date_offre,
+            Adresse.Ville_adr,Adresse.CP_adr,Offre.Desc_offre,Entreprise.Nom_ent,Album.Banniere_album,
+            Mineure_offre,Remun_offre,Nb_poste_offre,Logo_album FROM Offre 
+            INNER JOIN Adresse ON Offre.ID_adr=Adresse.ID_adr 
+            INNER JOIN Entreprise ON Offre.ID_ent=Entreprise.ID_ent 
+            INNER JOIN Album On Entreprise.ID_album=Album.ID_album where ID_offre=:id;'
+        );
+        $this->conn->execQuery(['id' => $id], 0);
+
+        $result = $this->conn->getResult();
+        //  echo "<br><br><pre>";
+        //  print_r($result);
+        //  echo "</pre><br>";
+        return $result;
+    }
+
   
   
   
@@ -410,7 +429,7 @@ class dataBDD
     public function searchEnt($input)
     {
 
-        $this->conn->setQuery('SELECT * FROM Entreprise WHERE (Nom_ent LIKE :inputN) OR (Desc_ent LIKE :inputD) OR (Sect_ent LIKE :inputS)');
+        $this->conn->setQuery('SELECT ID_ent FROM Entreprise WHERE (Nom_ent LIKE :inputN) OR (Desc_ent LIKE :inputD) OR (Sect_ent LIKE :inputS)');
         $input = '%' . htmlspecialchars($input) . '%';
         $this->conn->execQuery(['inputN' => $input, 'inputD' => $input, 'inputS' => $input], 1);
 
@@ -422,9 +441,9 @@ class dataBDD
     public function searchOffre($input)
     {
 
-        $this->conn->setQuery('SELECT * FROM Offre WHERE (Nom_offre LIKE :inputN) OR (Desc_offre LIKE :inputD)');
+        $this->conn->setQuery('SELECT ID_offre FROM Offre WHERE (Nom_offre LIKE :inputN) OR (Desc_offre LIKE :inputD) OR (Nom_poste_offre LIKE :inputNP)');
         $input = '%' . htmlspecialchars($input) . '%';
-        $this->conn->execQuery(['inputN' => $input, 'inputD' => $input], 1);
+        $this->conn->execQuery(['inputN' => $input, 'inputD' => $input, 'inputNP' => $input], 1);
 
         $result = $this->conn->getResult();
 

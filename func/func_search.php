@@ -15,8 +15,9 @@ class Recherche
 
     public function setDico()
     {
-        $path = "../func/dico.json";
+        $path = $_SERVER['DOCUMENT_ROOT'] . "/func/dico.json";
         $dicoBrut = file_get_contents($path);
+        echo ini_get('include_path');
 
         $dicoNet = json_decode($dicoBrut, true);
 
@@ -41,15 +42,16 @@ class Recherche
                     $pos = preg_match("/'/i", $mot, $a, PREG_OFFSET_CAPTURE) + 1;
                     $mot = substr($mot, $pos);
                 }
-
+                
                 //Faire un join pour chopper les tags aussi
 
-                $dataEnt = $this->data->searchEnt($mot);
-                foreach ($dataEnt as $ent) {
-                    array_push($result, $ent);
-                }
+                // $dataEnt = $this->data->searchEnt($mot);
+                // foreach ($dataEnt as $ent) {
+                //     array_push($result, $ent);
+                // }
 
                 $dataOffre = $this->data->searchOffre($mot);
+                
                 foreach ($dataOffre as $offre) {
                     array_push($result, $offre);
                 }
