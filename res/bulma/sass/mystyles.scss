@@ -3,6 +3,7 @@
 // Set your brand colors
 $dark-theme: #272727;
 $orange-flashy: #FA7921;
+$orange-faded:#ffd18c;
 $purple: #bb2288;
 $pink: #FA7C91;
 $brown: #757763;
@@ -12,9 +13,8 @@ $beige-lighter: #EFF0EB;
 // Update Bulma's global variables
 $grey-dark: $brown;
 $grey-light: $beige-light;
-$primary: $purple;
+$primary: $orange-faded;
 $link: $orange-flashy;
-$background: $dark-theme;
 
 // Update some of Bulma's component variables
 
