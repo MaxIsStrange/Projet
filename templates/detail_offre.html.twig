@@ -12,6 +12,11 @@
 {% include 'navbar.twig'%}
 <section class="section ">
     <!-- Entête de l'offre -->
+    <div class="hero is-medium"style="background: url({{result.Banniere_album}}); background-position:center center; background-size:cover; height: 15rem;" > 
+      <div class="hero-content">
+      </div>
+    </div>
+
     <div>
       <h1 class="title is-1">
         <a href="#">{{result.Nom_offre}}</a>
@@ -51,9 +56,12 @@
     <!-- Corps de l'offre -->
     <div>
       <section class="section">
-        <div class="content">
-          <h2>Description</h2>
-          {{result.Desc_offre}}
+        <div class=" columns content">
+          <div class="column is-two-thirds">
+            <h2>Description</h2>
+            {{result.Desc_offre}}
+          </div>
+         <div class="column">
           <h2>Informations complémentaires</h2>
           <ul>
             <li>Durée du stage: {{result.Duree_offre}} semaines</li>
@@ -62,8 +70,9 @@
             <li>Poste à pourvoir: {{result.Nb_poste_offre}}</li>
           </ul>
           <br>
-          <p>Offre postée le <time datetime="2016-01-01">{{result.Date_offre}}</time></p>
+         </div>
         </div>
+        <p>Offre postée le <time datetime="2016-01-01">{{result.Date_offre}}</time></p>
       </section>
     </div>
   </section>
