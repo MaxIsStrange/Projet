@@ -62,7 +62,9 @@
 		</div>
 	</section>
 	<div class="columns is-multiline">
+	{% for result in cartes %}
 		{% include 'latestcard.twig' %}
+		{% endfor %}
 	</div>
 </section>
 
