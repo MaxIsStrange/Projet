@@ -138,15 +138,18 @@
   <section class="section">
     <h1 class="title is-1 has-text-centered"> Traque les dernières offres de stage</h1>
     <form action="tracker/offres/index.php" method="POST">
-      <div class="is-flex">
-        <div id="search-bar" class="field has-addons">
-          <p class="control">
-            <input class="input" type="text" name="main-rb" placeholder="Rechercher une offre">
-          </p>
-
-          <p class="control">
-            <input type="submit" class="button is-primary" value = "Rechercher">
-          </p>
+            <div class="columns is is-centered">
+        <div class="column is-one-third">
+          <div class="field is-grouped">
+            <p class="control is-expanded">
+              <input class="input" type="text" placeholder="Rechercher une offre">
+            </p>
+            <p class="control">
+              <a class="button is-link">
+                Search
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </form>
