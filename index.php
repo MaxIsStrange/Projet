@@ -1,7 +1,7 @@
 <?php
 include_once "func/func_session.php";
 include_once "func/func_bdd.php";
-
+include_once "func/func_search.php";
 include_once "func/func_perm.php";
 
 
@@ -15,12 +15,13 @@ $nboffres = $data -> getNbOffres();
 $nbstages = $data -> getNbStages();
 $nbinsc = $data -> getNbInsc();
 
-// if (isset($perm)) {
-// echo "<code><pre><br><br><br>";
-//   print_r($_SESSION);
 
+// if (isset($_POST['main-rb'])) {
+//   echo "<code><pre><br><br><br>";
+//   print_r($searchEngine->search($_POST['main-rb']));
+//   //print_r($searchEngine->outputSearch($_POST['main-rb']));
 //   //$perm->chkPerm(1) ? "Vous pouvez vous identifier" : "Vous ne pouvez pas vous identifier boloss.");
-// echo "<br></pre></code>";
+//   echo "<br></pre></code>";
 // }
 
 if (isset($_SESSION['USER_FNAME'])) {
@@ -28,6 +29,10 @@ if (isset($_SESSION['USER_FNAME'])) {
 } else {
 
   echo $twig->render('accueil.html.twig', ['userfname' => '', 'cartes' => $lastoffers,'nboffres' => $nboffres,'nbstages'=>$nbstages,'nbinsc' => $nbinsc]);
+}
+
+if (isset($_POST['main-rb'])) {
+  $search = htmlspecialchars($_POST['main-rb']);
 }
 
 
