@@ -441,9 +441,9 @@ class dataBDD
     public function searchOffre($input)
     {
 
-        $this->conn->setQuery('SELECT ID_offre FROM Offre WHERE (Nom_offre LIKE :inputN) OR (Desc_offre LIKE :inputD) OR (Nom_poste_offre LIKE :inputNP)');
+        $this->conn->setQuery('SELECT ID_offre FROM Offre WHERE (Nom_offre LIKE :inputN) OR (Desc_offre LIKE :inputD) OR (Nom_poste_offre LIKE :inputNP) OR (Promo_offre LIKE :inputProm)');
         $input = '%' . htmlspecialchars($input) . '%';
-        $this->conn->execQuery(['inputN' => $input, 'inputD' => $input, 'inputNP' => $input], 1);
+        $this->conn->execQuery(['inputN' => $input, 'inputD' => $input, 'inputNP' => $input, 'inputProm' => $input], 1);
 
         $result = $this->conn->getResult();
 

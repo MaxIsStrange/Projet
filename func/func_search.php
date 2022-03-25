@@ -17,7 +17,7 @@ class Recherche
     {
         $path = $_SERVER['DOCUMENT_ROOT'] . "/func/dico.json";
         $dicoBrut = file_get_contents($path);
-        echo ini_get('include_path');
+        
 
         $dicoNet = json_decode($dicoBrut, true);
 
