@@ -55,11 +55,3 @@ if (
 }
 
   echo $twig->render('add_ent.html.twig');
-
-// echo "<code><pre><br>";
-// print_r($tabInfo);
-// echo "<br>---------------------------------------<br>";
-// print_r($_POST);
-// echo "<br>---------------------------------------<br>";
-// print_r($_FILES);
-// echo "<br></pre></code>";
