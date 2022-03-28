@@ -45,9 +45,9 @@ class ConnectBDD
         //Préparation de la requète
         $prep = $this->bdd->prepare($this->sql);
 
-        echo "<pre>-----";
-        print_r($input);
-        echo "-----</pre>";
+        // echo "<pre>-----";
+        // print_r($input);
+        // echo "-----</pre>";
 
         //Execution de la requete préparée avec les données attendues
         $prep->execute($input);
