@@ -69,6 +69,7 @@ class Upload
         $nameFile = $this->type . $id . "." . $extFile;
 
         $pathRel = "../../../docs/" . $this->folder . "/" . $nameFile;
+        $pathURL = "https://hsbay.space/cesi/stagetracker/docs/" .  $this->folder . "/" . $nameFile;
 
         if ($_FILES[$this->name]['size'] >= 5000000) {
             echo "<br><br><br>Fichier trop lourd";
@@ -93,7 +94,7 @@ class Upload
 
 
 
-            return $pathRel;
+            return $pathURL;
         }
 
 
