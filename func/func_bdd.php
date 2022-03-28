@@ -188,6 +188,32 @@ class dataBDD
         return;
     }
 
+    public function addEnt($ent)
+    {
+
+        $this->conn->setQuery(
+            "INSERT INTO Entreprise (Nom_ent,Desc_ent,Taille_ent,Mail_ent,Web_ent,Sect_ent,Slogan_ent,Nb_stage_ent,Nbr_conf_ent,Note_ent,ID_album, Tel_ent)
+VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album, :tel) ;"
+        );
+
+        $this->conn->execQuery([
+            'nom' => $ent['name'],
+            'descr' => $ent['desc'],
+            'taille' => $ent['nbr'],
+            'mail' => $ent['mail'],
+            'tel' => $ent['tel'],
+            'web' => $ent['web'],
+            'sect' => $ent['sect'],
+            'slog' => $ent['slogan'],
+            'NbStage' => 0,
+            'NbConf' => $ent['nbr_conf'],
+            'Note' => 0,
+            'Album' => $ent['ID_alb']
+        ], 0);
+
+        return;
+    }
+
     public function getUserID($mail_user)
     {
 
@@ -303,13 +329,35 @@ class dataBDD
 
     function chkMaxIDAdr()
     {
-        $this->conn->setQuery('SELECT ID_adr FROM Adresse ORDER BY ID_ADR DESC limit 1');
+        $this->conn->setQuery('SELECT ID_adr FROM Adresse ORDER BY ID_ADR DESC limit 1 ');
         $this->conn->execQuery([], 0);
 
         $result = $this->conn->getResult();
 
         return $result;
     }
+
+    function chkMaxIDEnt()
+    {
+        $this->conn->setQuery('SELECT ID_ent FROM Entreprise ORDER BY ID_ent DESC limit 1');
+        $this->conn->execQuery([], 0);
+
+        $result = $this->conn->getResult();
+
+        return $result;
+    }
+
+    function chkMaxIDAlb()
+    {
+        $this->conn->setQuery('SELECT ID_album FROM Album ORDER BY ID_album DESC limit 1');
+        $this->conn->execQuery([], 0);
+
+        $result = $this->conn->getResult();
+
+        return $result;
+    }
+
+    
   
     public function getComp($mail)
     {
@@ -317,7 +365,7 @@ class dataBDD
 
         $this->conn->setQuery("SELECT Nom_comp,LVL_comp,IsLang_comp FROM Competence INNER JOIN Sait_faire ON Competence.ID_comp=Sait_faire.ID_comp INNER JOIN User ON Sait_faire.ID_user=User.ID_user WHERE User.ID_User= :id");
 
-        $this->conn->execQuery(['id' => $id], 1);
+        $this->conn->execQuery(['id ' => $id], 1);
 
         $result = $this->conn->getResult();
 
@@ -369,11 +417,11 @@ class dataBDD
 
         $result = $this->conn->getResult();
 
-         //echo "<br><br><pre>";
-         //print_r($result);
-         //echo "</pre><br>";
+        //echo "<br><br><pre>";
+        //print_r($result);
+        //echo "</pre><br>";
 
-        return $result;;
+        return $result;
     }
 
     public function getPoste($mail)
@@ -410,6 +458,21 @@ class dataBDD
         //  echo "<br><br><pre>";
         //  print_r($result);
         //  echo "</pre><br>";
+        return $result;
+    }
+
+    public function addAlbum($input)
+    {
+        $this->conn->setQuery("INSERT into Album (Avatar_album,Banniere_album,Logo_album) 
+        value (:av,:ba,:lo);");
+        $this->conn->execQuery([
+            'av' => $input["av"],
+            'ba' => $input['ba'],
+            'lo' => $input['lo']
+        ], 0);
+
+        $result = $this->conn->getResult();
+
         return $result;
     }
 
