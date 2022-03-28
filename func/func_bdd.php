@@ -321,7 +321,7 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         return $result;
     }
 
-    function addAddr($input)
+    public function addAddr($input)
     {
         $this->conn->setQuery('INSERT INTO Adresse (Num_adr,Rue_adr,CP_adr,Ville_adr,Pays_adr,Comp_adr) VALUES (:num, :rue, :cp, :city,:pays,:comp);');
         $this->conn->execQuery(['num' => $input['num'], 'rue' => $input['rue'], 'cp' => $input['cp'], 'city' => $input['city'], 'pays' => $input['pays'], 'comp' => $input['comp']], 0);
@@ -331,7 +331,17 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         return $result;
     }
 
-    function chkMaxIDAdr()
+    public function linkAdrEnt($idADR, $idENT)
+    {
+        $this->conn->setQuery('INSERT INTO Est_localise (ID_ent,ID_adr) VALUES (:ent, :adr);');
+        $this->conn->execQuery(['ent' => $idENT, 'adr' => $idADR], 0);
+
+        $result = $this->conn->getResult();
+
+        return $result;
+    }
+
+    public function chkMaxIDAdr()
     {
         $this->conn->setQuery('SELECT ID_adr FROM Adresse ORDER BY ID_ADR DESC limit 1 ');
         $this->conn->execQuery([], 0);
@@ -341,7 +351,7 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         return $result;
     }
 
-    function chkMaxIDEnt()
+    public function chkMaxIDEnt()
     {
         $this->conn->setQuery('SELECT ID_ent FROM Entreprise ORDER BY ID_ent DESC limit 1');
         $this->conn->execQuery([], 0);
