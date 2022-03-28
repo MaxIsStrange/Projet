@@ -58,6 +58,9 @@ class login
         //On récupère l'ID correspondant à l'email
         $id = $this->data->getUserID($mail);
 
+        //On garde l'ID de l'utilisateur pour l'insertion de fichiers
+        $_SESSION['USER_ID'] = $id;
+
         //On récupère les informations de l'utilisateur
         $user_info = $this->data->getUser($_SESSION['USER_MAIL']);
 
