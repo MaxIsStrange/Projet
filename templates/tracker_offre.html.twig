@@ -32,8 +32,8 @@
 		<h1 class="title is-1 has-text-centered">
 			Traque les dernières offres de stage</h1>
 		<section class="section">
-			<div class="columns">
-				<form action="">
+			<form action="">
+				<div class="columns">
 					<div class="column">
 						<div class="is-flex">
 							<div id="search-bar" class="field has-addons">
@@ -41,11 +41,7 @@
 									<input class="input" type="text" placeholder="Rechercher une offre">
 								</p>
 
-								<p class="control">
-									<a class="button is-primary">
-										<strong>Rechercher</strong>
-									</a>
-								</p>
+								<input type="submit" value="Rechercher" class="button is-link">
 							</div>
 						</div>
 					</div>
@@ -67,14 +63,13 @@
 						</div>
 
 					</div>
-				</form>
-			</div>
+				</div>
+			</form>
 		</section>
 		<h2 class="subtitle has-text-centered">{{msg}}</h2>
 		<div class="columns is-multiline">
 			{% for result in cartes %}
-			{% if i <= limit %} i={{i}} {% include 'latestcard.twig' %} {% set i=i+1 %} {% endif %} {% endfor %}
-		</div>
+			{% if i <= limit %} i={{i}} {% include 'latestcard.twig' %} {% set i=i+1 %} {% endif %} {% endfor %} </div>
 	</section>
 
 	<!--Footer-->
