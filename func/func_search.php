@@ -10,22 +10,22 @@ class Recherche
     public function __construct($newData)
     {
         $this->data = $newData;
-        $this->setDico();
+        // $this->setDico();
     }
 
-    public function setDico()
-    {
-        $path = $_SERVER['DOCUMENT_ROOT'] . "/func/dico.json";
-        $dicoBrut = file_get_contents($path);
-        
+    // public function setDico()
+    // {
+    //     $path = $_SERVER['DOCUMENT_ROOT'] . "/func/dico.json";
+    //     $dicoBrut = file_get_contents($path);
 
-        $dicoNet = json_decode($dicoBrut, true);
 
-        foreach ($dicoNet as $mot) {
+    //     $dicoNet = json_decode($dicoBrut, true);
 
-            array_push($this->dico, $mot);
-        }
-    }
+    //     foreach ($dicoNet as $mot) {
+
+    //         array_push($this->dico, $mot);
+    //     }
+    // }
 
     public function search($input)
     {
@@ -42,7 +42,7 @@ class Recherche
                     $pos = preg_match("/'/i", $mot, $a, PREG_OFFSET_CAPTURE) + 1;
                     $mot = substr($mot, $pos);
                 }
-                
+
                 //Faire un join pour chopper les tags aussi
 
                 // $dataEnt = $this->data->searchEnt($mot);
@@ -50,10 +50,16 @@ class Recherche
                 //     array_push($result, $ent);
                 // }
 
-                $dataOffre = $this->data->searchOffre($mot);
-                
-                foreach ($dataOffre as $offre) {
-                    array_push($result, $offre);
+                // $dataOffre = $this->data->searchOffre($mot);
+
+                // foreach ($dataOffre as $offre) {
+                //     array_push($result, $offre);
+                // }
+                echo $mot;
+                $dataUser = $this->data->searchUser($mot);
+
+                foreach ($dataUser as $user) {
+                    array_push($result, $user);
                 }
             }
         }

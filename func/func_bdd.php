@@ -29,7 +29,7 @@ class ConnectBDD
             //Désactive l'émulation des requètes
             $this->bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
-            
+
         } catch (PDOException $e) {
 
             //Affichage de l'erreur de connexion
@@ -230,10 +230,10 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
 
     public function getAlbum($id)
     {
-        // Select Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album 
+        // Select Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album
         // INNER JOIN User ON User.ID_album=Album.ID_album WHERE ID_user=1;
 
-        $this->conn->setQuery("Select Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album 
+        $this->conn->setQuery("Select Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album
         INNER JOIN User ON User.ID_album=Album.ID_album WHERE ID_user= :id ;");
 
         $this->conn->execQuery(['id' => $id], 0);
@@ -267,11 +267,15 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
     public function getPerm($id)
     {
 
-        $this->conn->setQuery("SELECT ID_perm FROM User INNER JOIN A_acces ON User.ID_Grp = A_acces.ID_Grp WHERE ID_user = :id");
+        $this->conn->setQuery("SELECT Peut.ID_perm FROM User INNER JOIN Peut ON User.ID_User = Peut.ID_User INNER JOIN Perms ON Peut.ID_Perm = Perms.ID_Perm WHERE User.ID_user = :id;");
 
         $this->conn->execQuery(['id' => $id], 1);
 
         $result = $this->conn->getResult();
+
+        // echo "<br><br><pre>";
+        // print_r($result);
+        // echo "</pre><br>";
 
         return $result;
     }
@@ -516,7 +520,21 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
 
     }
 
-    function getOffre($id)
+    public function searchUser($input)
+    {
+        $this->conn->setQuery("SELECT Mail_User FROM User WHERE (Nom_User LIKE :inputN) OR (Prenom_User LIKE :inputP) OR (Mail_User LIKE :inputM) LIMIT 1");
+        $input = '%' . htmlspecialchars($input) . '%';
+        $this->conn->execQuery(['inputN' => $input, 'inputP' => $input, 'inputM' => $input], 1);
+
+        $result = $this->conn->getResult();
+
+        return $result;
+
+
+
+    }
+
+    public function getOffre($id)
     {
         $this->conn->setQuery('SELECT Offre.Nom_offre,Offre.Nom_poste_offre,Offre.Date_offre,Offre.Duree_offre,Adresse.Ville_adr,Adresse.CP_adr,Offre.Desc_offre,Entreprise.Nom_ent,Album.Banniere_album,Mineure_offre,Remun_offre,Nb_poste_offre,Logo_album FROM Offre INNER JOIN Adresse ON Offre.ID_adr=Adresse.ID_adr INNER JOIN Entreprise ON Offre.ID_ent=Entreprise.ID_ent INNER JOIN Album On Entreprise.ID_album=Album.ID_album where ID_offre=:id;');
         $this->conn->execQuery(['id' => $id], 0);
@@ -525,6 +543,19 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         //  echo "<br><br><pre>";
         //  print_r($result);
         //  echo "</pre><br>";
+        return $result;
+    }
+
+    public function getUserByGroup($id_grp)
+    {
+        $this->conn->setQuery('SELECT * FROM User INNER JOIN Album ON User.ID_album=Album.ID_album WHERE ID_Grp= :id_grp;');
+        $this->conn->execQuery(['id_grp' => $id_grp], 1);
+
+        $result = $this->conn->getResult();
+        //   echo "<br><br><pre>";
+        //   print_r($result);
+        //   echo "</pre><br>";
+
         return $result;
     }
 }

@@ -1,23 +1,26 @@
-#margin-name{
+.has-display-none {
+    display: none;
+    visibility: hidden;
+}
+#margin-name {
     margin-left: 0;
     margin-right: auto;
 }
 
-
-#margin-edit-profil{
+#margin-edit-profil {
     margin-left: auto;
     margin-right: 0;
 }
 
-#col-l{
+#col-l {
     order: 1;
 }
 
-#col-r{
+#col-r {
     order: 2;
 }
 
-#align-pp{
+#align-pp {
     margin-right: auto;
     margin-left: auto;
 }

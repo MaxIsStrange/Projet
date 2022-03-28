@@ -2,102 +2,285 @@
 <html lang="fr">
 
 <head>
-	<!-- Meta données -->
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Profil - StageTracker</title>
-	<meta name="description"
-		content="Bonjour et bienvenue sur StageTracker ! Ce site vous permettra à toi et ton pilote de pouvoir suivre et proposer des stages plus facilement ! Ce site a été créé dans le cadre de la réalisation du Projet 4. Ce fut l'un des plus gros projets de l'année et nous vous présentons fièrement le rendu ici présent !" />
+    <!-- Meta données -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil - StageTracker</title>
+    <meta name="description"
+        content="Bonjour et bienvenue sur StageTracker ! Ce site vous permettra à toi et ton pilote de pouvoir suivre et proposer des stages plus facilement ! Ce site a été créé dans le cadre de la réalisation du Projet 4. Ce fut l'un des plus gros projets de l'année et nous vous présentons fièrement le rendu ici présent !" />
 
-	<!-- Framework Bulma (custom) -->
-	<link rel="stylesheet" href="https://www.hsbay.space/cesi/stagetracker/res/bulma/css/mystyles.css" />
-	<!-- Font awesome (icon) -->
-	<script src="https://kit.fontawesome.com/d2fdcc8c83.js" crossorigin="anonymous"></script>
-	<!-- Extention Bulma-divider -->
-	<link rel="stylesheet"
-		href="https://hsbay.space/cesi/stagetracker/res/@creativebulma/bulma-divider/dist/bulma-divider.min.css" />
-	<!-- Navbar -->
-	<script defer src="https://hsbay.space/cesi/stagetracker/src/js/navbar.js"></script>
-	<!-- Mes fichiers -->
-	<link rel="stylesheet" href="src/css/profil.css" />
+    <!-- Framework Bulma (custom) -->
+    <link rel="stylesheet" href="https://www.hsbay.space/cesi/stagetracker/res/bulma/css/mystyles.css" />
+    <!-- Font awesome (icon) -->
+    <script src="https://kit.fontawesome.com/d2fdcc8c83.js" crossorigin="anonymous"></script>
+    <!-- Extention Bulma-divider -->
+    <link rel="stylesheet"
+        href="https://hsbay.space/cesi/stagetracker/res/@creativebulma/bulma-divider/dist/bulma-divider.min.css" />
+    <!-- Extention Bulma-o-step -->
+    <link rel="stylesheet"
+        href="https://hsbay.space/cesi/stagetracker/res/node_modules/bulma-o-steps/bulma-steps.min.css" />
+    <!-- Extention Bulma-list -->
+    <link rel="stylesheet" href="https://hsbay.space/cesi/stagetracker/res/node_modules/bulma-list/css/bulma-list.css">
+    <!-- Navbar -->
+    <script defer src="https://hsbay.space/cesi/stagetracker/src/js/navbar.js"></script>
+    <!-- Mes fichiers -->
+    <link rel="stylesheet" href="https://hsbay.space/cesi/stagetracker/session/profil/src/css/profil.css" />
+    <script defer src="https://hsbay.space/cesi/stagetracker/session/profil/src/js/profil.js"></script>
 </head>
 
 <body>
-	<!-- Block numero 1-->
-	{% include 'navbar.twig' %}
-	<!-- Block numero 1-->
+    <!-- Block numero 1-->
+    {% include 'navbar.twig' %}
+    <!-- Block numero 1-->
 
-	<!--Block numero 3-->
-	<section class="section ">
-		<div class="container is-hidden-tablet mt-6">
-			<figure class="image is-128x128">
-				<img class="is-rounded" src="{{album.Avatar_album}}" alt="Photo de profil">
-			</figure>
-		</div>
-		<div class="columns mt-6">
-			<div id="col-r" class="column ">
+    <!--Block numero 3-->
+    <section class="section" id="section">
+        <div class="container is-hidden-tablet mt-6">
+            <figure class="image is-128x128">
+                <img class="is-rounded" src="{{album.Avatar_album}}" alt="Photo de profil">
+            </figure>
+        </div>
+        <div class="columns mt-6">
+            <div id="col-r" class="column ">
 
-				<div class="is-flex">
-					<h1 id="margin-name" class="title is-1">
-						{{session.USER_FNAME}}
-						{{session.USER_NAME}}</h1>
-					<div id="margin-edit-profil" class="buttons">
-						<a href="edit\" class="button is-link">Modifier le profil</a>
-					</div>
-				</div>
+                <div class="is-flex">
+                    <h1 id="margin-name" class="title is-1">
+                        {{session.USER_FNAME}}
+                        {{session.USER_NAME}}</h1>
+                    <div id="margin-edit-profil" class="buttons">
+                        <a href="edit\" class="button is-link">Modifier le profil</a>
+                    </div>
+                </div>
 
-				<h2 class="subtitle">{{grp.Type_promo}}
-					-
-					{{grp.Annee_promo}}</h2>
-				<div class="tabs">
-					<ul>
-						<li class="is-active">
-							<a>Description</a>
-						</li>
-						<li>
-							<a href="{{album.CV_album}}" target="_blank">CV</a>
-						</li>
-						<li>
-							<a href="{{album.LM_album}}" target="_blank">Lettre de motivation</a>
-						</li>
-						<li>
-							<a href="{{album.FV_album}}" target="_blank">Fiche de validation</a>
-						</li>
-					</ul>
+                <h2 class="subtitle">{{grp.Type_promo}}
+                    -
+                    {{grp.Annee_promo}}</h2>
+                <div class="js-tabs-container">
+                    <div class="tabs">
+                        <ul>
+                            <li data-tab="description" class="is-active"><a>Description</a></li>
+                            <li data-tab="fichiers"><a>Mes fichiers</a></li>
+                            <li data-tab="avancement"><a>Mon avancement</a></li>
+                        </ul>
+                    </div>
 
-				</div>
-				<p>{{infos.Desc_user}}</p>
-			</div>
-			<div id="col-l"
-				class="column is-full-mobile is-two-fifths-tablet is-two-fifths-desktop is-one-fifth-widescreen is-one-fifth-fullhd">
-				<div class="is-flex is-hidden-mobile">
-					<figure id="align-pp" class="image is-256x256 mx-auto mb-6 ">
-						<img class="is-rounded" src="{{album.Avatar_album}}" alt="Photo de profil">
-					</figure>
-				</div>
+                    <div class="js-tab-content box" id="description">
+                        <h1 class="title is-4 mb-2">Description</h1>
+                        <div class="content">
+                            <p>{{infos.Desc_user}}</p>
+                        </div>
+                    </div>
 
-				<!--Panel de compétences-->
-				<nav class="panel">
-					<p class="panel-heading">
-						Compétences
-					</p>
-					{% for result in comps %}
-					{% include 'comp.twig' %}
-					{% endfor %}
-				</nav>
-				<!--Panel de compétences-->
-			</div>
+                    <div class="has-display-none js-tab-content box" id="fichiers">
+                        <h1 class="title is-4 mb-2">Mes fichiers</h1>
 
-		</div>
-		<div id="margin-edit-profil" class="buttons">
-			<a href="#" class="button is-link">Se déconnecter</a>
-		</div>
-	</section>
-	<!--Block numero 3-->
-	<!--Footer-->
-	{% include 'footer.twig' %}
-	<!--Footer-->
+                        <div class="list has-hoverable-list-items has-overflow-ellipsis">
+                            <div class="list-item">
+                                <div class="list-item-image">
+                                    <span class="icon is-large has-text-primary">
+                                        <i class="fa-solid fa-2x fa-file-pdf"></i>
+                                    </span>
+                                </div>
+
+                                <div class="list-item-content">
+                                    <div class="list-item-title is-flex is-justify-content-space-between">
+                                        <span><a href="{{album.CV_album}}" target="_blank">Cucruculum vitae
+                                                (CV)</a></span>
+                                    </div>
+                                    <div class="list-item-description">
+                                        {{album.CV_album}}
+                                    </div>
+                                </div>
+
+                                <div class="list-item-controls">
+                                    <div class="buttons">
+                                        <button class="button">
+                                            <a href="{{album.CV_album}}" target="_blank">
+                                                <span class="icon">
+                                                    <i class="fa-solid fa-magnifying-glass-arrow-right"></i>
+                                                </span>
+                                            </a>
+                                        </button>
+
+                                        <button class="button">
+                                            <span class="icon">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-item">
+                                <div class="list-item-image">
+                                    <span class="icon is-large has-text-primary">
+                                        <i class="fa-solid fa-2x fa-file-pdf"></i>
+                                    </span>
+                                </div>
+
+                                <div class="list-item-content">
+                                    <div class="list-item-title is-flex is-justify-content-space-between">
+                                        <span><a href="{{album.LM_album}}" target="_blank">Lettre de
+                                                motivation</a></span>
+                                    </div>
+                                    <div class="list-item-description">
+                                        {{album.LM_album}}
+                                    </div>
+                                </div>
+
+                                <div class="list-item-controls">
+                                    <div class="buttons">
+                                        <button class="button">
+                                            <a href="{{album.LM_album}}" target="_blank">
+                                                <span class="icon">
+                                                    <i class="fa-solid fa-magnifying-glass-arrow-right"></i>
+                                                </span>
+                                            </a>
+                                        </button>
+
+                                        <button class="button">
+                                            <span class="icon">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-item">
+                                <div class="list-item-image">
+                                    <span class="icon is-large has-text-primary">
+                                        <i class="fa-solid fa-2x fa-file-pdf"></i>
+                                    </span>
+                                </div>
+
+                                <div class="list-item-content">
+                                    <div class="list-item-title is-flex is-justify-content-space-between">
+                                        <span><a href="{{album.FV_album}}" target="_blank">Fiche de
+                                                validation</a></span>
+                                    </div>
+                                    <div class="list-item-description">
+                                        {{album.FV_album}}
+                                    </div>
+                                </div>
+
+                                <div class="list-item-controls">
+                                    <div class="buttons">
+                                        <button class="button">
+                                            <a href="{{album.FV_album}}" target="_blank">
+                                                <span class="icon">
+                                                    <i class="fa-solid fa-magnifying-glass-arrow-right"></i>
+                                                </span>
+                                            </a>
+                                        </button>
+
+                                        <button class="button">
+                                            <span class="icon">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="has-display-none js-tab-content box" id="avancement">
+                        <h1 class="title is-4 mb-6">Mon avancement</h1>
+                        <ul class="steps is-medium is-centered has-content-centered">
+                            <li class="steps-segment">
+                                <span class="steps-marker">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-play"></i>
+                                    </span>
+                                </span>
+                                <div class="steps-content">
+                                    <p class="heading">Postulation</p>
+                                </div>
+                            </li>
+                            <li class="steps-segment">
+                                <span class="steps-marker">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-reply"></i>
+                                    </span>
+                                </span>
+                                <div class="steps-content">
+                                    <p class="heading">Réponse</p>
+                                </div>
+                            </li>
+                            <li class="steps-segment is-active">
+                                <span class="steps-marker">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-paper-plane"></i>
+                                    </span>
+                                </span>
+                                <div class="steps-content">
+                                    <p class="heading">Fiche de validation émise</p>
+                                </div>
+                            </li>
+                            <li class="steps-segment">
+                                <span class="steps-marker">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-signature"></i>
+                                    </span>
+                                </span>
+                                <div class="steps-content">
+                                    <p class="heading">Fiche de validation signée</p>
+                                </div>
+                            </li>
+                            <li class="steps-segment">
+                                <span class="steps-marker ">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-paper-plane"></i>
+                                    </span>
+                                </span>
+                                <div class="steps-content">
+                                    <p class="heading">Convention émise</p>
+                                </div>
+                            </li>
+                            <li class="steps-segment">
+                                <span class="steps-marker">
+                                    <span class="icon">
+                                        <i class="fa fa-check"></i>
+                                    </span>
+                                </span>
+                                <div class="steps-content">
+                                    <p class="heading">Convention signée</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="col-l"
+                class="column is-full-mobile is-one-fifth-tablet is-one-fifth-desktop is-one-fifth-widescreen is-one-fifth-fullhd">
+                <div class="is-flex is-hidden-mobile">
+                    <figure id="align-pp" class="image is-256x256 mx-auto mb-6 ">
+                        <img class="is-rounded" src="{{album.Avatar_album}}" alt="Photo de profil">
+                    </figure>
+                </div>
+
+                <!--Panel de compétences-->
+                <nav class="panel">
+                    <p class="panel-heading">
+                        Compétences
+                    </p>
+                    {% for result in comps %}
+                    {% include 'comp.twig' %}
+                    {% endfor %}
+                </nav>
+                <!--Panel de compétences-->
+            </div>
+
+        </div>
+        <div id="margin-edit-profil" class="buttons">
+            <a href="#" class="button is-link">Se déconnecter</a>
+        </div>
+    </section>
+    <!--Block numero 3-->
+    <!--Footer-->
+    {% include 'footer.twig' %}
+    <!--Footer-->
+</body>
 </body>
 
 </html>
