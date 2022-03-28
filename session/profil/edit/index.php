@@ -11,7 +11,7 @@ if (isset($_POST['sub-img']) && isset($_FILES['img_pp'])) {
 
   $upload->setOrigin("img_pp");
 
-  $result = $upload->uploadFile();
+  $result = $upload->uploadFile('Avatar', $_SESSION['USER_ID']);
 
   switch ($result) {
     case '1':

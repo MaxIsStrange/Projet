@@ -32,57 +32,65 @@
 				<h1 class="title is-1">Créer un profil pour mon entreprise</h1>
 				<div class="columns">
 					<div class="column">
-						<form action="">
+					{# FORM #}
+						<form action="" method="POST" enctype="multipart/form-data">
 							<div class="columns">
 								<div class="column">
 									<h2 class="title is-2">Informations générales</h2>
 									<div class="field">
 										<label class="label">Nom *</label>
 										<div class="control">
-											<input class="input" type="text" placeholder="Ex: CESI Angoulême">
+											<input class="input" type="text" name="name" placeholder="Ex: CESI Angoulême">
 										</div>
 									</div>
 									<div class="field">
 										<label class="label">Slogan</label>
 										<div class="control">
-											<input class="input" type="text" placeholder="Ex: Révélez vos talents !">
+											<input class="input" type="text" name="slogan" placeholder="Ex: Révélez vos talents !">
 										</div>
 									</div>
 									<div class="field">
 										<label class="label">Description de l'entreprise *</label>
-										<textarea class="textarea" placeholder="Lorem ipsum, dolor..." rows="10"></textarea>
+										<textarea class="textarea" name="desc" placeholder="Lorem ipsum, dolor..." rows="7"></textarea>
 									</div>
+									<div class="field">
+										<label class="label">Nombre de pilote qui font confiance à cette entreprise *</label>
+										<div class="control">
+											<input class="input" type="number" name="nbr_conf">
+										</div>
+									</div>
+									
 								</div>
 								<div class="column">
 									<h2 class="title is-2">Autres Informations</h2>
 									<div class="field">
 										<label class="label">Effectif</label>
 										<div class="control">
-											<input class="input" type="text" placeholder="Ex: 32">
+											<input class="input" name="nbr" type="text" placeholder="Ex: 32">
 										</div>
 									</div>
 									<div class="field">
 										<label class="label">Mail *</label>
 										<div class="control">
-											<input class="input" type="text" placeholder="Ex: rh@example.com">
+											<input class="input" name="mail" type="text" placeholder="Ex: rh@example.com">
 										</div>
 									</div>
 									<div class="field">
 										<label class="label">Numero de téléphone *</label>
 										<div class="control">
-											<input class="input" type="text" placeholder="Ex: 0102030405">
+											<input class="input" name="tel" type="text" placeholder="Ex: 0102030405">
 										</div>
 									</div>
 									<div class="field">
 										<label class="label">Site web</label>
 										<div class="control">
-											<input class="input" type="text" placeholder="Ex: www.hsbay.space">
+											<input class="input" name="web" type="text" placeholder="Ex: www.hsbay.space">
 										</div>
 									</div>
 									<div class="field">
 										<label class="label">Secteur d'activité</label>
 										<div class="control">
-											<input class="input" type="text" placeholder="Ex: Developpement de logiciel">
+											<input class="input" name="sect" type="text" placeholder="Ex: Developpement de logiciel">
 										</div>
 									</div>
 									<div class="columns">
@@ -91,7 +99,7 @@
 												<label class="label">Bannière de l'entreprise *</label>
 												<div class="file">
 													<label class="file-label">
-														<input class="file-input" type="file" name="resume">
+														<input class="file-input" type="file" name="ban_ent" accept=".png, .jpg, .jpeg">
 														<span class="file-cta">
 															<span class="file-icon">
 																<i class="fas fa-upload"></i>
@@ -109,7 +117,7 @@
 												<label class="label">Logo *</label>
 												<div class="file">
 													<label class="file-label">
-														<input class="file-input" type="file" name="resume">
+														<input class="file-input" type="file" name="logo_ent" accept=".png, .jpg, .jpeg">
 														<span class="file-cta">
 															<span class="file-icon">
 																<i class="fas fa-upload"></i>
@@ -130,7 +138,7 @@
 									<div class="container">
 										<div>
 											<label class="checkbox">
-												<input type="checkbox">
+												<input type="checkbox" name="verif" value="chk">
 												J'accepte les
 												<a href="#">conditions générales d'utilisations</a>
 												de
@@ -142,9 +150,10 @@
 								</div>
 							</div>
 							<div class="field is-grouped is-grouped-right">
-								<button class="button is-link">Créer mon profil</button>
+								<button name="submit" class="button is-link">Créer mon profil</button>
 							</div>
 						</form>
+						{# !FORM #}
 					</div>
 				</div>
 			</div>
