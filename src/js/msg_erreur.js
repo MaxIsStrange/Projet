@@ -1,2 +1,9 @@
-bulmaToast.toast({ message: 'Hello There' })
-bulmaToast.toast({ message: 'General Kenobi', type: 'is-danger' })
+const erreur= 'fsgrdthfjhj';
+
+bulmaToast.toast({
+    type: 'is-danger',
+    message: erreur,
+    position: 'bottom-center',
+    closeOnClick: true,
+    pauseOnHover: true,
+})
