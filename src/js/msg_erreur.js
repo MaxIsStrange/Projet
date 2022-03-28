@@ -7,5 +7,4 @@ bulmaToast.toast({
     duration: 10000,
     dismissible: true,
     pauseOnHover: true,
-    extraClasses:'message',
 })
