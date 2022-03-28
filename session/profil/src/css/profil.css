@@ -1,4 +1,4 @@
-@media screen and (min-width: 1216px) {
+@media screen and (min-width: 1215px) {
     #col-l {
         order: 1;
     }
@@ -7,8 +7,6 @@
         order: 2;
     }
 }
-
-
 
 
 .has-display-none {
