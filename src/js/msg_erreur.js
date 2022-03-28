@@ -1,3 +1,4 @@
+import { toast } from 'bulma-toast'
 toast({
     message: 'Hello There',
     type: 'is-success',
