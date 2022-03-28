@@ -341,7 +341,6 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         return $result;
     }
 
-<<<<<<< Updated upstream
     function chkMaxIDEnt()
     {
         $this->conn->setQuery('SELECT ID_ent FROM Entreprise ORDER BY ID_ent DESC limit 1');
@@ -364,8 +363,6 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
 
     
   
-=======
->>>>>>> Stashed changes
     public function getComp($mail)
     {
         $id = $this->getUserID($mail);
