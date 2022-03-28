@@ -1,181 +1,185 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-	<head>
-		<!-- Meta données -->
-		<meta charset="UTF-8"/>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>Page entreprise - StageTracker</title>
-		<meta
-		name="description" content="Bonjour et bienvenue sur StageTracker ! Ce site vous permettra à toi et ton pilote de pouvoir suivre et proposer des stages plus facilement ! Ce site a été créé dans le cadre de la réalisation du Projet 4. Ce fut l'un des plus gros projets de l'année et nous vous présentons fièrement le rendu ici présent !"/>
+<head>
+	<!-- Meta données -->
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Page entreprise - StageTracker</title>
+	<meta name="description"
+		content="Bonjour et bienvenue sur StageTracker ! Ce site vous permettra à toi et ton pilote de pouvoir suivre et proposer des stages plus facilement ! Ce site a été créé dans le cadre de la réalisation du Projet 4. Ce fut l'un des plus gros projets de l'année et nous vous présentons fièrement le rendu ici présent !" />
 
-		<!-- Framework Bulma (custom) -->
-		<link
-		rel="stylesheet" href="https://www.hsbay.space/cesi/stagetracker/res/bulma/css/mystyles.css"/>
-		<!-- Font awesome (icon) -->
-		<script src="https://kit.fontawesome.com/d2fdcc8c83.js" crossorigin="anonymous"></script>
-		<!-- Extention Bulma-divider -->
-		<link
-		rel="stylesheet" href="https://hsbay.space/cesi/stagetracker/res/@creativebulma/bulma-divider/dist/bulma-divider.min.css"/>
-		<!-- Star Rating -->
-		<link
-		rel="stylesheet" type="text/css" href="https://www.hsbay.space/cesi/stagetracker/res/starability-master/starability-minified/starability-all.min.css"/>
-		<!-- Navbar -->
-		<script defer src="https://hsbay.space/cesi/stagetracker/src/js/navbar.js"></script>
-		<!-- Mes fichiers -->
-	</head>
-
-
-	<body>
-
-		<div class="hero is-medium" style="background: url({{result.Banniere_album}}); background-position:center center; background-size:cover; height: 15rem;">
-			<div class="hero-content"></div>
-		</div>
-
-		<div class="hero is-light">
-			<div class="hero-body">
-				<p class="is-size-5">
-					<article class="media">
-						<figure class="media-left">
-							<p class="image is-64x64 is-rounded">
-								<img src="https://bulma.io/images/placeholders/128x128.png" alt="Logo entreprise">
-							</p>
-						</figure>
-						<div class="media-content">
-							<div class="content">
-								<strong>{{result.Nom_ent}}</strong>
-								<p class="starability-result" data-rating="{{result.Note_ent}}"></p>
-							</div>
-						</div>
-					</article>
-				</p>
-			</div>
-		</div>
-		<div class="columns">
-			<div class="column">
-				<div class="decription-ent">
-					<h2 class="title is-2">
-						À propos de l'entreprise
-					</h2>
-					<div class="content">
-						<p>{{result.Desc_ent}}</p>
-					</div>
-				</div>
-				<div class="info-ent">
-					<h2 class="title is-2">
-						Informations complémentaires
-					</h2>
-					<div class="content">
-						<ul>
-							<li>Taille:
-								{{result.Taille_ent}}</li>
-							<li>Secteur:
-								{{result.Sect_ent}}</li>
-							<li>Nombre d'offre(s) en cours:
-								{{result.Nb_stage_ent}}</li>
-							<li>{{result.Nbr_conf_ent}}
-								de nos pilotes recommande cette entreprise</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="column is-one-third">
-				<div class="contact-ent">
-					<div class="block">
-						<h2 class="title is-2">
-							Nous contacter
-						</h2>
-						<div class="content">
-							<h3>Adresse postale</h3>
-							<p>{{result.Comp_adr}}</p>
-							<p>{{result.Num_adr}}
-								{{result.Rue_adr}}</p>
-							<p>{{result.CP_adr}}
-								{{result.Ville_adr}}</p>
-						</div>
-						<div class="content">
-							<h3>Autre</h3>
-							<ul>
-								<li>Mail:
-									{{result.Mail_ent}}</li>
-								<li>Site web:
-									{{result.Web_ent}}</li>
-							</ul>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
+	<!-- Framework Bulma (custom) -->
+	<link rel="stylesheet" href="https://www.hsbay.space/cesi/stagetracker/res/bulma/css/mystyles.css" />
+	<!-- Font awesome (icon) -->
+	<script src="https://kit.fontawesome.com/d2fdcc8c83.js" crossorigin="anonymous"></script>
+	<!-- Extention Bulma-divider -->
+	<link rel="stylesheet"
+		href="https://hsbay.space/cesi/stagetracker/res/@creativebulma/bulma-divider/dist/bulma-divider.min.css" />
+	<!-- Star Rating -->
+	<link rel="stylesheet" type="text/css"
+		href="https://www.hsbay.space/cesi/stagetracker/res/starability-master/starability-minified/starability-all.min.css" />
+	<!-- Navbar -->
+	<script defer src="https://hsbay.space/cesi/stagetracker/src/js/navbar.js"></script>
+	<!-- Mes fichiers -->
+</head>
 
 
-		<section class="section">
-			<div class="emplois">
-				<div
-					class="columns is-multiline"><!-- Twig des offres de stage de l'entreprise -->
-				</div>
-			</div>
-		</section>
-		<section class="section">
-			<h1 class="title is-1 has-text-centered">
-				Traque une autre entreprise</h1>
-			<form action="">
-				<div class="columns is is-centered">
-					<div class="column is-one-third">
-						<div class="field is-grouped">
-							<p class="control is-expanded">
-								<input class="input" type="text" placeholder="Rechercher une entreprise">
-							</p>
-							<p class="control">
-								<a class="button is-link">
-									Search
-								</a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</form>
-		</section>
-		<section class="section elevaluation">
-			<h1 class="title">
-				N'hésite pas à laisser une apréciation sur cette entreprise !!!
-			</h1>
+<body>
+	{% include 'navbar.twig' %}
+
+	<div class="hero is-medium"
+		style="background: url({{result.Banniere_album}}); background-position:center center; background-size:cover; height: 15rem;">
+		<div class="hero-content"></div>
+	</div>
+
+	<div class="hero is-light">
+		<div class="hero-body">
+			<p class="is-size-5">
 			<article class="media">
 				<figure class="media-left">
-					<p class="image is-64x64">
-						<img src="https://bulma.io/images/placeholders/128x128.png">
+					<p class="image is-64x64 is-rounded">
+						<img src="https://bulma.io/images/placeholders/128x128.png" alt="Logo entreprise">
 					</p>
 				</figure>
 				<div class="media-content">
-					<form action="">
-						<fieldset class="starability-basic">
-							<legend>{{result.Nom_ent}}</legend>
-							<input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating."/>
-
-							<input type="radio" id="rate1" name="rating" value="1"/>
-							<label for="rate1">1 star.</label>
-
-							<input type="radio" id="rate2" name="rating" value="2"/>
-							<label for="rate2">2 stars.</label>
-
-							<input type="radio" id="rate3" name="rating" value="3"/>
-							<label for="rate3">3 stars.</label>
-
-							<input type="radio" id="rate4" name="rating" value="4"/>
-							<label for="rate4">4 stars.</label>
-
-							<input type="radio" id="rate5" name="rating" value="5"/>
-							<label for="rate5">5 stars.</label>
-
-							<span class="starability-focus-ring"></span>
-						</fieldset>
-					</form>
+					<div class="content">
+						<strong>{{result.Nom_ent}}</strong>
+						<p class="starability-result" data-rating="{{result.Note_ent}}"></p>
+					</div>
+				</div>
+			</article>
+			</p>
+		</div>
+	</div>
+	<div class="columns">
+		<div class="column">
+			<div class="decription-ent">
+				<h2 class="title is-2">
+					À propos de l'entreprise
+				</h2>
+				<div class="content">
+					<p>{{result.Desc_ent}}</p>
+				</div>
+			</div>
+			<div class="info-ent">
+				<h2 class="title is-2">
+					Informations complémentaires
+				</h2>
+				<div class="content">
+					<ul>
+						<li>Taille:
+							{{result.Taille_ent}}</li>
+						<li>Secteur:
+							{{result.Sect_ent}}</li>
+						<li>Nombre d'offre(s) en cours:
+							{{result.Nb_stage_ent}}</li>
+						<li>{{result.Nbr_conf_ent}}
+							de nos pilotes recommande cette entreprise</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="column is-one-third">
+			<div class="contact-ent">
+				<div class="block">
+					<h2 class="title is-2">
+						Nous contacter
+					</h2>
+					<div class="content">
+						<h3>Adresse postale</h3>
+						<p>{{result.Comp_adr}}</p>
+						<p>{{result.Num_adr}}
+							{{result.Rue_adr}}</p>
+						<p>{{result.CP_adr}}
+							{{result.Ville_adr}}</p>
+					</div>
+					<div class="content">
+						<h3>Autre</h3>
+						<ul>
+							<li>Mail:
+								{{result.Mail_ent}}</li>
+							<li>Site web:
+								{{result.Web_ent}}</li>
+						</ul>
+					</div>
 				</div>
 
-			</article>
+			</div>
+		</div>
+	</div>
 
-		</section>
-	</body>
+
+	<section class="section">
+		<div class="emplois">
+			<div class="columns is-multiline">
+				<!-- Twig des offres de stage de l'entreprise -->
+			</div>
+		</div>
+	</section>
+	<section class="section">
+		<h1 class="title is-1 has-text-centered">
+			Traque une autre entreprise</h1>
+		<form action="">
+			<div class="columns is is-centered">
+				<div class="column is-one-third">
+					<div class="field is-grouped">
+						<p class="control is-expanded">
+							<input class="input" type="text" placeholder="Rechercher une entreprise">
+						</p>
+						<p class="control">
+							<input type="submit" value="Rechercher" class="button is-link">
+						</p>
+					</div>
+				</div>
+			</div>
+		</form>
+	</section>
+	<section class="section elevaluation">
+		<h1 class="title">
+			N'hésite pas à laisser une apréciation sur cette entreprise !!!
+		</h1>
+		<article class="media">
+			<figure class="media-left">
+				<p class="image is-64x64">
+					<img src="https://bulma.io/images/placeholders/128x128.png">
+				</p>
+			</figure>
+			<div class="media-content">
+				<form action="" class="is-flex" style="padding-top: 1rem; padding-bottom: 1rem;">
+					<fieldset class="starability-basic">
+						<legend>{{result.Nom_ent}}</legend>
+						<input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked
+							aria-label="No rating." />
+
+						<input type="radio" id="rate1" name="rating" value="1" />
+						<label for="rate1">1 star.</label>
+
+						<input type="radio" id="rate2" name="rating" value="2" />
+						<label for="rate2">2 stars.</label>
+
+						<input type="radio" id="rate3" name="rating" value="3" />
+						<label for="rate3">3 stars.</label>
+
+						<input type="radio" id="rate4" name="rating" value="4" />
+						<label for="rate4">4 stars.</label>
+
+						<input type="radio" id="rate5" name="rating" value="5" />
+						<label for="rate5">5 stars.</label>
+
+						<span class="starability-focus-ring"></span>
+					</fieldset>
+					<input type="submit" name="" id="" value="Evaluer" class="button is-link" style="margin-left: 3rem;">
+				</form>
+			</div>
+
+		</article>
+
+	</section>
+	<!--Footer-->
+	{% include 'footer.twig' %}
+	<!--Footer-->
+</body>
 
 </html>
