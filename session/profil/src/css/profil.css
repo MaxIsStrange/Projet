@@ -1,11 +1,7 @@
-[data-example] {
+.has-display-none {
     display: none;
+    visibility: hidden;
 }
-
-[data-example]:target {
-    display: block;
-}
-
 #margin-name {
     margin-left: 0;
     margin-right: auto;

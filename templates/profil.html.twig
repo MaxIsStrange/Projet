@@ -25,7 +25,7 @@
     <!-- Navbar -->
     <script defer src="https://hsbay.space/cesi/stagetracker/src/js/navbar.js"></script>
     <!-- Mes fichiers -->
-    <link rel="stylesheet" href="https://hsbay.space/cesi/stagetracker/session/profil/src/css/profil.css"/>
+    <link rel="stylesheet" href="https://hsbay.space/cesi/stagetracker/session/profil/src/css/profil.css" />
     <script defer src="https://hsbay.space/cesi/stagetracker/session/profil/src/js/profil.js"></script>
 </head>
 
@@ -56,136 +56,139 @@
                 <h2 class="subtitle">{{grp.Type_promo}}
                     -
                     {{grp.Annee_promo}}</h2>
-
-                <div class="tabs">
-                    <ul>
-                        <li data-tab="description" class="is-active"><a href="#description">Description</a></li>
-                        <li data-tab="fichiers" class=""><a href="#fichiers">Mes fichiers</a></li>
-                        <li data-tab="avancement" class=""><a href="#avancement">Mon avancement</a></li>
-                    </ul>
-                </div>
-
-                <div class="box" id="description" data-example>
-                    <h1 class="title is-4 mb-2">Description</h1>
-                    <div class="content">
-                        <p>{{infos.Desc_user}}</p>
+                <div class="js-tabs-container">
+                    <div class="tabs">
+                        <ul>
+                            <li data-tab="description" class="is-active"><a>Description</a></li>
+                            <li data-tab="fichiers"><a>Mes fichiers</a></li>
+                            <li data-tab="avancement"><a>Mon avancement</a></li>
+                        </ul>
                     </div>
-                </div>
 
-                <div class="box" id="fichiers" data-example>
-                    <h1 class="title is-4 mb-2">Mes fichiers</h1>
-
-                    <div class="list has-hoverable-list-items has-overflow-ellipsis">
-                        <div class="list-item">
-                            <div class="list-item-image">
-                                <span class="icon is-large has-text-primary">
-                                    <i class="fa-solid fa-2x fa-file-pdf"></i>
-                                </span>
-                            </div>
-
-                            <div class="list-item-content">
-                                <div class="list-item-title is-flex is-justify-content-space-between">
-                                    <span><a href="{{album.CV_album}}" target="_blank">Cucruculum vitae (CV)</a></span>
-                                </div>
-                                <div class="list-item-description">
-                                    {{album.CV_album}}
-                                </div>
-                            </div>
-
-                            <div class="list-item-controls">
-                                <div class="buttons">
-                                    <button class="button">
-                                        <a href="{{album.CV_album}}" target="_blank">
-                                            <span class="icon">
-                                                <i class="fa-solid fa-magnifying-glass-arrow-right"></i>
-                                            </span>
-                                        </a>
-                                    </button>
-
-                                    <button class="button">
-                                        <span class="icon">
-                                            <i class="fas fa-trash"></i>
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-item">
-                            <div class="list-item-image">
-                                <span class="icon is-large has-text-primary">
-                                    <i class="fa-solid fa-2x fa-file-pdf"></i>
-                                </span>
-                            </div>
-
-                            <div class="list-item-content">
-                                <div class="list-item-title is-flex is-justify-content-space-between">
-                                    <span><a href="{{album.LM_album}}" target="_blank">Lettre de motivation</a></span>
-                                </div>
-                                <div class="list-item-description">
-                                    {{album.LM_album}}
-                                </div>
-                            </div>
-
-                            <div class="list-item-controls">
-                                <div class="buttons">
-                                    <button class="button">
-                                        <a href="{{album.LM_album}}" target="_blank">
-                                            <span class="icon">
-                                                <i class="fa-solid fa-magnifying-glass-arrow-right"></i>
-                                            </span>
-                                        </a>
-                                    </button>
-
-                                    <button class="button">
-                                        <span class="icon">
-                                            <i class="fas fa-trash"></i>
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="list-item">
-                            <div class="list-item-image">
-                                <span class="icon is-large has-text-primary">
-                                    <i class="fa-solid fa-2x fa-file-pdf"></i>
-                                </span>
-                            </div>
-
-                            <div class="list-item-content">
-                                <div class="list-item-title is-flex is-justify-content-space-between">
-                                    <span><a href="{{album.FV_album}}" target="_blank">Fiche de validation</a></span>
-                                </div>
-                                <div class="list-item-description">
-                                    {{album.FV_album}}
-                                </div>
-                            </div>
-
-                            <div class="list-item-controls">
-                                <div class="buttons">
-                                    <button class="button">
-                                        <a href="{{album.FV_album}}" target="_blank">
-                                            <span class="icon">
-                                                <i class="fa-solid fa-magnifying-glass-arrow-right"></i>
-                                            </span>
-                                        </a>
-                                    </button>
-
-                                    <button class="button">
-                                        <span class="icon">
-                                            <i class="fas fa-trash"></i>
-                                        </span>
-                                    </button>
-                                </div>
-                            </div>
+                    <div class="js-tab-content box" id="description">
+                        <h1 class="title is-4 mb-2">Description</h1>
+                        <div class="content">
+                            <p>{{infos.Desc_user}}</p>
                         </div>
                     </div>
 
-                </div>
-                <div class="box" id="avancement" data-example>
-                    <h1 class="title is-4 mb-2">Mon avancement</h1>
-                    <section class="section">
-                        <ul class="steps is-narrow is-medium is-centered has-content-centered">
-                            <li class="steps-segment">
+                    <div class="has-display-none js-tab-content box" id="fichiers">
+                        <h1 class="title is-4 mb-2">Mes fichiers</h1>
+
+                        <div class="list has-hoverable-list-items has-overflow-ellipsis">
+                            <div class="list-item">
+                                <div class="list-item-image">
+                                    <span class="icon is-large has-text-primary">
+                                        <i class="fa-solid fa-2x fa-file-pdf"></i>
+                                    </span>
+                                </div>
+
+                                <div class="list-item-content">
+                                    <div class="list-item-title is-flex is-justify-content-space-between">
+                                        <span><a href="{{album.CV_album}}" target="_blank">Cucruculum vitae
+                                                (CV)</a></span>
+                                    </div>
+                                    <div class="list-item-description">
+                                        {{album.CV_album}}
+                                    </div>
+                                </div>
+
+                                <div class="list-item-controls">
+                                    <div class="buttons">
+                                        <button class="button">
+                                            <a href="{{album.CV_album}}" target="_blank">
+                                                <span class="icon">
+                                                    <i class="fa-solid fa-magnifying-glass-arrow-right"></i>
+                                                </span>
+                                            </a>
+                                        </button>
+
+                                        <button class="button">
+                                            <span class="icon">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-item">
+                                <div class="list-item-image">
+                                    <span class="icon is-large has-text-primary">
+                                        <i class="fa-solid fa-2x fa-file-pdf"></i>
+                                    </span>
+                                </div>
+
+                                <div class="list-item-content">
+                                    <div class="list-item-title is-flex is-justify-content-space-between">
+                                        <span><a href="{{album.LM_album}}" target="_blank">Lettre de
+                                                motivation</a></span>
+                                    </div>
+                                    <div class="list-item-description">
+                                        {{album.LM_album}}
+                                    </div>
+                                </div>
+
+                                <div class="list-item-controls">
+                                    <div class="buttons">
+                                        <button class="button">
+                                            <a href="{{album.LM_album}}" target="_blank">
+                                                <span class="icon">
+                                                    <i class="fa-solid fa-magnifying-glass-arrow-right"></i>
+                                                </span>
+                                            </a>
+                                        </button>
+
+                                        <button class="button">
+                                            <span class="icon">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-item">
+                                <div class="list-item-image">
+                                    <span class="icon is-large has-text-primary">
+                                        <i class="fa-solid fa-2x fa-file-pdf"></i>
+                                    </span>
+                                </div>
+
+                                <div class="list-item-content">
+                                    <div class="list-item-title is-flex is-justify-content-space-between">
+                                        <span><a href="{{album.FV_album}}" target="_blank">Fiche de
+                                                validation</a></span>
+                                    </div>
+                                    <div class="list-item-description">
+                                        {{album.FV_album}}
+                                    </div>
+                                </div>
+
+                                <div class="list-item-controls">
+                                    <div class="buttons">
+                                        <button class="button">
+                                            <a href="{{album.FV_album}}" target="_blank">
+                                                <span class="icon">
+                                                    <i class="fa-solid fa-magnifying-glass-arrow-right"></i>
+                                                </span>
+                                            </a>
+                                        </button>
+
+                                        <button class="button">
+                                            <span class="icon">
+                                                <i class="fas fa-trash"></i>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="has-display-none js-tab-content box" id="avancement">
+                        <h1 class="title is-4 mb-2">Mon avancement</h1>
+                        <section class="section">
+                            <ul class="steps is-narrow is-medium is-centered has-content-centered">
+                                <li class="steps-segment">
                                     <span class="steps-marker">
                                         <span class="icon">
                                             <i class="fa-solid fa-play"></i>
@@ -194,59 +197,60 @@
                                     <div class="steps-content">
                                         <p class="heading">Postulation</p>
                                     </div>
-                            </li>
-                            <li class="steps-segment">
-                                <span class="steps-marker">
-                                    <span class="icon">
-                                        <i class="fa-solid fa-reply"></i>
+                                </li>
+                                <li class="steps-segment">
+                                    <span class="steps-marker">
+                                        <span class="icon">
+                                            <i class="fa-solid fa-reply"></i>
+                                        </span>
                                     </span>
-                                </span>
-                                <div class="steps-content">
-                                    <p class="heading">Réponse</p>
-                                </div>
-                            </li>
-                            <li class="steps-segment is-active">
-                                <span class="steps-marker">
-                                    <span class="icon">
-                                        <i class="fa-solid fa-paper-plane"></i>
+                                    <div class="steps-content">
+                                        <p class="heading">Réponse</p>
+                                    </div>
+                                </li>
+                                <li class="steps-segment is-active">
+                                    <span class="steps-marker">
+                                        <span class="icon">
+                                            <i class="fa-solid fa-paper-plane"></i>
+                                        </span>
                                     </span>
-                                </span>
-                                <div class="steps-content">
-                                    <p class="heading">Fiche de validation émise</p>
-                                </div>
-                            </li>
-                            <li class="steps-segment">
-                                <span class="steps-marker">
-                                    <span class="icon">
-                                        <i class="fa-solid fa-signature"></i>
+                                    <div class="steps-content">
+                                        <p class="heading">Fiche de validation émise</p>
+                                    </div>
+                                </li>
+                                <li class="steps-segment">
+                                    <span class="steps-marker">
+                                        <span class="icon">
+                                            <i class="fa-solid fa-signature"></i>
+                                        </span>
                                     </span>
-                                </span>
-                                <div class="steps-content">
-                                    <p class="heading">Fiche de validation signée</p>
-                                </div>
-                            </li>
-                            <li class="steps-segment">
-                                <span class="steps-marker ">
-                                    <span class="icon">
-                                        <i class="fa-solid fa-paper-plane"></i>
+                                    <div class="steps-content">
+                                        <p class="heading">Fiche de validation signée</p>
+                                    </div>
+                                </li>
+                                <li class="steps-segment">
+                                    <span class="steps-marker ">
+                                        <span class="icon">
+                                            <i class="fa-solid fa-paper-plane"></i>
+                                        </span>
                                     </span>
-                                </span>
-                                <div class="steps-content">
-                                    <p class="heading">Convention émise</p>
-                                </div>
-                            </li>
-                            <li class="steps-segment">
-                                <span class="steps-marker">
-                                    <span class="icon">
-                                        <i class="fa fa-check"></i>
+                                    <div class="steps-content">
+                                        <p class="heading">Convention émise</p>
+                                    </div>
+                                </li>
+                                <li class="steps-segment">
+                                    <span class="steps-marker">
+                                        <span class="icon">
+                                            <i class="fa fa-check"></i>
+                                        </span>
                                     </span>
-                                </span>
-                                <div class="steps-content">
-                                    <p class="heading">Convention signée</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </section>
+                                    <div class="steps-content">
+                                        <p class="heading">Convention signée</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
                 </div>
             </div>
             <div id="col-l"
@@ -278,6 +282,7 @@
     <!--Footer-->
     {% include 'footer.twig' %}
     <!--Footer-->
+</body>
 </body>
 
 </html>
