@@ -45,9 +45,9 @@ class ConnectBDD
         //Préparation de la requète
         $prep = $this->bdd->prepare($this->sql);
 
-        // echo "<pre>-----";
-        // print_r($input);
-        // echo "-----</pre>";
+        echo "<pre>-----";
+        print_r($input);
+        echo "-----</pre>";
 
         //Execution de la requete préparée avec les données attendues
         $prep->execute($input);
@@ -368,19 +368,19 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
 >>>>>>> Stashed changes
     public function getComp($mail)
     {
-        $id = self::getUserID($mail);
+        $id = $this->getUserID($mail);
 
-        $this->conn->setQuery("SELECT Nom_comp,LVL_comp,IsLang_comp FROM Competence INNER JOIN Sait_faire ON Competence.ID_comp=Sait_faire.ID_comp INNER JOIN User ON Sait_faire.ID_user=User.ID_user WHERE User.ID_User= :id");
+        $this->conn->setQuery("SELECT Nom_comp, LVL_comp, IsLang_comp FROM Competence INNER JOIN Sait_faire ON Competence.ID_comp = Sait_faire.ID_comp INNER JOIN User ON Sait_faire.ID_user = User.ID_user WHERE User.ID_User= :id_u");
 
-        $this->conn->execQuery(['id ' => $id], 1);
+        $this->conn->execQuery(['id_u' => $id], 1);
 
         $result = $this->conn->getResult();
 
-         //echo "<br><br><pre>";
-         //print_r($result);
-         //echo "</pre><br>";
+        //echo "<br><br><pre>";
+        //print_r($result);
+        //echo "</pre><br>";
 
-        return $result;;
+        return $result;
     }
 
     public function getNbOffres()
@@ -392,11 +392,11 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
 
         $result = $this->conn->getResult();
 
-         //echo "<br><br><pre>";
-         //print_r($result);
-         //echo "</pre><br>";
+        //echo "<br><br><pre>";
+        //print_r($result);
+        //echo "</pre><br>";
 
-        return $result;;
+        return $result;
     }
 
     public function getNbStages()
@@ -408,11 +408,11 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
 
         $result = $this->conn->getResult();
 
-         //echo "<br><br><pre>";
-         //print_r($result);
-         //echo "</pre><br>";
+        //echo "<br><br><pre>";
+        //print_r($result);
+        //echo "</pre><br>";
 
-        return $result;;
+        return $result;
     }
 
     public function getNbInsc()
