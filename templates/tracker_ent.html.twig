@@ -30,41 +30,40 @@
     <section class="section">
         <!-- Search bar -->
         <h1 class="title is-1 has-text-centered">
-            Traque les entreprises disponibles sur StageTracker</h1>
+            Traque les entreprises présentent sur StageTracker</h1>
         <section class="section">
             <form action="">
-                <div class="columns">
-                    <div class="column">
-                        <div class="is-flex">
-                            <div id="search-bar" class="field has-addons">
-                                <p class="control">
-                                    <input class="input" type="text" placeholder="Rechercher une entreprise">
-                                </p>
-                                <input type="submit" value="Rechercher" class="button is-link">
-                            </div>
-                        </div>
+
+                <div class="field is-grouped">
+                    <div class="control is-expanded">
+                        <input class="input" name="main-rb" type="text" placeholder="Rechercher une entreprise">
                     </div>
-                    <div class="column">
-
-                        <div class="is-flex">
-                            <div class="select">
-                                <select>
-                                    <option>Choisit ta promo</option>
-                                    <option>{{result.promo}}</option>
-                                </select>
-                            </div>
-                            <div class="select">
-                                <select>
-                                    <option>Select dropdown</option>
-                                    <option>With options</option>
-                                </select>
-                            </div>
-                        </div>
-
+                    <div class="control">
+                        <input type="submit" value="Rechercher" name="submit" class="button is-link">
                     </div>
                 </div>
-            </form>
 
+                <div>
+                    <h1 class="title is-4">
+                        Fitres
+                    </h1>
+                    <div class="select block">
+                        <select>
+                            <option>Choisit ta filière</option>
+                            <option>{{result.promo}}</option>
+                        </select>
+                    </div>
+
+                    <div class="select block">
+                        <select>
+                            <option>Choisit ...</option>
+                            <option>With options</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="is-divider"></div>
+
+            </form>
         </section>
         <h2 class="subtitle has-text-centered">{{msg}}</h2>
         <div class="columns is-multiline">

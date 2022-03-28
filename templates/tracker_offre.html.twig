@@ -33,28 +33,35 @@
 			Traque les dernières offres de stage</h1>
 		<section class="section">
 			<form action="">
-				<div class="is-flex">
-					<div class="is-flex">
-						<div id="search-bar" class="field is-grouped">
-							<input class="input" type="text" placeholder="Rechercher une offre">
-							<input type="submit" value="Rechercher" class="button is-link">
-						</div>
+
+				<div class="field is-grouped">
+					<div class="control is-expanded">
+						<input class="input" name="main-rb" type="text" placeholder="Rechercher une offre">
 					</div>
-					<div class="is-flex">
-						<div class="select">
-							<select>
-								<option>Choisit ta promo</option>
-								<option>{{result.promo}}</option>
-							</select>
-						</div>
-						<div class="select">
-							<select>
-								<option>Select dropdown</option>
-								<option>With options</option>
-							</select>
-						</div>
+					<div class="control">
+						<input type="submit" value="Rechercher" name="submit" class="button is-link">
 					</div>
 				</div>
+
+				<div>
+					<h1 class="title is-4">
+						Fitres
+					</h1>
+					<div class="select block">
+						<select>
+							<option>Choisit ta filière</option>
+							<option>{{result.promo}}</option>
+						</select>
+					</div>
+
+					<div class="select block">
+						<select>
+							<option>Choisit ...</option>
+							<option>With options</option>
+						</select>
+					</div>
+				</div>
+				<div class="is-divider"></div>
 
 			</form>
 		</section>
