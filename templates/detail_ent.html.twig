@@ -33,9 +33,8 @@
 		style="background: url({{result.Banniere_album}}); background-position:center center; background-size:cover; height: 15rem;">
 		<div class="hero-content"></div>
 	</div>
-
 	<div class="hero is-light">
-		<div class="hero-body">
+		<div class="hero-body is-flex">
 			<p class="is-size-5">
 			<article class="media">
 				<figure class="media-left">
@@ -51,64 +50,74 @@
 				</div>
 			</article>
 			</p>
+			<div class="buttons" style="margin-left:auto;margin-right:1rem;">
+				<a href="#" class="button is-link"> Modifer l'entreprise</a>
+				<a href="#" class="button is-link">
+					<span class="icon">
+						<i class="fa-solid fa-trash"></i>
+					</span>
+				</a>
+			</div>
 		</div>
 	</div>
-	<div class="columns">
-		<div class="column">
-			<div class="decription-ent">
-				<h2 class="title is-2">
-					À propos de l'entreprise
-				</h2>
-				<div class="content">
-					<p>{{result.Desc_ent}}</p>
-				</div>
-			</div>
-			<div class="info-ent">
-				<h2 class="title is-2">
-					Informations complémentaires
-				</h2>
-				<div class="content">
-					<ul>
-						<li>Taille:
-							{{result.Taille_ent}}</li>
-						<li>Secteur:
-							{{result.Sect_ent}}</li>
-						<li>Nombre d'offre(s) en cours:
-							{{result.Nb_stage_ent}}</li>
-						<li>{{result.Nbr_conf_ent}}
-							de nos pilotes recommande cette entreprise</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="column is-one-third">
-			<div class="contact-ent">
-				<div class="block">
+	<section class="section">
+		<div class="columns">
+			<div class="column">
+				<div class="decription-ent">
 					<h2 class="title is-2">
-						Nous contacter
+						À propos de l'entreprise
 					</h2>
 					<div class="content">
-						<h3>Adresse postale</h3>
-						<p>{{result.Comp_adr}}</p>
-						<p>{{result.Num_adr}}
-							{{result.Rue_adr}}</p>
-						<p>{{result.CP_adr}}
-							{{result.Ville_adr}}</p>
+						<p>{{result.Desc_ent}}</p>
 					</div>
+				</div>
+				<div class="info-ent">
+					<h2 class="title is-2">
+						Informations complémentaires
+					</h2>
 					<div class="content">
-						<h3>Autre</h3>
 						<ul>
-							<li>Mail:
-								{{result.Mail_ent}}</li>
-							<li>Site web:
-								{{result.Web_ent}}</li>
+							<li>Taille:
+								{{result.Taille_ent}}</li>
+							<li>Secteur:
+								{{result.Sect_ent}}</li>
+							<li>Nombre d'offre(s) en cours:
+								{{result.Nb_stage_ent}}</li>
+							<li>{{result.Nbr_conf_ent}}
+								de nos pilotes recommande cette entreprise</li>
 						</ul>
 					</div>
 				</div>
+			</div>
+			<div class="column is-one-third">
+				<div class="contact-ent">
+					<div class="block">
+						<h2 class="title is-2">
+							Nous contacter
+						</h2>
+						<div class="content">
+							<h3>Adresse postale</h3>
+							<p>{{result.Comp_adr}}</p>
+							<p>{{result.Num_adr}}
+								{{result.Rue_adr}}</p>
+							<p>{{result.CP_adr}}
+								{{result.Ville_adr}}</p>
+						</div>
+						<div class="content">
+							<h3>Autre</h3>
+							<ul>
+								<li>Mail:
+									{{result.Mail_ent}}</li>
+								<li>Site web:
+									{{result.Web_ent}}</li>
+							</ul>
+						</div>
+					</div>
 
+				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
 
 	<section class="section">
@@ -170,7 +179,8 @@
 
 						<span class="starability-focus-ring"></span>
 					</fieldset>
-					<input type="submit" name="" id="" value="Evaluer" class="button is-link" style="margin-left: 3rem;">
+					<input type="submit" name="" id="" value="Evaluer" class="button is-link"
+						style="margin-left: 3rem;">
 				</form>
 			</div>
 
