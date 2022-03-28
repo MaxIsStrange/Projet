@@ -4,7 +4,6 @@ include_once "func/func_bdd.php";
 include_once "func/func_search.php";
 include_once "func/func_perm.php";
 
-
 require_once('vendor/autoload.php');
 $loader = new \Twig\Loader\FilesystemLoader('templates');
 $twig = new \Twig\Environment($loader);
