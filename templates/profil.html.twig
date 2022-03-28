@@ -36,12 +36,12 @@
 
     <!--Block numero 3-->
     <section class="section" id="section">
-        <div class="container is-hidden-tablet mt-6">
+        <div class="container is-hidden-desktop mt-6">
             <figure class="image is-128x128">
                 <img class="is-rounded" src="{{album.Avatar_album}}" alt="Photo de profil">
             </figure>
         </div>
-        <div class="columns mt-6">
+        <div class="columns is-multiline mt-6">
             <div id="col-r" class="column ">
 
                 <div class="is-flex">
@@ -88,21 +88,25 @@
                                         <span><a href="{{album.CV_album}}" target="_blank">Cucruculum vitae
                                                 (CV)</a></span>
                                     </div>
-                                    <div class="list-item-description">
+                                    <div class="list-item-description is-clipped">
                                         {{album.CV_album}}
                                     </div>
                                 </div>
 
                                 <div class="list-item-controls">
                                     <div class="buttons">
-                                        <button class="button">
-                                            <a href="{{album.CV_album}}" target="_blank">
+                                        <button class="button is-hidden-mobile">
+                                            <a href="{{album.FV_album}}" target="_blank">
                                                 <span class="icon">
                                                     <i class="fa-solid fa-magnifying-glass-arrow-right"></i>
                                                 </span>
                                             </a>
                                         </button>
-
+                                        <button class="button">
+                                            <span class="icon">
+                                                <i class="fa-solid fa-pencil"></i>
+                                            </span>
+                                        </button>
                                         <button class="button">
                                             <span class="icon">
                                                 <i class="fas fa-trash"></i>
@@ -123,21 +127,25 @@
                                         <span><a href="{{album.LM_album}}" target="_blank">Lettre de
                                                 motivation</a></span>
                                     </div>
-                                    <div class="list-item-description">
+                                    <div class="list-item-description is-clipped">
                                         {{album.LM_album}}
                                     </div>
                                 </div>
 
                                 <div class="list-item-controls">
                                     <div class="buttons">
-                                        <button class="button">
-                                            <a href="{{album.LM_album}}" target="_blank">
+                                        <button class="button is-hidden-mobile">
+                                            <a href="{{album.FV_album}}" target="_blank">
                                                 <span class="icon">
                                                     <i class="fa-solid fa-magnifying-glass-arrow-right"></i>
                                                 </span>
                                             </a>
                                         </button>
-
+                                        <button class="button">
+                                            <span class="icon">
+                                                <i class="fa-solid fa-pencil"></i>
+                                            </span>
+                                        </button>
                                         <button class="button">
                                             <span class="icon">
                                                 <i class="fas fa-trash"></i>
@@ -158,21 +166,25 @@
                                         <span><a href="{{album.FV_album}}" target="_blank">Fiche de
                                                 validation</a></span>
                                     </div>
-                                    <div class="list-item-description">
+                                    <div class="list-item-description is-clipped">
                                         {{album.FV_album}}
                                     </div>
                                 </div>
 
                                 <div class="list-item-controls">
                                     <div class="buttons">
-                                        <button class="button">
+                                        <button class="button is-hidden-mobile">
                                             <a href="{{album.FV_album}}" target="_blank">
                                                 <span class="icon">
                                                     <i class="fa-solid fa-magnifying-glass-arrow-right"></i>
                                                 </span>
                                             </a>
                                         </button>
-
+                                        <button class="button">
+                                            <span class="icon">
+                                                <i class="fa-solid fa-pencil"></i>
+                                            </span>
+                                        </button>
                                         <button class="button">
                                             <span class="icon">
                                                 <i class="fas fa-trash"></i>
@@ -252,8 +264,8 @@
                 </div>
             </div>
             <div id="col-l"
-                class="column is-full-mobile is-one-fifth-tablet is-one-fifth-desktop is-one-fifth-widescreen is-one-fifth-fullhd">
-                <div class="is-flex is-hidden-mobile">
+                class="column is-full-mobile is-full-tablet is-one-fifth-desktop is-one-fifth-widescreen is-one-fifth-fullhd">
+                <div class="is-flex is-hidden-touch">
                     <figure id="align-pp" class="image is-256x256 mx-auto mb-6 ">
                         <img class="is-rounded" src="{{album.Avatar_album}}" alt="Photo de profil">
                     </figure>
@@ -282,7 +294,7 @@
     <!--Footer-->
     {% include 'footer.twig' %}
     <!--Footer-->
-</body> 
+</body>
 </body>
 
 </html>

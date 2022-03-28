@@ -1,7 +1,21 @@
+@media screen and (min-width: 1023px) {
+    #col-l {
+        order: 1;
+    }
+
+    #col-r {
+        order: 2;
+    }
+}
+
+
+
+
 .has-display-none {
     display: none;
     visibility: hidden;
 }
+
 #margin-name {
     margin-left: 0;
     margin-right: auto;
@@ -12,13 +26,7 @@
     margin-right: 0;
 }
 
-#col-l {
-    order: 1;
-}
 
-#col-r {
-    order: 2;
-}
 
 #align-pp {
     margin-right: auto;
