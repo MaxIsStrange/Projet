@@ -4,6 +4,8 @@ bulmaToast.toast({
     type: 'is-danger',
     message: erreur,
     position: 'bottom-center',
-    closeOnClick: true,
+    duration: 10000,
+    dismissible: true,
     pauseOnHover: true,
+    extraClasses:'message',
 })
