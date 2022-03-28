@@ -33,37 +33,29 @@
 			Traque les dernières offres de stage</h1>
 		<section class="section">
 			<form action="">
-				<div class="columns">
-					<div class="column">
-						<div class="is-flex">
-							<div id="search-bar" class="field has-addons">
-								<p class="control">
-									<input class="input" type="text" placeholder="Rechercher une offre">
-								</p>
-
-								<input type="submit" value="Rechercher" class="button is-link">
-							</div>
+				<div class="is-flex">
+					<div class="is-flex">
+						<div id="search-bar" class="field is-grouped">
+							<input class="input" type="text" placeholder="Rechercher une offre">
+							<input type="submit" value="Rechercher" class="button is-link">
 						</div>
 					</div>
-					<div class="column">
-
-						<div class="is-flex">
-							<div class="select">
-								<select>
-									<option>Choisit ta promo</option>
-									<option>{{result.promo}}</option>
-								</select>
-							</div>
-							<div class="select">
-								<select>
-									<option>Select dropdown</option>
-									<option>With options</option>
-								</select>
-							</div>
+					<div class="is-flex">
+						<div class="select">
+							<select>
+								<option>Choisit ta promo</option>
+								<option>{{result.promo}}</option>
+							</select>
 						</div>
-
+						<div class="select">
+							<select>
+								<option>Select dropdown</option>
+								<option>With options</option>
+							</select>
+						</div>
 					</div>
 				</div>
+
 			</form>
 		</section>
 		<h2 class="subtitle has-text-centered">{{msg}}</h2>
