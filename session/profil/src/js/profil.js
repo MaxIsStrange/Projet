@@ -1,5 +1,5 @@
 const Tabs = document.querySelectorAll("[data-tab]");
-const FirstLocation = "section";
+const FirstLocation = "description";
 
 window.location.hash = FirstLocation;
 
