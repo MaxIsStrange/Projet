@@ -1,74 +1,76 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion - StageTracker</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-divider@0.2.0/dist/css/bulma-divider.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
-    <script defer src="https://www.jsdelivr.com/package/npm/@creativebulma/bulma-divider"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/bulma-toast@2.4.1/dist/bulma-toast.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.0.0/animate.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/bulma-toast@2.4.1,npm/@vizuaalog/bulmajs@0.12.1">
-    <link rel="stylesheet" href="src/css/connection.css">
-    <script defer src="src/js/connection.js"></script>
-</head>
+	<head>
+		<!-- Meta données -->
+		<meta charset="UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Se connecter - StageTracker</title>
+		<meta
+		name="description" content="Bonjour et bienvenue sur StageTracker ! Ce site vous permettra à toi et ton pilote de pouvoir suivre et proposer des stages plus facilement ! Ce site a été créé dans le cadre de la réalisation du Projet 4. Ce fut l'un des plus gros projets de l'année et nous vous présentons fièrement le rendu ici présent !"/>
 
-<body>
-    <!-- Block numero 1-->
-    {% include 'navbar.twig' %}
-    <!-- Block numero 1-->
+		<!-- Framework Bulma (custom) -->
+		<link
+		rel="stylesheet" href="https://www.hsbay.space/cesi/stagetracker/res/bulma/css/mystyles.css"/>
+		<!-- Font awesome (icon) -->
+		<script src="https://kit.fontawesome.com/d2fdcc8c83.js" crossorigin="anonymous"></script>
+		<!-- Extention Bulma-divider -->
+		<link
+		rel="stylesheet" href="https://hsbay.space/cesi/stagetracker/res/@creativebulma/bulma-divider/dist/bulma-divider.min.css"/>
+		<!-- Navbar -->
+		<script defer src="https://hsbay.space/cesi/stagetracker/src/js/navbar.js"></script>
+		<!-- Mes fichiers -->
+		<link rel="stylesheet" href="src/css/connection.css">
+		<script defer src="src/js/connection.js"></script>
+	</head>
 
-    <!-- Block numero 2-->
-    <section class="section">
-        <div class="columns is-centered">
-            <div
-                class="box column is-full-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-two-quarter-fullhd mt-6">
-                <form  method="post" action="index.php">
-                    <h1 class="title">Connectez-vous</h1>
-                    <div class="field">
-                        <label class="label">Email</label>
-                        <div class="control has-icons-left">
+	<body>
+		<!-- Block numero 1-->
+		{% include 'navbar.twig' %}
+		<!-- Block numero 1-->
 
-                            <input class="input"  name="mail" type="email" placeholder="ex. alex@exemple.com">
+		<!-- Block numero 2-->
+			<section class="section"> <div class="columns is-centered is-vcentered">
+				<div class="box column is-full-mobile is-two-thirds-tablet is-half-desktop is-half-widescreen is-two-quarter-fullhd mt-6">
+					<form method="post" action="index.php">
+						<h1 class="title">Connectez-vous</h1>
+						<div class="field">
+							<label class="label">Email</label>
+							<div class="control has-icons-left">
 
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-envelope"></i>
-                            </span>
-                        </div>
-                    </div>
+								<input class="input" name="mail" type="email" placeholder="ex. alex@exemple.com">
 
-                    <div class="field">
-                        <label class="label">Mot de passe</label>
-                        <div class="control has-icons-left">
-                            <input class="input" type="password" name="pass" placeholder="********">
-                            <span class="icon is-small is-left">
-                                <i class="fa-solid fa-lock"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="columns">
-                        <div class="column">
-                            
-                            <div class="buttons">
-                                <button id="btn-align" class="button is-light">Mot de passe oublié</button>
-                                <input type="submit" id="btn-align"class="button is-primary" value="Se connecter">
+								<span class="icon is-small is-left">
+									<i class="fas fa-envelope"></i>
+								</span>
+							</div>
+						</div>
 
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                {# Ici git l'erreur #}
-            </div>
-        </div>
-    </section>
-    <!-- Block numero 2-->
+						<div class="field">
+							<label class="label">Mot de passe</label>
+							<div class="control has-icons-left">
+								<input class="input" type="password" name="pass" placeholder="********">
+								<span class="icon is-small is-left">
+									<i class="fa-solid fa-lock"></i>
+								</span>
+							</div>
+						</div>
+						<div class="columns is-mobile">
+							<div class="column is-offset-one-third">
+								<div class="buttons">
+									<button class="button is-primary">Mot de passe oublié</button>
+									<input type="submit" class="button is-link" value="Se connecter">
+								</div>
+							</div>
+						</div>
+					</form>
+					{# Ici git l'erreur #}
+				</div>
+			</div>
+		</section>
+		<!-- Block numero 2-->
 
-</body>
+	</body>
 
 </html>

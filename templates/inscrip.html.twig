@@ -1,186 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription - StageTracker</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-divider@0.2.0/dist/css/bulma-divider.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
-    <script defer src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
-    <script defer src="https://www.jsdelivr.com/package/npm/@creativebulma/bulma-divider"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/bulma-toast@2.4.1/dist/bulma-toast.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.0.0/animate.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/bulma-toast@2.4.1,npm/@vizuaalog/bulmajs@0.12.1">
-    <link rel="stylesheet" href="../inscrip/src/css/inscription.css">
-</head>
+	<head>
+		<!-- Meta données -->
+		<meta charset="UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>S'inscrire - StageTracker</title>
+		<meta
+		name="description" content="Bonjour et bienvenue sur StageTracker ! Ce site vous permettra à toi et ton pilote de pouvoir suivre et proposer des stages plus facilement ! Ce site a été créé dans le cadre de la réalisation du Projet 4. Ce fut l'un des plus gros projets de l'année et nous vous présentons fièrement le rendu ici présent !"/>
 
-<body>
-    <!-- Block numero 1-->
-    {% include 'navbar.twig' %}
-    <!-- Block numero 1-->
+		<!-- Framework Bulma (custom) -->
+		<link
+		rel="stylesheet" href="https://www.hsbay.space/cesi/stagetracker/res/bulma/css/mystyles.css"/>
+		<!-- Font awesome (icon) -->
+		<script src="https://kit.fontawesome.com/d2fdcc8c83.js" crossorigin="anonymous"></script>
+		<!-- Extention Bulma-divider -->
+		<link
+		rel="stylesheet" href="https://hsbay.space/cesi/stagetracker/res/@creativebulma/bulma-divider/dist/bulma-divider.min.css"/>
+		<!-- Navbar -->
+		<script defer src="https://hsbay.space/cesi/stagetracker/src/js/navbar.js"></script>
+		<!-- Mes fichiers -->
+		<link rel="stylesheet" href="../inscrip/src/css/inscription.css">
+	</head>
 
-    <!-- Block numero 2-->
-    <section class="section">
-        <div class="box">
-        {# ------------- FORM ---------------------------- #}
-            <form action="index.php" method="POST">
-                <h1 class="title is-1">Inscription</h1>
-                <div class="box">
-                    <div class="field">
-                        <label class="label">Email</label>
-                        <div class="control has-icons-left">
-                            <input class="input" type="email" name="mail" placeholder="ex: alex@example.com">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-envelope"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="columns">
-                        <div class="column">
-                            <div class="field">
-                                <label class="label">Mot de passe</label>
-                                <div class="control has-icons-left">
-                                    <input class="input" type="password" name="pass" placeholder="********">
-                                    <span class="icon is-small is-left">
-                                        <i class="fa-solid fa-lock"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="column">
-                            <div class="field">
-                                <label class="label">Confirmer le mot de passe</label>
-                                <div class="control has-icons-left">
-                                    <input class="input" type="password" name="pass2" placeholder="********">
-                                    <span class="icon is-small is-left">
-                                        <i class="fa-solid fa-lock"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="columns">
-                        <div class="column">
-                            <div class="field">
-                                <label class="label">Nom *</label>
-                                <div class="control">
-                                    <input class="input" type="text" name="name" placeholder="Ex: Smith">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="column">
-                            <div class="field">
-                                <label class="label">Prénom *</label>
-                                <div class="control">
-                                    <input class="input" type="text" name="fname" placeholder="Ex: Alex">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="is-divider"></div>
-                <div class="box">
-                    <h3 class="title is-3">Adresse postale</h3>
-                    <div class="columns">
-                        <div class="column">
-                            <div class="field">
-                                <label class="label">Numero</label>
-                                <div class="control">
-                                    <input class="input" type="text" name="adr_num" placeholder="Ex: 1bis (Falcutatif)">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="column">
-                            <div class="field">
-                                <label class="label">Rue *</label>
-                                <div class="control">
-                                    <input class="input" type="text" name="adr_rue" placeholder="Ex: Champs de mars">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="columns">
-                        <div class="column">
-                            <div class="field">
-                                <label class="label">Code Postal/ZIP *</label>
-                                <div class="control">
-                                    <input class="input" type="text" name="adr_cp" placeholder="Ex: 16000">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="column">
-                            <div class="field">
-                                <label class="label">Ville *</label>
-                                <div class="control">
-                                    <input class="input" type="text" name="adr_city" placeholder="Ex: Angoulême">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="columns">
-                        <div class="column">
-                            <div class="field">
-                                <label class="label">Complément d'adresse</label>
-                                <div class="control">
-                                    <input class="input" type="text" name="adr_comp" placeholder="Appartement 5">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="column">
-                            <div class="field">
-                                <label class="label">Pays *</label>
-                                <div class="control">
-                                    <input class="input" type="text" name="adr_pays" placeholder="Ex: France">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="is-divider"></div>
-                <div class="box">
-                    <div class="field">
-                        <label class="label">Téléphone *</label>
-                        <div class="control">
-                            <input class="input" type="text" name="tel" placeholder="Ex: 0102030405">
-                        </div>
-                    </div>
-                </div>
+	<body>
+		<!-- Block numero 1-->
+		{% include 'navbar.twig' %}
+		<!-- Block numero 1-->
 
-                <div class="message is-warning">
-                    <div class="message-body">
-                        <div class="container">
-                            <div>
-                                <label class="checkbox">
-                                    <input type="checkbox">
-                                    J'accepte les <a href="#">conditions générales d'utilisations</a> de StageTracker et
-                                    j'accepte que StageTracker gère les données fournies
-                                </label>
-                            </div>
-                        </div>
+		<!-- Block numero 2-->
+			<section class="section"> <div
+				class="box">
+				{# ------------- FORM ---------------------------- #}
+				<form action="index.php" method="POST">
+					<h1 class="title is-1">Inscription</h1>
+					<div class="box">
+						<div class="field">
+							<label class="label">Email</label>
+							<div class="control has-icons-left">
+								<input class="input" type="email" name="mail" placeholder="ex: alex@example.com">
+								<span class="icon is-small is-left">
+									<i class="fas fa-envelope"></i>
+								</span>
+							</div>
+						</div>
+						<div class="columns">
+							<div class="column">
+								<div class="field">
+									<label class="label">Mot de passe</label>
+									<div class="control has-icons-left">
+										<input class="input" type="password" name="pass" placeholder="********">
+										<span class="icon is-small is-left">
+											<i class="fa-solid fa-lock"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="column">
+								<div class="field">
+									<label class="label">Confirmer le mot de passe</label>
+									<div class="control has-icons-left">
+										<input class="input" type="password" name="pass2" placeholder="********">
+										<span class="icon is-small is-left">
+											<i class="fa-solid fa-lock"></i>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="columns">
+							<div class="column">
+								<div class="field">
+									<label class="label">Nom *</label>
+									<div class="control">
+										<input class="input" type="text" name="name" placeholder="Ex: Smith">
+									</div>
+								</div>
+							</div>
+							<div class="column">
+								<div class="field">
+									<label class="label">Prénom *</label>
+									<div class="control">
+										<input class="input" type="text" name="fname" placeholder="Ex: Alex">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="is-divider"></div>
+					<div class="box">
+						<h3 class="title is-3">Adresse postale</h3>
+						<div class="columns">
+							<div class="column">
+								<div class="field">
+									<label class="label">Numero</label>
+									<div class="control">
+										<input class="input" type="text" name="adr_num" placeholder="Ex: 1bis (Falcutatif)">
+									</div>
+								</div>
+							</div>
+							<div class="column">
+								<div class="field">
+									<label class="label">Rue *</label>
+									<div class="control">
+										<input class="input" type="text" name="adr_rue" placeholder="Ex: Champs de mars">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="columns">
+							<div class="column">
+								<div class="field">
+									<label class="label">Code Postal/ZIP *</label>
+									<div class="control">
+										<input class="input" type="text" name="adr_cp" placeholder="Ex: 16000">
+									</div>
+								</div>
+							</div>
+							<div class="column">
+								<div class="field">
+									<label class="label">Ville *</label>
+									<div class="control">
+										<input class="input" type="text" name="adr_city" placeholder="Ex: Angoulême">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="columns">
+							<div class="column">
+								<div class="field">
+									<label class="label">Complément d'adresse</label>
+									<div class="control">
+										<input class="input" type="text" name="adr_comp" placeholder="Appartement 5">
+									</div>
+								</div>
+							</div>
+							<div class="column">
+								<div class="field">
+									<label class="label">Pays *</label>
+									<div class="control">
+										<input class="input" type="text" name="adr_pays" placeholder="Ex: France">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="is-divider"></div>
+					<div class="box">
+						<div class="field">
+							<label class="label">Téléphone *</label>
+							<div class="control">
+								<input class="input" type="text" name="tel" placeholder="Ex: 0102030405">
+							</div>
+						</div>
+					</div>
 
-                    </div>
-                </div>
+					<div class="message is-warning">
+						<div class="message-body">
+							<div class="container">
+								<div>
+									<label class="checkbox">
+										<input type="checkbox">
+										J'accepte les
+										<a href="#">conditions générales d'utilisations</a>
+										de StageTracker et
+										                                    j'accepte que StageTracker gère les données fournies
+									</label>
+								</div>
+							</div>
 
-                <div class="field is-grouped is-grouped-right">
-                    <div class="control">
-                        <button class="button is-primary is-light">Annuler</button>
-                    </div>
-                    <div class="control">
-                        <input type="submit" name="submit" class="button is-primary">S'inscrire</button>
-                    </div>
-                </div>
-            </form>
-            {# --------------- FORM ----------------- #}
-        </div>
-    </section>
-    <!-- Block numero 2-->
-      <!--Footer-->
-  {% include 'footer.twig' %}
-  <!--Footer-->
-</body>
+						</div>
+					</div>
+
+					<div class="field is-grouped is-grouped-right">
+						<div class="control">
+							<button class="button is-primary">Annuler</button>
+						</div>
+						<div class="control">
+							<input type="submit" name="submit" class="button is-link" value="S'inscrire">
+						</div>
+					</div>
+				</form>
+				{# --------------- FORM ----------------- #}
+			</div>
+		</section>
+		<!-- Block numero 2-->
+		<!--Footer-->
+		{% include 'footer.twig' %}
+		<!--Footer-->
+	</body>
 
 </html>

@@ -394,17 +394,17 @@ class dataBDD
 
 
 
-    function getOffreCard($id)
+    function getOffreCard($id,$offset)
     {
         $this->conn->setQuery(
             'SELECT Offre.Nom_offre,Offre.Nom_poste_offre,Offre.Date_offre,
             Adresse.Ville_adr,Adresse.CP_adr,Offre.Desc_offre,Entreprise.Nom_ent,Album.Banniere_album,
-            Mineure_offre,Remun_offre,Nb_poste_offre,Logo_album FROM Offre 
-            INNER JOIN Adresse ON Offre.ID_adr=Adresse.ID_adr 
-            INNER JOIN Entreprise ON Offre.ID_ent=Entreprise.ID_ent 
-            INNER JOIN Album On Entreprise.ID_album=Album.ID_album where ID_offre=:id;'
+            Mineure_offre,Remun_offre,Nb_poste_offre,Logo_album FROM Offre
+            INNER JOIN Adresse ON Offre.ID_adr=Adresse.ID_adr
+            INNER JOIN Entreprise ON Offre.ID_ent=Entreprise.ID_ent
+            INNER JOIN Album On Entreprise.ID_album=Album.ID_album where ID_offre=:id LIMIT 1 OFFSET :offset ;'
         );
-        $this->conn->execQuery(['id' => $id], 0);
+        $this->conn->execQuery(['id' => $id, 'offset' => $offset], 0);
 
         $result = $this->conn->getResult();
         //  echo "<br><br><pre>";
@@ -413,17 +413,17 @@ class dataBDD
         return $result;
     }
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
     //----------------------------------------
 
     public function searchEnt($input)
@@ -448,9 +448,21 @@ class dataBDD
         $result = $this->conn->getResult();
 
         return $result;
-      
 
 
+
+    }
+
+    function getOffre($id)
+    {
+        $this->conn->setQuery('SELECT Offre.Nom_offre,Offre.Nom_poste_offre,Offre.Date_offre,Offre.Duree_offre,Adresse.Ville_adr,Adresse.CP_adr,Offre.Desc_offre,Entreprise.Nom_ent,Album.Banniere_album,Mineure_offre,Remun_offre,Nb_poste_offre,Logo_album FROM Offre INNER JOIN Adresse ON Offre.ID_adr=Adresse.ID_adr INNER JOIN Entreprise ON Offre.ID_ent=Entreprise.ID_ent INNER JOIN Album On Entreprise.ID_album=Album.ID_album where ID_offre=:id;');
+        $this->conn->execQuery(['id' => $id], 0);
+
+        $result = $this->conn->getResult();
+        //  echo "<br><br><pre>";
+        //  print_r($result);
+        //  echo "</pre><br>";
+        return $result;
     }
 }
 

@@ -7,7 +7,7 @@ include_once "../../func/func_perm.php";
 if (isset($_POST['main-rb'])) {
     echo "<code><pre><br><br><br>";
     echo "Texte de recherche entré : " . $_POST['main-rb'] . "<br>";
-    
+
     print_r($searchEngine->search($_POST['main-rb']));
 
 
@@ -19,9 +19,10 @@ if (isset($_POST['main-rb'])) {
 }
 
 $cartes = [];
+$offset = 0;
 
 foreach ($offres as $idOffre) {
-    array_push($cartes, $data->getOffreCard($idOffre['ID_offre']));
+    array_push($cartes, $data->getOffreCard($idOffre['ID_offre'],0));
 }
 echo "<code><pre><br>";
 print_r($cartes);
@@ -32,11 +33,13 @@ if (empty($cartes)) {
 } else {
     $msg = '';
 }
-
+$i = 0;
+$limit=2-1;
+//array_splice($cartes,$i);
 require_once('../../vendor/autoload.php');
 $loader = new \Twig\Loader\FilesystemLoader('../../templates');
 $twig = new \Twig\Environment($loader);
 
-echo $twig->render('tracker_offre.html.twig', ['cartes' => $cartes, 'msg' => $msg]);
+echo $twig->render('tracker_offre.html.twig', ['cartes' => $cartes, 'msg' => $msg,'limit' => $limit, 'i' => $i]);
 
 // 'cartes' => $lastoffers,'nboffres' => $nboffres,'nbstages'=>$nbstages,'nbinsc' => $nbinsc

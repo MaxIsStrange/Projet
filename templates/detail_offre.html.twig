@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<!-- Meta données -->
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Page offre - StageTracker</title>
+	<meta name="description"
+		content="Bonjour et bienvenue sur StageTracker ! Ce site vous permettra à toi et ton pilote de pouvoir suivre et proposer des stages plus facilement ! Ce site a été créé dans le cadre de la réalisation du Projet 4. Ce fut l'un des plus gros projets de l'année et nous vous présentons fièrement le rendu ici présent !" />
+
+	<!-- Framework Bulma (custom) -->
+	<link rel="stylesheet" href="https://www.hsbay.space/cesi/stagetracker/res/bulma/css/mystyles.css" />
+	<!-- Font awesome (icon) -->
+	<script src="https://kit.fontawesome.com/d2fdcc8c83.js" crossorigin="anonymous"></script>
+	<!-- Extention Bulma-divider -->
+	<link rel="stylesheet"
+		href="https://hsbay.space/cesi/stagetracker/res/@creativebulma/bulma-divider/dist/bulma-divider.min.css" />
+	<!-- Navbar -->
+	<script defer src="https://hsbay.space/cesi/stagetracker/src/js/navbar.js"></script>
+	<!-- Mes fichiers -->
+</head>
+
+<body>
+	{% include 'navbar.twig'%}
+	<section class="section">
+		<!-- Entête de l'offre -->
+		<div class="hero is-medium"
+			style="background: url({{result.Banniere_album}}); background-position:center center; background-size:cover; height: 15rem;">
+			<div class="hero-content"></div>
+		</div>
+
+		<div>
+			<h1 class="title is-1">
+				<a href="#">{{result.Nom_offre}}</a>
+			</h1>
+			<h2 class="subtitle is-2">
+				<a href="#">{{result.Nom_poste_offre}}</a>
+			</h2>
+			<div class="info-entreprise" style="margin-bottom: 1rem">
+				<p id="nomEntreprise" class="is-size-5" style="margin-bottom: 0;">
+				<article class="media">
+					<figure class="media-left">
+						<p class="image is-64x64 is-rounded">
+							<img src="{{result.Logo_album}}" alt="Logo entreprise">
+						</p>
+					</figure>
+					<div class="media-content">
+						<div class="content">
+							<a href="#">
+								<strong>{{result.Nom_ent}}</strong>
+							</a>
+							<p id="location" class="is-size-5">
+								{{result.CP_adr}}
+								{{result.Ville_adr}}
+							</p>
+						</div>
+					</div>
+				</article>
+				</p>
+			</div>
+			<div class="buttons">
+				<div class="button is-link">Postuler à l'offre</div>
+				<div class="button is-light">
+					<figure class="icon">
+						<i class="fa-regular fa-heart"></i>
+					</figure>
+				</div>
+			</div>
+		</div>
+		<div class="is-divider"></div>
+		<!-- Corps de l'offre -->
+		<div>
+			<section class="section">
+				<div class=" columns content">
+					<div class="column is-two-thirds">
+						<h2>Description</h2>
+						{{result.Desc_offre}}
+					</div>
+					<div class="column">
+						<h2>Informations complémentaires</h2>
+						<ul>
+							<li>Durée du stage:
+								{{result.Duree_offre}}
+								semaines</li>
+							<li>Cible:
+								{{result.Mineure_offre}}</li>
+							<li>Renumération:
+								{{result.Remun_offre}}</li>
+							<li>Poste à pourvoir:
+								{{result.Nb_poste_offre}}</li>
+						</ul>
+						<br>
+					</div>
+				</div>
+				<p>Offre postée le
+					<time datetime="2016-01-01">{{result.Date_offre}}</time>
+				</p>
+			</section>
+		</div>
+	</section>
+	{% include 'footer.twig' %}
+</body>
+
+</html>

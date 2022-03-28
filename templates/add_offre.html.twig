@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+	<head>
+		<!-- Meta données -->
+		<meta charset="UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Ajouter une offre - StageTracker</title>
+		<meta
+		name="description" content="Bonjour et bienvenue sur StageTracker ! Ce site vous permettra à toi et ton pilote de pouvoir suivre et proposer des stages plus facilement ! Ce site a été créé dans le cadre de la réalisation du Projet 4. Ce fut l'un des plus gros projets de l'année et nous vous présentons fièrement le rendu ici présent !"/>
+
+		<!-- Framework Bulma (custom) -->
+		<link
+		rel="stylesheet" href="https://www.hsbay.space/cesi/stagetracker/res/bulma/css/mystyles.css"/>
+		<!-- Font awesome (icon) -->
+		<script src="https://kit.fontawesome.com/d2fdcc8c83.js" crossorigin="anonymous"></script>
+		<!-- Extention Bulma-divider -->
+		<link
+		rel="stylesheet" href="https://hsbay.space/cesi/stagetracker/res/@creativebulma/bulma-divider/dist/bulma-divider.min.css"/>
+		<!-- Navbar -->
+		<script defer src="https://hsbay.space/cesi/stagetracker/src/js/navbar.js"></script>
+		<!-- Mes fichiers -->
+	</head>
+
+	<body>
+		<!-- Block numero 1-->
+		{% include 'navbar.twig' %}
+		<!-- Block numero 1-->
+		<section class="section">
+			<div class="box">
+				<h1 class="title is-1">Créer une nouvelle offre</h1>
+				<div class="columns">
+					<div class="column">
+						<form action="">
+							<div class="columns">
+								<div class="column">
+									<h2 class="title is-2">Informations générales</h2>
+									<div class="field">
+										<label class="label">Titre de l'offre *</label>
+										<div class="control">
+											<input class="input" type="text" placeholder="Ex: Stage de 3 mois en entreprise">
+										</div>
+									</div>
+									<div class="field">
+										<label class="label">Intitulé du poste *</label>
+										<div class="control">
+											<input class="input" type="text" placeholder="Ex: Developpeur front end">
+										</div>
+									</div>
+									<div class="field">
+										<label class="label">Description de l'offre *</label>
+										<textarea class="textarea" placeholder="Lorem ipsum, dolor..." rows="10"></textarea>
+									</div>
+								</div>
+								<div class="column">
+									<h2 class="title is-2">Autres Informations</h2>
+									<div class="field">
+										<label class="label">Gratification *</label>
+										<div class="control">
+											<input class="input" type="text" placeholder="Ex: Stage de 3 mois en entreprise">
+										</div>
+									</div>
+									<div class="field">
+										<label class="label">Promotion concernée *</label>
+										<div class="control">
+											<input class="input" type="text" placeholder="Ex: 20/22">
+										</div>
+									</div>
+									<div class="field">
+										<label class="label">Nombre de poste à pourvoir *</label>
+										<div class="control">
+											<input class="input" type="text" placeholder="Ex: 1">
+										</div>
+									</div>
+									<div class="field">
+										<label class="label">Durée du stage (en semaine) *</label>
+										<div class="control">
+											<input class="input" type="text" placeholder="Ex: 15">
+										</div>
+									</div>
+									<div class="field">
+										<label class="label checkbox is-flex">
+											<input type="checkbox">
+											<div class="ml-3">Stage en distanciel</div>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class="field is-grouped is-grouped-right">
+								<button class="button is-link">Poster l'offre</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--Footer-->
+		{% include 'footer.twig' %}
+		<!--Footer-->
+	</body>
+
+</html>
