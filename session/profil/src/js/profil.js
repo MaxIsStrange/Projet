@@ -1,4 +1,7 @@
 const Tabs = document.querySelectorAll("[data-tab]");
+const FirstLocation = "section";
+
+window.location.hash = FirstLocation;
 
 Tabs.forEach((element) => {
     element.addEventListener("click", (event) => {
