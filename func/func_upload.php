@@ -81,7 +81,7 @@ class Upload
 
             echo "<br><br><br>Fichier existant, SUPPRESSION";
             $this->deleteFile($pathRel);
-            echo "<img src='" . $pathRel . "'>";
+            $this->uploadFile($type, $id);
             //return '3'; //Fichier existant
         } else {
             //return $nameFile; // Is ok

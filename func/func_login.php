@@ -114,6 +114,41 @@ class login
         }
     }
 
+    public function edit($tabInfo)
+    {
+        $adr = [
+            'num' => $tabInfo['num'],
+            'rue' => $tabInfo['rue'],
+            'cp' => $tabInfo['cp'],
+            'city' => $tabInfo['city'],
+            'pays' => $tabInfo['pays'],
+            'comp' => $tabInfo['comp'],
+            'id' => $tabInfo['id_adr']
+            //checked
+        ];
+
+        $this->data->editAdr($adr);
+
+        $user = [
+            //to check
+            'nom' => $tabInfo['name'],
+            'prenom' => $tabInfo['fName'],
+            'bd' => $tabInfo['bd'],
+            'tel' => $tabInfo['tel'],
+            'desc' => $tabInfo['desc'],
+            'id' => $tabInfo['id_user']
+        ];
+        //to add
+        $this->data->editUser($user);
+
+        $result = [
+            $user,
+            $adr
+        ];
+
+        return $result;
+    }
+
     
 }
 
