@@ -758,21 +758,6 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         return $result;
 
     }
-    public function getUserById($id)
-    {
-
-        $this->conn->setQuery("SELECT * FROM User WHERE ID_user = :id");
-
-        $this->conn->execQuery(['id' => $id], 0);
-
-        $result = $this->conn->getResult();
-
-        // echo "<br><br><pre>";
-        // print_r($result);
-        // echo "</pre><br>";
-
-        return $result;
-    }
 
     public function getGroupID($id)
     {
