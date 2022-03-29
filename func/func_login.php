@@ -114,7 +114,7 @@ class login
         }
     }
 
-    public function edit($tabInfo)
+    public function editBasic($tabInfo)
     {
         $adr = [
             'num' => $tabInfo['num'],
@@ -147,6 +147,17 @@ class login
         ];
 
         return $result;
+    }
+
+    public function editAccount($tabInfo)
+    {
+        $account = [
+            'mail' => $tabInfo['mail'],
+            'pass' => $tabInfo['pass'],
+            'id' => $tabInfo['id']
+        ];
+
+        $this->data->editCredentials($account);
     }
 
     

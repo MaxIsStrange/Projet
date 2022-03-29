@@ -6,7 +6,7 @@ require_once('../../vendor/autoload.php');
 $loader = new \Twig\Loader\FilesystemLoader('../../templates');
 $twig = new \Twig\Environment($loader);
 
-$id = 18;
+$id = 16;
 
 if (isset($_SESSION['USER_FNAME'])) {
   $grp = $data ->getPoste($_SESSION["USER_MAIL"]);
@@ -15,7 +15,7 @@ if (isset($_SESSION['USER_FNAME'])) {
   $comps = $data->getComp($_SESSION["USER_MAIL"]);
 
   $desc=htmlspecialchars_decode($infos["Desc_user"]);
-  echo $twig->render('profil.html.twig', ['session' => $_SESSION, 'album' => $album, 'infos' =>$infos,'comps' => $comps,'grp' => $grp,'desc' => $desc]);
+  echo $twig->render('profil.html.twig', ['session' => $_SESSION, 'album' => $album, 'infos' => $infos, 'comps' => $comps, 'grp' => $grp, 'desc' => $desc, 'id' => $id]);
   $data->getPostulate(18);
 
 

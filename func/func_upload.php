@@ -77,20 +77,21 @@ class Upload
         } elseif ($extFile != "png" && $extFile != "jpg" && $extFile != "jpeg") {
             echo "<br><br><br>Extension non supportée";
             //return '2'; //Extension incorrecte
-        } elseif (file_exists($pathRel)) {
 
-            echo "<br><br><br>Fichier existant, SUPPRESSION";
-            $this->deleteFile($pathRel);
-            $this->uploadFile($type, $id);
-            //return '3'; //Fichier existant
         } else {
             //return $nameFile; // Is ok
+            if (file_exists($pathRel)) {
+
+                echo "<br><br><br>Fichier existant, SUPPRESSION";
+                $this->deleteFile($pathRel);
+            }
+            
             echo "<br><br>";
 
             move_uploaded_file($_FILES[$this->name]["tmp_name"],  $pathRel);
 
             echo "<img src='" . $pathRel . "' height = '100px' width='100px'>";
-            echo "<br>RELATIF : $pathRel";
+            echo "<br>URL : $pathURL <br>";
 
 
 

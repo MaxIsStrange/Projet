@@ -4,22 +4,20 @@ include_once "../../../func/func_session.php";
 include_once "../../../func/func_login.php";
 include_once "../../../func/func_upload.php";
 
-
-
-
-
 echo "<code><pre><br><br><br>";
 $idRes = isset($_GET['id']) ? $_GET['id'] : null;
 
 $user = $data->getUserById($idRes);
 $adr = $data->getAdrByUser($idRes);
+$alb = $data->getAlbum($idRes, 'user');
+$desc = htmlspecialchars_decode($user['Desc_user']);
 
-echo "Result : $idRes";
-echo "<br>";
-//print_r($_POST);
+//print_r($_FILES['img_pp']);
 
 //Modification des informations
 if (
+  isset($_POST['result']) && $_POST['result'] == "basic_edit" &&
+
   isset($_POST['name']) && isset($_POST['fname']) && isset($_POST['adr_rue'])
   && isset($_POST['adr_cp']) && isset($_POST['adr_city'])
   && isset($_POST['adr_pays']) && isset($_POST['tel'])
@@ -50,10 +48,49 @@ if (
     'desc' => $user_desc
   ];
 
-  print_r($log->edit($tabInfo));
-}
+  print_r($log->editBasic($tabInfo));
+} elseif (
+  isset($_POST['result']) && $_POST['result'] == "account_edit"
+  && isset($_POST['mail']) && isset($_POST['pass']) && isset($_POST['pass2']) // && isset($_POST['old_pass'])
+) {
 
-//Modification du compte
+
+  if (
+    $_POST['pass'] === $_POST['pass2'] //&& $log->verifMDP($_POST['old_pass'], $user['MDP_user'])
+  ) {
+    $tabInfo = [
+      'mail' => htmlspecialchars($_POST['mail']),
+      'pass' => $log->hashMDP($_POST['pass']),
+      'id' => $idRes
+    ];
+
+    $log->editAccount($tabInfo);
+  }
+} elseif (
+  isset($_POST['result']) && $_POST['result'] == 'img'
+  && $_FILES['img_pp']
+) {
+  $upload->setOrigin('img_pp');
+  $pathURL = $upload->uploadFile("Avatar", $idRes);
+
+
+  //print_r($alb);
+
+  $tabInfo = [
+    'av' => $pathURL,
+    'id' => $alb['ID_album']
+  ];
+
+
+
+  $data->editAlb(
+    $tabInfo,
+    'user'
+  );
+}
+echo "</pre></code>";
+
+
 
 // IMAGE
 // if (isset($_POST['sub-img']) && isset($_FILES['img_pp'])) {
@@ -99,7 +136,7 @@ if (
 //    4 : OK
 
 
-echo "<br></pre></code>";
+// echo "<br></pre></code>";
 
 
 
@@ -111,4 +148,4 @@ echo "<br></pre></code>";
   $loader = new \Twig\Loader\FilesystemLoader('../../../templates');
   $twig = new \Twig\Environment($loader);
 
-echo $twig->render('edit.html.twig', ['user' => $user, 'adr' => $adr]);
+echo $twig->render('edit.html.twig', ['user' => $user, 'adr' => $adr, 'alb' => $alb, 'desc' => $desc]);

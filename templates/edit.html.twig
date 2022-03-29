@@ -37,13 +37,13 @@
 					class="column is-full-mobile is-two-fifths-tablet is-two-fifths-desktop is-one-fifth-widescreen is-one-fifth-fullhd">
 					<div class="block">
 						<figure class="image is-128x128 margin-pp">
-							<img src="https://bulma.io/images/placeholders/128x128.png" alt="Photo de profil" class="is-rounded">
+							<img src="{{alb.Avatar_album}}" alt="Photo de profil" class="is-rounded">
 						</figure>
 					</div>
-					<form action="">
+					<form action="" enctype="multipart/form-data" method="POST">
 						<div class="file is-centered">
 							<label class="file-label">
-								<input class="file-input" type="file" name="img_pp" >
+								<input class="file-input" type="file" name="img_pp" accept=".png, .jpg, .jpeg">
 								<span class="file-cta">
 									<span class="file-icon">
 										<i class="fas fa-upload"></i>
@@ -54,7 +54,9 @@
 								</span>
 							</label>
 						</div>
+						<input type="hidden" name="result" value="img">
 						<input type="submit" value="Changer de photo de profil" name="sub_img" class="button is-link">
+					
 					</form>
 
 				</div>
@@ -151,7 +153,7 @@
 						<div class="field">
 							<label class="label">Description</label>
 							<div class="control">
-								<textarea class="textarea" name="desc" placeholder="Ex: Lorem ipsum ...">{{user.Desc_user}}</textarea>
+								<textarea class="textarea" name="desc" placeholder="Ex: Lorem ipsum ...">{{desc}}</textarea>
 							</div>
 						</div>
 						<div class="field">
@@ -178,14 +180,15 @@
 								<input type="submit" class="button is-link" value="Sauvegarder les modifications">
 							</div>
 						</div>
+						<input type="hidden" name="result" value="basic_edit">
 					</form>
 					<div class="is-divider"></div>
-					<form action="">
+					<form action="" method="POST">
 						<h2 class="title is-2">Compte</h2>
 						<div class="field">
 							<label class="label">Email</label>
 							<div class="control has-icons-left">
-								<input class="input" type="email" placeholder="Ex: alex@example.com">
+								<input class="input" name="mail" type="email" placeholder="Ex: alex@example.com">
 								<span class="icon is-small is-left">
 									<i class="fas fa-envelope"></i>
 								</span>
@@ -194,7 +197,7 @@
 						<div class="field">
 							<label class="label">Ancien mot de passe</label>
 							<div class="control has-icons-left">
-								<input class="input" type="password" placeholder="********">
+								<input class="input" name="old_pass" type="password" placeholder="********">
 								<span class="icon is-small is-left">
 									<i class="fa-solid fa-lock"></i>
 								</span>
@@ -205,7 +208,7 @@
 								<div class="field">
 									<label class="label">Nouveau mot de passe</label>
 									<div class="control has-icons-left">
-										<input class="input" type="password" placeholder="********">
+										<input class="input" name="pass" type="password" placeholder="********">
 										<span class="icon is-small is-left">
 											<i class="fa-solid fa-lock"></i>
 										</span>
@@ -216,7 +219,7 @@
 								<div class="field">
 									<label class="label">Confirmer le nouveau mot de passe</label>
 									<div class="control has-icons-left">
-										<input class="input" type="password" placeholder="********">
+										<input class="input" name="pass2" type="password" placeholder="********">
 										<span class="icon is-small is-left">
 											<i class="fa-solid fa-lock"></i>
 										</span>
@@ -232,6 +235,7 @@
 								<input type="submit" class="button is-link" value="Sauvegarder les modifications">
 							</div>
 						</div>
+						<input type="hidden" name="result" value="account_edit">
 					</form>
 				</div>
 			</div>

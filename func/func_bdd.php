@@ -235,7 +235,7 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
                 // Select Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album
                 // INNER JOIN User ON User.ID_album=Album.ID_album WHERE ID_user=1;
 
-                $this->conn->setQuery("Select Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album
+                $this->conn->setQuery("Select Album.ID_album,Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album
                 INNER JOIN User ON User.ID_album=Album.ID_album WHERE ID_user= :id ;");
 
                 $this->conn->execQuery(['id' => $id], 0);
@@ -561,8 +561,7 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
             case 'user':
                 $this->conn->setQuery("UPDATE Album SET Avatar_album = :av WHERE ID_album = :idAlb");
                 $this->conn->execQuery([
-                    'ba' => $input['ba'],
-                    'lo' => $input['lo'],
+                    'av' => $input['av'],
                     'idAlb' => $input['id']
                 ], 0);
 
@@ -630,6 +629,17 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
     {
         $this->conn->setQuery("UPDATE User SET Nom_user = :nom ,Prenom_user= :prenom ,BD_user = :bd ,Tel_user =  :tel ,Desc_user = :desc WHERE ID_user = :id");
         $this->conn->execQuery(['nom' => $input['nom'], 'prenom' => $input['prenom'], 'bd' => $input['bd'], 'tel' => $input['tel'], 'desc' => $input['desc'], 'id' => $input['id']], 0);
+
+        $result = $this->conn->getResult();
+
+        return $result;
+    }
+
+
+    public function editCredentials($input)
+    {
+        $this->conn->setQuery("UPDATE User SET Mail_user = :mail, MDP_user = :pass WHERE ID_user = :id");
+        $this->conn->execQuery(['mail' => $input['mail'], 'pass' => $input['pass'], 'id' => $input['id']], 0);
 
         $result = $this->conn->getResult();
 
@@ -790,13 +800,6 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         return $result;
     }
 }
-
-
-
-
-
-
-
 
 
 

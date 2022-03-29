@@ -43,6 +43,6 @@ if (
     print_r($result);
     echo "<br></pre></code>";
   } else {
-    echo "Les mots de passe ne correpsondent pas";
+    echo "Les mots de passe ne correspondent pas";
   }
 }
