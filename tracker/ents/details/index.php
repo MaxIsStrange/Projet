@@ -10,9 +10,5 @@
   $album=$data->getAlbum(18,'ent');
   $idadr=$data->getAdrIdByEnt(18);
   $adr=$data->getAdr($idadr["ID_adr"]);
-  echo "<br><br><pre>";
-  print_r($adr);
-  print_r($idadr["ID_adr"]);
-  echo "</pre><br>";
 
   echo $twig->render('detail_ent.html.twig',['result' => $result, 'album' => $album,'adr' =>$adr]);
