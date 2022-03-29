@@ -14,5 +14,5 @@ if (isset($_SESSION['USER_FNAME'])) {
   $comps = $data->getComp($_SESSION["USER_MAIL"]);
   echo $twig->render('profil.html.twig', ['session' => $_SESSION, 'album' => $album, 'infos' =>$infos,'comps' => $comps,'grp' => $grp]);
 } else {
-  echo "not connected";
+  echo "Error : not connected";
 }
