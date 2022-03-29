@@ -29,7 +29,7 @@
 		<!-- Block numero 1-->
 		<section class="section">
 			<h1 class="title is-1">
-				Panneau de Nom Prenom de l'admin
+				Panneau de {{session.USER_FNAME}} {{session.USER_NAME}}
 			</h1>
 		</section>
 		<section class="section">
@@ -61,6 +61,9 @@
 									<input type="submit" class="button is-link" value="Rechercher" >
 								</p>
 							</div>
+							<p>
+								(Si votre résultat ne correspond pas, utilisez son adresse mail)
+							</p>
 						</div>
 					</div>
 				</form>
@@ -82,20 +85,30 @@
 								</h3>
 								<div class="control">
 									<form action="" method="POST">
-										Attribuer permissions rapides : 
+										Attribuer permissions rapides :
 										<p>
 										<label class="radio">
-										  <input type="radio" name="answer" value="">
+										  <input type="radio" name="group" value="2"
+										  {% if group.ID_grp == 2 %}
+											checked
+										  {% endif %}>
 											Pilote
 										</label>
 										<label class="radio">
-										  <input type="radio" name="answer" value="">
+										  <input type="radio" name="group" value="3"
+										  {% if group.ID_grp == 3 %}
+											checked
+										  {% endif %}>
 										  	Délégué
 										</label>
 										<label class="radio">
-											<input type="radio" name="answer" value="">
+											<input type="radio" name="group" value="4"
+											{% if group.ID_grp == 4 %}
+												checked
+										  	{% endif %}>
 											Etudiant
 										</label>
+										<input type="text" id="userg" name="userg" value="{{user.ID_user}}" readonly>
 										<input type="submit" class="button is-link " value="Attribuer">
 									</p>
 									</form>

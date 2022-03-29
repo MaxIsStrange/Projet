@@ -578,7 +578,52 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
 
         return $result;
     }
+
+    public function setPermByGroup($id_user,$id_grp){
+        $this->conn->setQuery("DELETE FROM Peut WHERE ID_user= :idu ;");
+        $this->conn->execQuery(['idu' => $id_user], 0);
+        $this->conn->setQuery("UPDATE User SET ID_Grp=:idg WHERE ID_user=:idu;");
+        $this->conn->execQuery(['idu' => $id_user, 'idg' => $id_grp], 0);
+        $this->conn->setQuery("Insert into Peut (SELECT ID_perm,ID_user FROM User INNER JOIN A_acces ON User.ID_Grp = A_acces.ID_Grp  Where ID_user=:idu) ;");
+        $this->conn->execQuery(['idu' => $id_user], 0);
+        $result = $this->conn->getResult();
+
+        return $result;
+
+    }
+    public function getUserById($id)
+    {
+
+        $this->conn->setQuery("SELECT * FROM User WHERE ID_user = :id");
+
+        $this->conn->execQuery(['id' => $id], 0);
+
+        $result = $this->conn->getResult();
+
+        // echo "<br><br><pre>";
+        // print_r($result);
+        // echo "</pre><br>";
+
+        return $result;
+    }
+
+    public function getGroupID($id)
+    {
+
+        $this->conn->setQuery("SELECT ID_grp FROM User WHERE ID_user = :id");
+
+        $this->conn->execQuery(['id' => $id], 0);
+
+        $result = $this->conn->getResult();
+
+        // echo "<br><br><pre>";
+        // print_r($result);
+        // echo "</pre><br>";
+
+        return $result;
+    }
 }
+
 
 
 
