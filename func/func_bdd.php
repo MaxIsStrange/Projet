@@ -530,10 +530,97 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
     }
 
 
+    public function editAlb($input, $type)
+    {
+        switch ($type) {
+            case 'ent':
+                $this->conn->setQuery("UPDATE Album SET Banniere_album = :ba, Logo_album = :lo WHERE ID_album = :idAlb");
+                $this->conn->execQuery([
+                    'ba' => $input['ba'],
+                    'lo' => $input['lo'],
+                    'idAlb' => $input['id']
+                ], 0);
+
+                break;
+
+            case 'user':
+                $this->conn->setQuery("UPDATE Album SET Avatar_album = :av WHERE ID_album = :idAlb");
+                $this->conn->execQuery([
+                    'ba' => $input['ba'],
+                    'lo' => $input['lo'],
+                    'idAlb' => $input['id']
+                ], 0);
+
+                break;
+
+            case 'cv':
+                $this->conn->setQuery("UPDATE Album SET CV_album = :cv WHERE ID_album = :idAlb");
+                $this->conn->execQuery([
+
+                    'cv' => $input['cv'],
+                    'idAlb' => $input['id']
+                ], 0);
+
+            case 'lm':
+                $this->conn->setQuery("UPDATE Album SET LM_album = :lm WHERE ID_album = :idAlb");
+                $this->conn->execQuery([
+
+                    'lm' => $input['lm'],
+                    'idAlb' => $input['id']
+                ], 0);
+
+                break;
+
+            case 'fv':
+                $this->conn->setQuery("UPDATE Album SET FV_album = :fv WHERE ID_album = :idAlb");
+                $this->conn->execQuery([
+
+                    'fv' => $input['fv'],
+                    'idAlb' => $input['id']
+                ], 0);
+
+                break;
+
+            case 'cs':
+                $this->conn->setQuery("UPDATE Album SET CS_album = :cs WHERE ID_album = :idAlb");
+                $this->conn->execQuery([
+
+                    'cs' => $input['cs'],
+                    'idAlb' => $input['id']
+                ], 0);
+
+                break;
 
 
+            default:
+                echo "error, worng type";
+                break;
+        }
+        $result = $this->conn->getResult();
+        return $result;
+    }
 
 
+    public function editAdr($input)
+    {
+        $this->conn->setQuery("UPDATE Adresse SET Num_adr = :num ,Rue_adr = :rue ,CP_adr = :cp ,Ville_adr = :city ,Pays_adr = :pays,Comp_adr = :comp WHERE ID_adr= :id");
+        $this->conn->execQuery(['num' => $input['num'], 'rue' => $input['rue'], 'cp' => $input['cp'], 'city' => $input['city'], 'pays' => $input['pays'], 'comp' => $input['comp'], 'id' => $input['id']], 0);
+
+        $result = $this->conn->getResult();
+
+        return $result;
+    }
+
+    public function editUser($input)
+    {
+        $this->conn->setQuery("UPDATE User SET Nom_user = :nom ,Prenom_user= :prenom ,BD_user = :bd ,Tel_user =  :tel ,Desc_user = :desc WHERE ID_user = :id");
+        $this->conn->execQuery(['nom' => $input['nom'], 'prenom' => $input['prenom'], 'bd' => $input['bd'], 'tel' => $input['tel'], 'desc' => $input['desc'], 'id' => $input['id']], 0);
+
+        $result = $this->conn->getResult();
+
+        return $result;
+    }
+   
 
 
 
@@ -568,6 +655,42 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
 
 
     }
+
+
+
+    public function getUserById($id)
+    {
+
+        $this->conn->setQuery("SELECT * FROM User WHERE ID_user = :id");
+
+        $this->conn->execQuery(['id' => $id], 0);
+
+        $result = $this->conn->getResult();
+
+        // echo "<br><br><pre>";
+        // print_r($result);
+        // echo "</pre><br>";
+
+        return $result;
+    }
+
+    public function getAdrByUser($id)
+    {
+
+        $this->conn->setQuery("SELECT * FROM Adresse INNER JOIN User ON User.ID_adr = Adresse.ID_adr 
+        WHERE ID_user = :id;");
+
+        $this->conn->execQuery(['id' => $id], 0);
+
+        $result = $this->conn->getResult();
+
+        // echo "<br><br><pre>";
+        // print_r($result);
+        // echo "</pre><br>";
+
+        return $result;
+    }
+
 
     public function searchUser($input)
     {
