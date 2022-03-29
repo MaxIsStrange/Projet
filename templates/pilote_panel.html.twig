@@ -2,555 +2,127 @@
 <html lang="fr">
 
 <head>
-	<!-- Meta données -->
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Panneau admin - StageTracker</title>
-	<meta name="description"
-		content="Bonjour et bienvenue sur StageTracker ! Ce site vous permettra à toi et ton pilote de pouvoir suivre et proposer des stages plus facilement ! Ce site a été créé dans le cadre de la réalisation du Projet 4. Ce fut l'un des plus gros projets de l'année et nous vous présentons fièrement le rendu ici présent !" />
+    <!-- Meta données -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panneau admin - StageTracker</title>
+    <meta name="description"
+        content="Bonjour et bienvenue sur StageTracker ! Ce site vous permettra à toi et ton pilote de pouvoir suivre et proposer des stages plus facilement ! Ce site a été créé dans le cadre de la réalisation du Projet 4. Ce fut l'un des plus gros projets de l'année et nous vous présentons fièrement le rendu ici présent !" />
 
-	<!-- Framework Bulma (custom) -->
-	<link rel="stylesheet" href="https://www.hsbay.space/cesi/stagetracker/res/bulma/css/mystyles.css" />
-	<!-- Font awesome (icon) -->
-	<script src="https://kit.fontawesome.com/d2fdcc8c83.js" crossorigin="anonymous"></script>
-	<!-- Extention Bulma-divider -->
-	<link rel="stylesheet"
-		href="https://hsbay.space/cesi/stagetracker/res/@creativebulma/bulma-divider/dist/bulma-divider.min.css" />
-	<!-- Navbar -->
-	<script defer src="https://hsbay.space/cesi/stagetracker/src/js/navbar.js"></script>
-	<!-- Mes fichiers -->
-	<script defer src="https://hsbay.space/cesi/stagetracker/session/admin/admin.js"></script>
-	<link rel="stylesheet" href="https://hsbay.space/cesi/stagetracker/session/admin/admin.css" />
+    <!-- Framework Bulma (custom) -->
+    <link rel="stylesheet" href="https://www.hsbay.space/cesi/stagetracker/res/bulma/css/mystyles.css" />
+    <!-- Font awesome (icon) -->
+    <script src="https://kit.fontawesome.com/d2fdcc8c83.js" crossorigin="anonymous"></script>
+    <!-- Extention Bulma-divider -->
+    <link rel="stylesheet"
+        href="https://hsbay.space/cesi/stagetracker/res/@creativebulma/bulma-divider/dist/bulma-divider.min.css" />
+    <!-- Navbar -->
+    <script defer src="https://hsbay.space/cesi/stagetracker/src/js/navbar.js"></script>
+    <!-- Mes fichiers -->
+    <script defer src="https://hsbay.space/cesi/stagetracker/session/admin/admin.js"></script>
+    <link rel="stylesheet" href="https://hsbay.space/cesi/stagetracker/session/admin/admin.css" />
 </head>
 
 <body>
-	<!-- Block numero 1-->
-	{% include 'navbar.twig' %}
-	<!-- Block numero 1-->
-	<section class="section">
-		<h1 class="title is-1">
-			Panneau de {{session.USER_FNAME}} {{session.USER_NAME}}
-		</h1>
-	</section>
-	<section class="section">
-		<div class="js-tabs-container">
-			<div class="tabs">
-				<ul>
-					<li data-tab="search_user" class="is-active"><a>Rechercher des utilisateurs</a></li>
-					<li data-tab="perms"><a>Permissions</a></li>
-					<li data-tab="list_pilote"><a>Pilotes</a></li>
-				</ul>
-			</div>
-			<div class="js-tab-content box" id="search_user">
-				<!-- Search bar -->
-				<h1 class="title is-1 has-text-centered">
-					Chercher un utilisateur</h1>
-				<section class="section">
-					<form action="">
-						<div class="field is-grouped">
-							<div class="control is-expanded">
-								<input class="input" name="main-rb" type="text" placeholder="Rechercher un utilisateur">
-							</div>
-							<div class="control">
-								<input type="submit" value="Rechercher" name="submit" class="button is-link">
-							</div>
-						</div>
-						<div class="is-divider"></div>
+    <!-- Block numero 1-->
+    {% include 'navbar.twig' %}
+    <!-- Block numero 1-->
+    <section class="section" style="margin-top: 3rem;">
+        <h1 class="title is-1">
+            Panneau de {{session.USER_FNAME}} {{session.USER_NAME}}
+        </h1>
+    </section>
+    <section class="section">
+        <div class="js-tabs-container">
+            <div class="tabs">
+                <ul>
+                    <li data-tab="etud" class="is-active"><a>Mes étudiants</a></li>
+                    <li data-tab="avancement"><a>Avancement</a></li>
+                </ul>
+            </div>
+            <div class="js-tab-content box" id="etud">
+                <h2 class="title is-3">
+                    Liste des étudiants
+                </h2>
+                <div class="columns is-centered is-multiline">
+                    {% for result in pilotes %}
+                    {% include 'pilot_card.twig' %}
+                    {% endfor %}
+                </div>
+            </div>
 
-					</form>
-				</section>
-				<h2 class="subtitle has-text-centered">{{msg}}</h2>
-				<div class="columns is-multiline">
-				</div>
-			</div>
-			<div class="has-display-none js-tab-content box" id="perms">
-				<h2 class="title is-2 has-text-centered">
-					Edition des permission
-				</h2>
-				<form class="mb-6" action="" method="POST">
-					<div class="columns is-centered">
-						<div class="column is-one-third">
-							<h1 class="title is-3 has-text-centered">
-								Choisir l'utilisateur
-							</h1>
-						</div>
-						<div class="column ">
-							<div class="field is-grouped">
-								<p class="control is-expanded">
-									<input class="input" type="text" name="user-rb"
-										placeholder="Rechercher un utilisateur">
-								</p>
-								<p class="control">
-									<input type="submit" class="button is-link" value="Rechercher">
-								</p>
-							</div>
-							<p>
-								(Si votre résultat ne correspond pas, utilisez son adresse mail)
-							</p>
-						</div>
-					</div>
-				</form>
-				<div class="box">
-					<div class="columns is-centered">
-						<div class="column is-one-third">
-							<div class="columns">
-								<div class="column has-text-centered">
-									<figure class="image is-128x128 is-inline-block">
-										<img class="is-rounded" src="{{avataruser}}">
-									</figure>
+            <div class="has-display-none js-tab-content box" id="avancement">
+                <h2 class="title is-3 ">
+                    Edition des permission
+                </h2>
+                <form class="mb-6" action="" method="POST">
+                    <div class="field is-grouped">
+                        <p class="control is-expanded">
+                            <input class="input" type="text" name="user-rb" placeholder="Rechercher un utilisateur">
+                        </p>
+                        <p class="control">
+                            <input type="submit" class="button is-link" value="Rechercher">
+                        </p>
+                    </div>
+                    <p>
+                        (Si votre résultat ne correspond pas, utilisez son adresse mail)
+                    </p>
+                    <div class="columns is-centered">
+                        <div class="column is-one-third">
+                            <div class="columns">
+                                <div class="column has-text-centered">
+                                    <figure class="image is-128x128 is-inline-block">
+                                        <img class="is-rounded" src="{{avataruser}}">
+                                    </figure>
 
-								</div>
-							</div>
-						</div>
-						<div class="column is-two-thirds">
-							<h3 class="title is-3">
-								{{user.Nom_user}} {{user.Prenom_user}}
-							</h3>
-							<div class="control">
-								<form action="" method="POST">
-									<p class="is-size-5">Attribuer permissions rapides :</p>
-									<p>
-										<label class="radio">
-											<input type="radio" name="group" value="2" {% if group.ID_grp==2 %} checked
-												{% endif %}>
-											Pilote
-										</label>
-										<label class="radio">
-											<input type="radio" name="group" value="3" {% if group.ID_grp==3 %} checked
-												{% endif %}>
-											Délégué
-										</label>
-										<label class="radio">
-											<input type="radio" name="group" value="4" {% if group.ID_grp==4 %} checked
-												{% endif %}>
-											Etudiant
-										</label>
-										<input type="hidden" id="userg" name="userg" value="{{user.ID_user}}" readonly>
-										<input type="submit" class="button is-link " value="Attribuer">
-									</p>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-				<form action="" method="POST">
-					<div class="columns is-multiline is-centered">
-						<div class="column is-one-third">
-							<div class="box">
-								<h1 class="title is-4 has-text-centered">
-									Gestion des entreprises
-								</h1>
-								<div class="columns is-multiline is-centered">
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="recherche_ent" name="recherche_ent" value="2"
-													{% for i in perm %} {% if i.ID_perm==2 %} checked {% endif %} {%
-													endfor %}>
-												Rechercher
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="creer_ent" name="creer_ent" value="3" {% for
-													i in perm %} {% if i.ID_perm==3 %} checked {% endif %} {% endfor %}>
-												Créer
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="modifier_ent" name="modifier_ent" value="4"
-													{% for i in perm %} {% if i.ID_perm==4 %} checked {% endif %} {%
-													endfor %}>
-												Modifier
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="evaluer_ent" name="evaluer_ent" value="5" {%
-													for i in perm %} {% if i.ID_perm==5 %} checked {% endif %} {% endfor
-													%}>
-												Evaluer
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="supprimer_ent" name="supprimer_ent" value="6"
-													{% for i in perm %} {% if i.ID_perm==6 %} checked {% endif %} {%
-													endfor %}>
-												Supprimer
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="stats_ent" name="stats_ent" value="7" {% for
-													i in perm %} {% if i.ID_perm==7 %} checked {% endif %} {% endfor %}>
-												Consulter les stats
-											</label>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="is-divider"></div>
-						<div class="column is-one-third">
-							<div class="box">
-								<h1 class="title is-4 has-text-centered">
-									Gestion des offres de stages
-								</h1>
-								<div class="columns is-multiline is-centered">
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="recherche_offre" name="recherche_offre"
-													value="8" {% for i in perm %} {% if i.ID_perm==8 %} checked {% endif
-													%} {% endfor %}>
-												Rechercher
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="creer_offre" name="creer_offre" value="9" {%
-													for i in perm %} {% if i.ID_perm==9 %} checked {% endif %} {% endfor
-													%}>
-												Créer
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="modifier_offre" name="modifier_offre"
-													value="10" {% for i in perm %} {% if i.ID_perm==10 %} checked {%
-													endif %} {% endfor %}>
-												Modifier
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="supprimer_offre" name="supprimer_offre"
-													value="11" {% for i in perm %} {% if i.ID_perm==11 %} checked {%
-													endif %} {% endfor %}>
-												Supprimer
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="stats_offre" name="stats_offre" value="12" {%
-													for i in perm %} {% if i.ID_perm==12 %} checked {% endif %} {%
-													endfor %}>
-												Consulter les stats
-											</label>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="is-divider"></div>
-						<div class="column is-one-third">
-							<div class="box">
-								<h1 class="title is-4 has-text-centered">
-									Gestion des pilotes
-								</h1>
-								<div class="columns is-multiline is-centered">
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="recherche_pilote" name="recherche_pilote"
-													value="13" {% for i in perm %} {% if i.ID_perm==13 %} checked {%
-													endif %} {% endfor %}>
-												Rechercher
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="creer_pilote" name="creer_pilote" value="14"
-													{% for i in perm %} {% if i.ID_perm==14 %} checked {% endif %} {%
-													endfor %}>
-												Créer
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="modifier_pilote" name="modifier_pilote"
-													value="15" {% for i in perm %} {% if i.ID_perm==15 %} checked {%
-													endif %} {% endfor %}>
-												Modifier
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="supprimer_pilote" name="supprimer_pilote"
-													value="16" {% for i in perm %} {% if i.ID_perm==16 %} checked {%
-													endif %} {% endfor %}>
-												Supprimer
-											</label>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="is-divider"></div>
-						<div class="column is-one-third">
-							<div class="box">
-								<h1 class="title is-4 has-text-centered">
-									Gestion des délégués
-								</h1>
-								<div class="columns is-multiline is-centered">
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="recherche_delegue" name="recherche_delegue"
-													value="17" {% for i in perm %} {% if i.ID_perm==17 %} checked {%
-													endif %} {% endfor %}>
-												Rechercher
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="creer_delegue" name="creer_delegue"
-													value="18" {% for i in perm %} {% if i.ID_perm==18 %} checked {%
-													endif %} {% endfor %}>
-												Créer
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="modifier_delegue" name="modifier_delegue"
-													value="19" {% for i in perm %} {% if i.ID_perm==19 %} checked {%
-													endif %} {% endfor %}>
-												Modifier
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="supprimer_delegue" name="supprimer_delegue"
-													value="20" {% for i in perm %} {% if i.ID_perm==20 %} checked {%
-													endif %} {% endfor %}>
-												Supprimer
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="assign_delegue" name="assign_delegue"
-													value="21" {% for i in perm %} {% if i.ID_perm==21 %} checked {%
-													endif %} {% endfor %}>
-												Assigner des droits à un délégué
-											</label>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="is-divider"></div>
-						<div class="column is-one-third">
-							<div class="box">
-								<h1 class="title is-4 has-text-centered">
-									Gestion des étudiants
-								</h1>
-								<div class="columns is-multiline is-centered">
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="recherche_etud" name="recherche_etud"
-													value="22" {% for i in perm %} {% if i.ID_perm==22 %} checked {%
-													endif %} {% endfor %}>
-												Rechercher
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="creer_etud" name="creer_etud" value="23" {%
-													for i in perm %} {% if i.ID_perm==23 %} checked {% endif %} {%
-													endfor %}>
-												Créer
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="modifier_etud" name="modifier_etud"
-													value="24" {% for i in perm %} {% if i.ID_perm==24 %} checked {%
-													endif %} {% endfor %}>
-												Modifier
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="supprimer_etud" name="supprimer_etud"
-													value="25" {% for i in perm %} {% if i.ID_perm==25 %} checked {%
-													endif %} {% endfor %}>
-												Supprimer
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="stats_etud" name="stats_etud" value="26" {%
-													for i in perm %} {% if i.ID_perm==26 %} checked {% endif %} {%
-													endfor %}>
-												Consulter les stats des étudiants
-											</label>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="is-divider"></div>
-						<div class="column is-one-third">
-							<div class="box">
-								<h1 class="title is-4 has-text-centered">
-									Gestion des candidatures
-								</h1>
-								<div class="columns is-multiline is-centered">
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="add_wish_list" name="add_wish_list"
-													value="27" {% for i in perm %} {% if i.ID_perm==27 %} checked {%
-													endif %} {% endfor %}>
-												Ajouter une offre à la wish-list
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="rem_wish_list" name="rem_wish_list"
-													value="28" {% for i in perm %} {% if i.ID_perm==28 %} checked {%
-													endif %} {% endfor %}>
-												Retirer une offre à la wish-list
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="post_offre" name="post_offre" value="29" {%
-													for i in perm %} {% if i.ID_perm==29 %} checked {% endif %} {%
-													endfor %}>
-												Postuler à une offre
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="step1" name="step1" value="31" {% for i in
-													perm %} {% if i.ID_perm==31 %} checked {% endif %} {% endfor %}>
-												Informer le système de l'avancement de la candidature step 1
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="step2" name="step2" value="32" {% for i in
-													perm %} {% if i.ID_perm==32 %} checked {% endif %} {% endfor %}>
-												Informer le système de l'avancement de la candidature step 2
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="step3" name="step3" value="33" {% for i in
-													perm %} {% if i.ID_perm==33 %} checked {% endif %} {% endfor %}>
-												Informer le système de l'avancement de la candidature step 3
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="step4" name="step4" value="34" {% for i in
-													perm %} {% if i.ID_perm==34 %} checked {% endif %} {% endfor %}>
-												Informer le système de l'avancement de la candidature step 4
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="step5" name="step5" value="36" {% for i in
-													perm %} {% if i.ID_perm==36 %} checked {% endif %} {% endfor %}>
-												Informer le système de l'avancement de la candidature step 5
-											</label>
-										</div>
-									</div>
-									<div class="column is-full">
-										<div class="field">
-											<label class="checkbox">
-												<input type="checkbox" id="step6" name="step6" value="37" {% for i in
-													perm %} {% if i.ID_perm==37 %} checked {% endif %} {% endfor %}>
-												Informer le système de l'avancement de la candidature step 6
-											</label>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-two-thirds">
+                            <h3 class="title is-3">
+                                {{user.Nom_user}} {{user.Prenom_user}}
+                            </h3>
+                        </div>
+                    </div>
+                </form>
+                <form action="" method="POST">
+                    <h1 class="title is-4 has-text-centered">
+                        Notifier l'avancement
+                    </h1>
+                    <div class="columns is-multiline is-centered">
+                        <div class="column is-one-third">
+                            <div class="field">
+                                <label class="checkbox">
+                                    <input type="checkbox" id="recherche_ent" name="recherche_ent" value="2"
+                                        {% for i in perm %} {% if i.ID_perm==2 %} checked {% endif %} {%
+                                        endfor %}>
+                                    Rechercher
+                                </label>
+                            </div>
+                        </div>
+                        <div class="column is-one-third">
+                            <div class="field">
+                                <label class="checkbox">
+                                    <input type="checkbox" id="creer_ent" name="creer_ent" value="3" {% for
+                                        i in perm %} {% if i.ID_perm==3 %} checked {% endif %} {% endfor %}>
+                                    Créer
+                                </label>
+                            </div>
+                        </div>
+                    </div>
 					<div class="field is-grouped is-grouped-right">
 						<input type="hidden" id="user" name="user" value="{{user.ID_user}}" readonly>
-						<input type="submit" value="Sauvegarder les permissions" class="button is-link">
+						<input type="submit" value="Sauvegarder l'avancement'" class="button is-link">
 					</div>
 				</form>
-			</div>
-			<div class="has-display-none js-tab-content" id="list_pilote">
-				<h2 class="title is-2 has-text-centered">
-					Liste des pilotes
-				</h2>
-				<div class="columns is-centered is-multiline">
-					{% for result in pilotes %}
-					{% include 'pilot_card.twig' %}
-					{% endfor %}
-				</div>
-			</div>
-		</div>
+            </div>
+        </div>
+    </section>
 
-	</section>
-
-	<!--Footer-->
-	{% include 'footer.twig' %}
-	<!--Footer-->
+    <!--Footer-->
+    {% include 'footer.twig' %}
+    <!--Footer-->
 </body>
 
 </html>
