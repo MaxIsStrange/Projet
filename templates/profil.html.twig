@@ -49,7 +49,10 @@
                         {{session.USER_FNAME}}
                         {{session.USER_NAME}}</h1>
                     <div id="margin-edit-profil" class="buttons">
-                        <a href="edit\" class="button is-link">Modifier le profil</a>
+                    <form action="edit\" method="GET">
+                    <input type="hidden" name="id" value='{{id}}'>
+                        <input type='submit' class="button is-link" value="Modifier le profil">
+                        </form>
                     </div>
                 </div>
 
@@ -289,6 +292,10 @@
                 <input  type="submit" class="button is-link" value="Se déconnecter">
             </form>
         </div>
+
+        <form action="" method="POST">
+        
+        </form>
     </section>
     <!--Block numero 3-->
     <!--Footer-->
