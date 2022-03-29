@@ -128,13 +128,13 @@ class dataBDD
 
         $result = $this->conn->getResult();
 
-        echo "<br>----- Adresse : ----- <br><br>" . $result['Num_adr'] . " " . $result['Rue_adr'];
+        // echo "<br>----- Adresse : ----- <br><br>" . $result['Num_adr'] . " " . $result['Rue_adr'];
 
         if (isset($result['Comp_adr'])) {
             echo "<br>" . $result['Comp_adr'];
         }
-
-        echo "<br>" . $result['CP_adr'] . " " . $result['Ville_adr'] . ", " . $result['Pays_adr'];
+        return $result;
+        // echo "<br>" . $result['CP_adr'] . " " . $result['Ville_adr'] . ", " . $result['Pays_adr'];
     }
 
 
@@ -228,20 +228,40 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         }
     }
 
-    public function getAlbum($id)
+    public function getAlbum($id,$type)
     {
-        // Select Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album
-        // INNER JOIN User ON User.ID_album=Album.ID_album WHERE ID_user=1;
+        switch ($type) {
+            case 'user':
+                // Select Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album
+                // INNER JOIN User ON User.ID_album=Album.ID_album WHERE ID_user=1;
 
-        $this->conn->setQuery("Select Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album
-        INNER JOIN User ON User.ID_album=Album.ID_album WHERE ID_user= :id ;");
+                $this->conn->setQuery("Select Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album
+                INNER JOIN User ON User.ID_album=Album.ID_album WHERE ID_user= :id ;");
 
-        $this->conn->execQuery(['id' => $id], 0);
+                $this->conn->execQuery(['id' => $id], 0);
+                break;
+
+            case 'ent':
+                // Select Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album
+                // INNER JOIN User ON User.ID_album=Album.ID_album WHERE ID_user=1;
+
+                $this->conn->setQuery("Select Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album
+                INNER JOIN Entreprise ON Entreprise.ID_album=Album.ID_album WHERE ID_ent= :id ;");
+
+                $this->conn->execQuery(['id' => $id], 0);
+                break;
+
+            default:
+                break;
+        }
+
 
         $result = $this->conn->getResult();
 
         return $result;
     }
+
+    
 
 
 
@@ -351,6 +371,16 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         return $result;
     }
 
+    public function getAdrIdByEnt($idENT)
+    {
+        $this->conn->setQuery('Select ID_adr from Est_localise WHERE ID_ent = :id;');
+        $this->conn->execQuery(['id' => $idENT], 0);
+
+        $result = $this->conn->getResult();
+
+        return $result;
+    }
+
     public function chkMaxIDAdr()
     {
         $this->conn->setQuery('SELECT ID_adr FROM Adresse ORDER BY ID_ADR DESC limit 1 ');
@@ -381,8 +411,7 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         return $result;
     }
 
-    
-  
+
     public function getComp($mail)
     {
         $id = $this->getUserID($mail);
@@ -611,6 +640,21 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
     {
 
         $this->conn->setQuery("SELECT ID_grp FROM User WHERE ID_user = :id");
+
+        $this->conn->execQuery(['id' => $id], 0);
+
+        $result = $this->conn->getResult();
+
+        // echo "<br><br><pre>";
+        // print_r($result);
+        // echo "</pre><br>";
+
+        return $result;
+    }
+
+    public function getEnt($id)
+    {
+        $this->conn->setQuery("SELECT * FROM Entreprise WHERE ID_ent = :id");
 
         $this->conn->execQuery(['id' => $id], 0);
 

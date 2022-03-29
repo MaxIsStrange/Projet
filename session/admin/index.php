@@ -12,7 +12,7 @@
     if(isset($_POST["user-rb"])){
       $usermail=$searchEngine -> search($_POST["user-rb"],'user');
       $user = $data->getUser($usermail["0"]["0"]);
-      $album= $data->getAlbum($user["ID_user"]);
+      $album= $data->getAlbum($user["ID_user"],'user');
       $perms=$data->getPerm($user["ID_user"]);
       $group=$data->getGroupID($user["ID_user"]);
       echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes,'perm' => $perms, 'user' => $user, 'avataruser' => $album["Avatar_album"],'group' => $group,'session' => $_SESSION]);
@@ -29,7 +29,7 @@
           {
           $data->setPermByGroup($_POST["userg"],$_POST["group"]);
           $user = $data->getUserById($_POST["userg"]);
-          $album= $data->getAlbum($user["ID_user"]);
+          $album= $data->getAlbum($user["ID_user"],'user');
           $perms=$data->getPerm($user["ID_user"]);
           $group=$data->getGroupID($user["ID_user"]);
           echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes,'perm' => $perms, 'user' => $user, 'avataruser' => $album["Avatar_album"],'session' => $_SESSION]);
