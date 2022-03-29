@@ -280,6 +280,16 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         return $result;
     }
 
+    public function setPerm($id,$perm){
+        $this->conn->setQuery('DELETE FROM Peut WHERE ID_user = :id AND ID_Perm = :perm;');
+        $this->conn->execQuery(['id' => $id, 'perm' => $perm], 0);
+        $this->conn->setQuery('INSERT INTO Peut VALUES (:perm,:id);');
+        $this->conn->execQuery(['id' => $id, 'perm' => $perm], 0);
+        $result = $this->conn->getResult();
+
+        return $result;
+    }
+
 
     function chkName($input)
     {

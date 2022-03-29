@@ -20,10 +20,11 @@
 
       echo "<br><br><pre>";
       print_r($_POST);
-
+      $iduser = $_POST["user"];
+      array_pop($_POST);
       foreach($_POST as $perm){
-
         print_r($perm);
+        $data->setPerm($iduser,$perm);
       }
       echo "</pre><br>";
       echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes,]);
