@@ -10,10 +10,19 @@ $id = 18;
 
 if (isset($_SESSION['USER_FNAME'])) {
   $grp = $data ->getPoste($_SESSION["USER_MAIL"]);
-  $album = $data->getAlbum($data->getUserID($_SESSION["USER_MAIL"]));
+  $album = $data->getAlbum($data->getUserID($_SESSION["USER_MAIL"]),'user');
   $infos = $data->getUser($_SESSION["USER_MAIL"]);
   $comps = $data->getComp($_SESSION["USER_MAIL"]);
+<<<<<<< Updated upstream
   echo $twig->render('profil.html.twig', ['session' => $_SESSION, 'album' => $album, 'infos' => $infos, 'comps' => $comps, 'grp' => $grp, 'id' => $id]);
+=======
+  $desc=htmlspecialchars_decode($infos["Desc_user"]);
+  echo $twig->render('profil.html.twig', ['session' => $_SESSION, 'album' => $album, 'infos' =>$infos,'comps' => $comps,'grp' => $grp,'desc' => $desc]);
+  $data->getPostulate(18);
+
+
+
+>>>>>>> Stashed changes
 } else {
   echo "Error : not connected";
 }
