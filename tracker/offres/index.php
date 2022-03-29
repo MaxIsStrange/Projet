@@ -8,11 +8,11 @@ if (isset($_POST['main-rb'])) {
     echo "<code><pre><br><br><br>";
     echo "Texte de recherche entré : " . $_POST['main-rb'] . "<br>";
 
-    print_r($searchEngine->search($_POST['main-rb']));
+    print_r($searchEngine->search($_POST['main-rb'], 'offre'));
 
 
 
-    $offres = $searchEngine->search($_POST['main-rb']);
+    $offres = $searchEngine->search($_POST['main-rb'], 'offre');
 
     echo "<br>";
     echo "<br></pre></code>";

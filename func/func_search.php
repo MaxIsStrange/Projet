@@ -27,7 +27,7 @@ class Recherche
     //     }
     // }
 
-    public function search($input)
+    public function search($input, $type)
     {
         $tabInput = explode(" ", $input);
 
@@ -43,24 +43,39 @@ class Recherche
                     $mot = substr($mot, $pos);
                 }
 
+                switch ($type) {
+                    case 'user':
+                        $dataUser = $this->data->searchUser($mot);
+
+                        foreach ($dataUser as $user) {
+                            array_push($result, $user);
+                        }
+
+                        break;
+
+                    case 'ent':
+                        $dataEnt = $this->data->searchEnt($mot);
+                        foreach ($dataEnt as $ent) {
+                            array_push($result, $ent);
+                        }
+                        break;
+
+                    case 'offre':
+                        $dataOffre = $this->data->searchOffre($mot);
+
+                        foreach ($dataOffre as $offre) {
+                            array_push($result, $offre);
+                        }
+                        break;
+
+
+                    default:
+
+                        break;
+                }
+
                 //Faire un join pour chopper les tags aussi
 
-                // $dataEnt = $this->data->searchEnt($mot);
-                // foreach ($dataEnt as $ent) {
-                //     array_push($result, $ent);
-                // }
-
-                // $dataOffre = $this->data->searchOffre($mot);
-
-                // foreach ($dataOffre as $offre) {
-                //     array_push($result, $offre);
-                // }
-                echo $mot;
-                $dataUser = $this->data->searchUser($mot);
-
-                foreach ($dataUser as $user) {
-                    array_push($result, $user);
-                }
             }
         }
         return $result;
