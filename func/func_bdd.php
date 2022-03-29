@@ -276,6 +276,8 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         $this->conn->execQuery(['id' => $id], 0);
 
         $result = $this->conn->getResult();
+        // $result["Desc_user"]=htmlspecialchars_decode($result["Desc_user"]);
+
 
         // echo "<br><br><pre>";
         // print_r($result);
@@ -441,6 +443,19 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         //echo "<br><br><pre>";
         //print_r($result);
         //echo "</pre><br>";
+
+        return $result;
+    }
+
+    public function getPostulate($id){
+        $this->conn->setQuery("SELECT * FROM Postule INNER JOIN Offre ON Postule.ID_offre=Offre.ID_offre WHERE ID_user = :id ;");
+        $this->conn->execQuery(['id' => $id], 1);
+
+        $result = $this->conn->getResult();
+
+        echo "<br><br><pre>";
+        print_r($result);
+        echo "</pre><br>";
 
         return $result;
     }
