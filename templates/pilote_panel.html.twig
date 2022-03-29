@@ -54,7 +54,7 @@
 
             <div class="has-display-none js-tab-content box" id="avancement">
                 <h2 class="title is-3 ">
-                    Edition des permission
+                    Edition de l'avancement
                 </h2>
                 <form class="mb-6" action="" method="POST">
                     <div class="field is-grouped">
@@ -94,26 +94,23 @@
                         <div class="column is-one-third">
                             <div class="field">
                                 <label class="checkbox">
-                                    <input type="checkbox" id="recherche_ent" name="recherche_ent" value="2"
-                                        {% for i in perm %} {% if i.ID_perm==2 %} checked {% endif %} {%
-                                        endfor %}>
-                                    Rechercher
+                                    <input type="checkbox" id="" name="" value="">
+                                    Notif 1
                                 </label>
                             </div>
                         </div>
                         <div class="column is-one-third">
                             <div class="field">
                                 <label class="checkbox">
-                                    <input type="checkbox" id="creer_ent" name="creer_ent" value="3" {% for
-                                        i in perm %} {% if i.ID_perm==3 %} checked {% endif %} {% endfor %}>
-                                    Créer
+                                    <input type="checkbox" id="" name="" value="">
+                                    Notif 2
                                 </label>
                             </div>
                         </div>
                     </div>
 					<div class="field is-grouped is-grouped-right">
 						<input type="hidden" id="user" name="user" value="{{user.ID_user}}" readonly>
-						<input type="submit" value="Sauvegarder l'avancement'" class="button is-link">
+						<input type="submit" value="Sauvegarder l'avancement" class="button is-link">
 					</div>
 				</form>
             </div>
