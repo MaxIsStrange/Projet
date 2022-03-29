@@ -37,12 +37,13 @@
     <!--Block numero 3-->
     <section class="section" id="section">
         <div class="container is-hidden-desktop mt-6">
-            <figure class="image is-128x128">
-                <img class="is-rounded" src="{{album.Avatar_album}}" alt="Photo de profil">
+            <figure class="image is-256x256">
+                <img class="is-rounded" src="{{album.Avatar_album}}" alt="Photo de profil" style="width: 100%;max-width: 256px;margin-left: auto;margin-right: auto;">
             </figure>
         </div>
         <div class="columns is-multiline mt-6">
-            <div id="col-r" class="column is-full-mobile is-full-tablet is-four-fifths-desktop is-four-fifths-widescreen is-four-fifths-fullhd ">
+            <div id="col-r"
+                class="column is-full-mobile is-full-tablet is-four-fifths-desktop is-four-fifths-widescreen is-four-fifths-fullhd ">
 
                 <div class="is-flex">
                     <h1 id="margin-name" class="title is-1">
@@ -62,6 +63,8 @@
                             <li data-tab="description" class="is-active"><a>Description</a></li>
                             <li data-tab="fichiers"><a>Mes fichiers</a></li>
                             <li data-tab="avancement"><a>Mon avancement</a></li>
+                            <li data-tab="wishlist"><a><span class="icon"><i class="fa-regular fa-heart"></i></span></a>
+                            </li>
                         </ul>
                     </div>
 
@@ -75,7 +78,7 @@
                     <div class="has-display-none js-tab-content box" id="fichiers">
                         <h1 class="title is-4 mb-2">Mes fichiers</h1>
 
-                        <div class="list has-hoverable-list-items has-overflow-ellipsis">
+                        <div class="list has-hoverable-list-items">
                             <div class="list-item">
                                 <div class="list-item-image">
                                     <span class="icon is-large has-text-primary">
@@ -88,7 +91,7 @@
                                         <span><a href="{{album.CV_album}}" target="_blank">Cucruculum vitae
                                                 (CV)</a></span>
                                     </div>
-                                    <div class="list-item-description is-clipped">
+                                    <div class="list-item-description">
                                         {{album.CV_album}}
                                     </div>
                                 </div>
@@ -127,7 +130,7 @@
                                         <span><a href="{{album.LM_album}}" target="_blank">Lettre de
                                                 motivation</a></span>
                                     </div>
-                                    <div class="list-item-description is-clipped">
+                                    <div class="list-item-description">
                                         {{album.LM_album}}
                                     </div>
                                 </div>
@@ -166,7 +169,7 @@
                                         <span><a href="{{album.FV_album}}" target="_blank">Fiche de
                                                 validation</a></span>
                                     </div>
-                                    <div class="list-item-description is-clipped">
+                                    <div class="list-item-description">
                                         {{album.FV_album}}
                                     </div>
                                 </div>
@@ -261,13 +264,18 @@
                             </li>
                         </ul>
                     </div>
+                    <div class="has-display-none js-tab-content box" id="wishlist">
+                        <h1 class="title is-4 mb-2">Wishlist</h1>
+                        <div class="content">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="col-l"
                 class="column is-full-mobile is-full-tablet is-one-fifth-desktop is-one-fifth-widescreen is-one-fifth-fullhd">
                 <div class="is-flex is-hidden-touch">
-                    <figure id="align-pp" class="image is-256x256 mx-auto mb-6 ">
-                        <img class="is-rounded" src="{{album.Avatar_album}}" alt="Photo de profil">
+                    <figure class="image mx-auto mb-6 ">
+                        <img class="is-rounded" src="{{album.Avatar_album}}" alt="Photo de profil" style="width: 100%;max-width: 256px;margin-left: auto;margin-right: auto;margin-top: 3rem;">
                     </figure>
                 </div>
 
@@ -286,7 +294,7 @@
         </div>
         <div class="buttons">
             <form action="" style="margin-left: auto;margin-right:0;">
-                <input  type="submit" class="button is-link" value="Se déconnecter">
+                <input type="submit" class="button is-link" value="Se déconnecter">
             </form>
         </div>
     </section>
