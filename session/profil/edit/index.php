@@ -3,6 +3,7 @@ include_once "../../../func/func_bdd.php";
 include_once "../../../func/func_session.php";
 include_once "../../../func/func_login.php";
 include_once "../../../func/func_upload.php";
+include_once "../../../func/func_mail.php";
 
 
 echo "<code><pre><br><br><br>";
@@ -58,22 +59,8 @@ if (
   ];
 
   $log->editBasic($tabInfo);
-
-
-  $from = "StageTracker <stagetracker@hsbay.space>";
-  $to = "evan.pasquon@viacesi.fr";
-  $subject = "StageTracker - Modification de vos informations";
-
-  $headers = "From:" . $from;
-
-  $message = "Bonjour,\n Votre compte StageTracker vient d'être modifié. \n Si ce n'est pas votre action, veuillez modifier tout de suite votre mot de passe et mail.";
-  $mailSent = mail($to, $subject, $message, $headers);
-  echo $mailSent;
-
-  if (!$mailSent) {
-    $errorMessage = error_get_last()['message'];
-    echo $errorMessage;
-  }
+  $mailer->setMail('modif');
+  $mailer->sendMail($user['Mail_user']);
 
 } elseif (
   isset($_POST['result']) && $_POST['result'] == "account_edit"
