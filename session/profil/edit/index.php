@@ -19,9 +19,9 @@ $alb = $data->getAlbum($idRes, 'user');
 $desc = !empty($user['Desc_user']) ? htmlspecialchars_decode($user['Desc_user'], ENT_QUOTES) : null;
 $comp = !empty($adr['Comp_adr']) ? htmlspecialchars_decode($adr['Comp_adr'], ENT_QUOTES) : null;
 
-echo "<br><br><pre>";
-print_r($user);
-echo "</pre><br>";
+// echo "<br><br><pre>";
+// print_r($user);
+// echo "</pre><br>";
 
 //Modification des informations
 if (
@@ -57,7 +57,7 @@ if (
     'desc' => $user_desc
   ];
 
-  print_r($log->editBasic($tabInfo));
+  $log->editBasic($tabInfo);
 
 
   $mail->send();
