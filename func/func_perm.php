@@ -16,6 +16,7 @@ class Permissions
 
     function parPerm()
     {
+        array_push($this->list, 0);
         foreach ($_SESSION['PERM'] as $perm) {
             array_push($this->list, $perm['ID_perm']);
         }
@@ -28,11 +29,13 @@ class Permissions
 
     function chkPerm($toChk)
     {
-        if (in_array($toChk, $this->list)) {
-            return true;
-        } else {
-            return false;
+        foreach ($this->list as $perm) {
+            if ($toChk === $perm) {
+                return true;
+            }
         }
+            return false;
+        
     }
 }
 

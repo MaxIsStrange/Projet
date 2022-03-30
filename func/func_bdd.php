@@ -335,6 +335,16 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         return $result;
     }
 
+    function chkUserID($input)
+    {
+        $this->conn->setQuery("SELECT ID_user FROM User WHERE ID_user = :input");
+        $this->conn->execQuery(['input' => $input], 0);
+
+        $result = $this->conn->getResult();
+
+        return $result;
+    }
+
     function chkMail($input)
     {
         $this->conn->setQuery('SELECT (mail_user) from User Where mail_user = :mail;');
@@ -426,9 +436,9 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
     }
 
 
-    public function getComp($mail)
+    public function getComp($id)
     {
-        $id = $this->getUserID($mail);
+      
 
         $this->conn->setQuery("SELECT Nom_comp, LVL_comp, IsLang_comp FROM Competence INNER JOIN Sait_faire ON Competence.ID_comp = Sait_faire.ID_comp INNER JOIN User ON Sait_faire.ID_user = User.ID_user WHERE User.ID_User= :id_u");
 
@@ -504,9 +514,9 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         return $result;
     }
 
-    public function getPoste($mail)
+    public function getPoste($id)
     {
-        $id = self::getUserID($mail);
+        //$id = self::getUserID($mail);
 
         $this->conn->setQuery("SELECT Type_promo,Annee_promo FROM User INNER JOIN Promo ON User.ID_Promo=Promo.ID_Promo WHERE User.ID_user= :id");
 
@@ -698,7 +708,7 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
     public function getUserById($id)
     {
 
-        $this->conn->setQuery("SELECT * FROM User INNER JOIN Album ON User.ID_album=Album.ID_album WHERE ID_user = :id ");
+        $this->conn->setQuery("SELECT * FROM User WHERE ID_user = :id ");
 
         $this->conn->execQuery(['id' => $id], 0);
 

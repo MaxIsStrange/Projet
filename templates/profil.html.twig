@@ -48,8 +48,8 @@
 
                 <div class="is-flex">
                     <h1 id="margin-name" class="title is-1">
-                        {{session.USER_FNAME}}
-                        {{session.USER_NAME}}</h1>
+                        {{infos.Prenom_user}}
+                        {{infos.Nom_user}}</h1>
                     <div id="margin-edit-profil" class="buttons">
                     <form action="edit\" method="GET">
                     <input type="hidden" name="id" value='{{id}}'>
@@ -322,11 +322,13 @@
             </div>
 
         </div>
+        {% if deco == true %}
         <div class="buttons">
             <form action="" method="POST" style="margin-left: auto;margin-right:0;">
                 <input type="submit" name="result" class="button is-link" value="Se déconnecter">
             </form>
         </div>
+        {% endif %}
 
         <form action="" method="POST">
         
