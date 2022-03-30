@@ -12,6 +12,7 @@ echo "<br><br><br>";
 $perm->parPerm();
 if ($perm->chkPerm(7)) {
   $id = isset($_GET['id']) ? $_GET['id'] : null;
+  echo "<br><br><br>ID : $id";
 } else {
   $id = null;
 }
