@@ -15,7 +15,7 @@ class Recherche
 
     public function setDico()
     {
-        $path = $_SERVER['DOCUMENT_ROOT'] . "/func/dico.json";
+        $path = $_SERVER['DOCUMENT_ROOT'] . "/cesi/stagetracker/func/dico.json";
         echo "<br><br><br>" . $path;
         $dicoBrut = file_get_contents($path);
 
