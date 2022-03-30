@@ -23,11 +23,7 @@ if (isset($_SESSION['USER_FNAME'])) {
   $id = $data->getUserID($_SESSION["USER_MAIL"]);
   $data->getPostulate($id);
 
-  echo "<br><br><pre>";
   $desc=htmlspecialchars_decode($infos["Desc_user"],ENT_QUOTES);
-  print_r($desc);
-  print_r($desc);
-  echo "</pre><br>";
   echo $twig->render('profil.html.twig', ['session' => $_SESSION, 'album' => $album, 'infos' => $infos, 'comps' => $comps, 'grp' => $grp, 'desc' => $desc, 'id' => $id]);
   $data->getPostulate(18);
 
