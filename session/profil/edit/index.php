@@ -17,7 +17,10 @@ $adr = $data->getAdrByUser($idRes);
 $alb = $data->getAlbum($idRes, 'user');
 $desc = !empty($user['Desc_user']) ? htmlspecialchars_decode($user['Desc_user'], ENT_QUOTES) : null;
 $comp = !empty($adr['Comp_adr']) ? htmlspecialchars_decode($adr['Comp_adr'], ENT_QUOTES) : null;
-//print_r($_FILES['img_pp']);
+
+echo "<br><br><pre>";
+print_r($user);
+echo "</pre><br>";
 
 //Modification des informations
 if (
@@ -56,8 +59,13 @@ if (
   print_r($log->editBasic($tabInfo));
 
   $message = "Bonjour,\n Votre compte StageTracker vient d'être modifié. \n Si ce n'est pas votre action, veuillez modifier tout de suite votre mot de passe et mail.";
-  mail($user['Mail_user'], 'StageTracker - Modification de vos informations', $message);
-  
+  $mailSent = mail($user['Mail_user'], 'StageTracker - Modification de vos informations', $message);
+  echo $mailSent;
+  if (!$mailSent) {
+    $errorMessage = error_get_last()['message'];
+    echo $errorMessage;
+  }
+
 } elseif (
   isset($_POST['result']) && $_POST['result'] == "account_edit"
   && isset($_POST['mail']) && isset($_POST['pass']) && isset($_POST['pass2']) // && isset($_POST['old_pass'])
