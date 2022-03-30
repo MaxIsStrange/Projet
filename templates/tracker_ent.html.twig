@@ -17,6 +17,9 @@
     <!-- Extention Bulma-divider -->
     <link rel="stylesheet"
         href="https://hsbay.space/cesi/stagetracker/res/@creativebulma/bulma-divider/dist/bulma-divider.min.css" />
+    <!-- Star Rating -->
+    <link rel="stylesheet" type="text/css"
+        href="https://www.hsbay.space/cesi/stagetracker/res/starability-master/starability-minified/starability-all.min.css" />
     <!-- Navbar -->
     <script defer src="https://hsbay.space/cesi/stagetracker/src/js/navbar.js"></script>
     <!-- Mes fichiers -->
@@ -67,8 +70,42 @@
         </section>
         <h2 class="subtitle has-text-centered">{{msg}}</h2>
         <div class="columns is-multiline">
-            {% for result in cartes %}
-            {% if i <= limit %} i={{i}} {% include 'latestcard.twig' %} {% set i=i+1 %} {% endif %} {% endfor %} </div>
+            <div class="column is-one-third">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="{{result.Banniere_album}}"
+                                alt="{{result.Banniere_album}} Bannière de l'entreprise">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="content">
+                            <h1 class="title">
+                                <a href="details/?id={{result.ID_ent}}">{{result.Nom_ent}}</a>
+                            </h1>
+                            <div class="info-entreprise" style="margin-bottom: 1rem">
+                                <p id="secteur" class="is-size-5">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-chart-pie"></i>
+                                    </span>
+                                    {{result.Sect_ent}}
+                                </p>
+                                <p id="location" class="is-size-5">
+                                    <span class="icon">
+                                        <i class="fa-solid fa-map-pin"></i>
+                                    </span>
+                                    {{result.CP_adr}}
+                                    {{result.Ville_adr}}
+                                </p>
+                                <p id="star-rating" class="is-size-5">
+                                <p class="starability-result" data-rating="{{result.Note_ent}}"></p>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
     </section>
 
     <!--Footer-->
