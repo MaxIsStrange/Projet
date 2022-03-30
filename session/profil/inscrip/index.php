@@ -6,7 +6,6 @@ include '../../../func/func_login.php';
   $loader = new \Twig\Loader\FilesystemLoader('../../../templates');
   $twig = new \Twig\Environment($loader);
 
-echo $twig->render('inscrip.html.twig', ['userfname' => 'Fabien', 'visible2' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
 
 
 
@@ -49,4 +48,10 @@ if (
   } else {
     echo "Les mots de passe ne correspondent pas";
   }
+} else {
+  echo $twig->render('erreur_page.html.twig', ['visible2' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
+
 }
+
+
+echo $twig->render('inscrip.html.twig', ['visible2' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
