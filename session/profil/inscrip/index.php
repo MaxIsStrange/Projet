@@ -16,6 +16,7 @@ if (
   && isset($_POST['name']) && isset($_POST['fname']) && isset($_POST['adr_rue'])
   && isset($_POST['adr_cp']) && isset($_POST['adr_city'])
   && isset($_POST['adr_pays']) && isset($_POST['tel'])
+  && isset($_POST['result']) && ($_POST['result'] == 'valide')
 ) {
   //Si les mots de passe correspondent
   if ($_POST['pass'] === $_POST['pass2']) {
