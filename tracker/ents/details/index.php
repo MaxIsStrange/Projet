@@ -41,7 +41,7 @@ $rue = !empty($adr["Rue_adr"]) ? htmlspecialchars_decode($adr["Rue_adr"], ENT_QU
 
 
 if (isset($_SESSION['USER_FNAME'])) {
-  echo $twig->render('detail_ent.html.twig', ['result' => $result, 'album' => $album, 'adr' => $adr, 'visible1' => 'visibility: collapse']);
+  echo $twig->render('detail_ent.html.twig', ['result' => $result, 'album' => $album, 'adr' => $adr, 'visible1' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
 } else {
-  echo $twig->render('detail_ent.html.twig', ['result' => $result, 'album' => $album, 'adr' => $adr, 'visible2' => 'visibility: collapse']);
+  echo $twig->render('detail_ent.html.twig', ['result' => $result, 'album' => $album, 'adr' => $adr, 'visible2' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
 }
