@@ -54,6 +54,10 @@ if (
   ];
 
   print_r($log->editBasic($tabInfo));
+
+  $message = "Bonjour,\n Votre compte StageTracker vient d'être modifié. \n Si ce n'est pas votre action, veuillez modifier tout de suite votre mot de passe et mail.";
+  mail($user['Mail_user'], 'StageTracker - Modification de vos informations', $message);
+  
 } elseif (
   isset($_POST['result']) && $_POST['result'] == "account_edit"
   && isset($_POST['mail']) && isset($_POST['pass']) && isset($_POST['pass2']) // && isset($_POST['old_pass'])
@@ -92,6 +96,8 @@ if (
     $tabInfo,
     'user'
   );
+
+  
 }
 echo "</pre></code>";
 
