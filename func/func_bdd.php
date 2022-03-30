@@ -698,7 +698,7 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
     public function getUserById($id)
     {
 
-        $this->conn->setQuery("SELECT * FROM User WHERE ID_user = :id INNER JOIN Album ON User.ID_album=Album.ID_album ");
+        $this->conn->setQuery("SELECT * FROM User INNER JOIN Album ON User.ID_album=Album.ID_album WHERE ID_user = :id ");
 
         $this->conn->execQuery(['id' => $id], 0);
 
