@@ -61,7 +61,7 @@ if (
 
 
   $from = "StageTracker <stagetracker@hsbay.space>";
-  $to = "evan.pasquon@gmail.com";
+  $to = "evan.pasquon@viacesi.fr";
   $subject = "StageTracker - Modification de vos informations";
 
   $headers = "From:" . $from;
