@@ -7,6 +7,11 @@ include_once "../../../func/func_upload.php";
 echo "<code><pre><br><br><br>";
 $idRes = isset($_GET['id']) ? $_GET['id'] : null;
 
+if ($idRes == null) {
+  echo "ERREUR";
+  exit();
+}
+
 $user = $data->getUserById($idRes);
 $adr = $data->getAdrByUser($idRes);
 $alb = $data->getAlbum($idRes, 'user');

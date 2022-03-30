@@ -1,15 +1,34 @@
 <?php
+include_once "../../../func/func_bdd.php";
+include_once "../../../func/func_session.php";
+include_once "../../../func/func_login.php";
+include_once "../../../func/func_upload.php";
   require_once('../../../vendor/autoload.php');
+  
   $loader = new \Twig\Loader\FilesystemLoader('../../../templates');
   $twig = new \Twig\Environment($loader);
 
-  //TEMPORAIRE
+//TEMPORAIRE
+
+//echo "<code><pre><br><br><br>";
+$idRes = isset($_GET['id']) ? $_GET['id'] : null;
+
+if (empty($data->chkEntID($idRes)) || $idRes == null) {
+  echo "ERREUR";
+  exit();
+}
+
+
+$ent = $data->getEnt($idRes);
+$adrID = $data->getAdrIdByEnt($idRes);
+$adr = $data->getAdr($adrID['ID_adr']);
+$alb = $data->getAlbum($idRes, 'ent');
+
 
 if (
   isset($_POST['name']) && isset($_POST['desc']) && isset($_POST['mail'])
-  && isset($_POST['tel']) && isset($_FILES['ban_ent']) && isset($_FILES['logo_ent'])
-  && isset($_POST['verif']) && isset($_POST['nbr_conf']) && isset($_POST['adr_rue'])
-  && isset($_POST['adr_cp']) && isset($_POST['adr_ville'])
+  && isset($_POST['tel'])  && isset($_POST['nbr_conf'])
+  && isset($_POST['adr_rue']) && isset($_POST['adr_cp']) && isset($_POST['adr_ville'])
   && isset($_POST['adr_pays'])
 ) {
 
@@ -27,50 +46,70 @@ if (
     'city' => htmlspecialchars($_POST['adr_ville']),
     'pays' => htmlspecialchars($_POST['adr_pays']),
     'num' => $adr_num,
-    'comp' => $adr_comp
+    'comp' => $adr_comp,
 
-    'idAdr' =>
+    'id' => $adrID['ID_adr']
   ];
 
-  $data->editAddr($tabInfoAdr);
+  $data->editAdr($tabInfoAdr);
 
-  $upload->setOrigin("ban_ent");
-  $pathBan = $upload->uploadFile("Banniere",  $data->chkMaxIDEnt()['ID_ent'] + 1);
-  $upload->setOrigin("logo_ent");
-  $pathLogo = $upload->uploadFile("Logo",  $data->chkMaxIDEnt()['ID_ent'] + 1);
+  if (!empty($_FILES['ban_ent']['name'])) {
+    $upload->setOrigin("ban_ent");
+    $pathBan = $upload->uploadFile("Banniere",  $idRes);
+  } else {
+    $pathBan = $alb['Banniere_album'];
+  }
+
+  if (!empty($_FILES['logo_ent']['name'])) {
+    $upload->setOrigin("logo_ent");
+    $pathLogo = $upload->uploadFile("Logo",  $idRes);
+  } else {
+    $pathLogo = $alb['Logo_album'];
+  }
+ 
+
+  
+  
 
   $tabInfoAlb = [
     'av' => null,
     'ba' => $pathBan,
-    'lo' => $pathLogo
+    'lo' => $pathLogo,
+    'id' => $alb['ID_album']
   ];
 
-  $data->editAlbum($tabInfoAlb, 'ent');
+  $data->editAlb($tabInfoAlb, 'ent');
 
   $tabInfoEnt = [
-    'name' => htmlspecialchars($_POST['name']),
+    'nom' => htmlspecialchars($_POST['name']),
     'desc' => htmlspecialchars($_POST['desc']),
     'mail' => htmlspecialchars($_POST['mail']),
     'tel' => htmlspecialchars($_POST['tel']),
-    'nbr_conf' => htmlspecialchars($_POST['nbr_conf']),
+    'conf' => htmlspecialchars($_POST['nbr_conf']),
 
     'slogan' => $slogan,
-    'nbr' => $nbr,
+    'taille' => $nbr,
     'web' => $web,
     'sect' => $sect,
 
-    'ID_alb' => $data->chkMaxIDAlb()["ID_album"]
+    'id' => $idRes
   ];
 
-  $data->addEnt($tabInfoEnt);
-
-  $data->linkAdrEnt($data->chkMaxIDAdr()['ID_adr'], $data->chkMaxIDEnt()['ID_ent']);
-} else {
-  echo "ERREUR : Veuillez renseigner tout les champs";
+  $data->editEnt($tabInfoEnt);
+  // print_r($alb);
+  // echo "<br><br>";
+  // // print_r($tabInfoAdr);
+  // // echo "<br><br>";
+  // print_r($tabInfoAlb);
+  // echo "<br><br>";
+  // // print_r($tabInfoEnt);
+  // // echo "<br><br>";
+  // print_r($_FILES);
+ 
 }
+//echo "</code></pre>";
 
 
 
 
-
-echo $twig->render('edit_ent.html.twig', ['visible1' => 'visibility: collapse']);
+echo $twig->render('edit_ent.html.twig', ['ent' => $ent, 'alb' => $alb, 'adr' => $adr, 'visible1' => 'visibility: collapse']);

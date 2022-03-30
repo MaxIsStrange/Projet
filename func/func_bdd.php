@@ -235,7 +235,7 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
                 // Select Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album
                 // INNER JOIN User ON User.ID_album=Album.ID_album WHERE ID_user=1;
 
-                $this->conn->setQuery("Select Album.ID_album,Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album
+                $this->conn->setQuery("SELECT Album.ID_album,Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album
                 INNER JOIN User ON User.ID_album=Album.ID_album WHERE ID_user= :id ;");
 
                 $this->conn->execQuery(['id' => $id], 0);
@@ -245,7 +245,7 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
                 // Select Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album
                 // INNER JOIN User ON User.ID_album=Album.ID_album WHERE ID_user=1;
 
-                $this->conn->setQuery("Select Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album
+                $this->conn->setQuery("Select Album.ID_album,Avatar_album,Banniere_album,Logo_album,CV_album,LM_album,CS_album,FV_album FROM Album
                 INNER JOIN Entreprise ON Entreprise.ID_album=Album.ID_album WHERE ID_ent= :id ;");
 
                 $this->conn->execQuery(['id' => $id], 0);
@@ -682,6 +682,16 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
     {
         $this->conn->setQuery("UPDATE User SET Nom_user = :nom ,Prenom_user= :prenom ,BD_user = :bd ,Tel_user =  :tel ,Desc_user = :desc WHERE ID_user = :id");
         $this->conn->execQuery(['nom' => $input['nom'], 'prenom' => $input['prenom'], 'bd' => $input['bd'], 'tel' => $input['tel'], 'desc' => $input['desc'], 'id' => $input['id']], 0);
+
+        $result = $this->conn->getResult();
+
+        return $result;
+    }
+
+    public function editEnt($input)
+    {
+        $this->conn->setQuery("UPDATE Entreprise SET Nom_ent = :nom, Desc_ent = :desc, Taille_ent = :taille, Mail_ent = :mail, Web_ent = :web, Sect_ent = :sect , Slogan_ent = :slogan, Nbr_conf_ent = :conf, Tel_ent = :tel WHERE ID_ent = :id;");
+        $this->conn->execQuery(['nom' => $input['nom'], 'desc' => $input['desc'], 'taille' => $input['taille'], 'tel' => $input['tel'], 'web' => $input['web'], 'sect' => $input['sect'], 'slogan' => $input['slogan'], 'conf' => $input['conf'], 'mail' => $input['mail'], 'id' => $input['id']], 0);
 
         $result = $this->conn->getResult();
 
