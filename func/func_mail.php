@@ -2,9 +2,9 @@
 
 class Mail
 {
-    private string $sender = "StageTracker <stagetracker@hsbay.space>";
+    
     private string $subject;
-    private string $headers = "From:" . $sender;
+    private string $headers = "From: StageTracker <stagetracker@hsbay.space>";
     private string $message;
 
 
