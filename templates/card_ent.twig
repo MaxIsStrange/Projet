@@ -1,41 +1,45 @@
 <div class="column is-one-third">
-                <div class="card">
-                    <div class="card-image">
-                        <figure class="image is-4by3">
-                            <img src="{{result.Banniere_album}}"
-                                alt="{{result.Banniere_album}} Bannière de l'entreprise">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="content">
-                            <h1 class="title">
-                                <a href="details/?id={{result.ID_ent}}">{{result.Nom_ent}}</a>
-                            </h1>
-                            <div class="info-entreprise" style="margin-bottom: 1rem">
-                                <p id="slogan" class="is-size-5">
-                                    <span class="icon">
-                                        <i class="fa-solid fa-chart-pie"></i>
-                                    </span>
-                                    {{result.Slogan_ent}}
-                                </p>
-                                <p id="secteur" class="is-size-5">
-                                    <span class="icon">
-                                        <i class="fa-solid fa-chart-pie"></i>
-                                    </span>
-                                    {{result.Sect_ent}}
-                                </p>
-                                <p id="location" class="is-size-5">
-                                    <span class="icon">
-                                        <i class="fa-solid fa-map-pin"></i>
-                                    </span>
-                                    {{result.CP_adr}}
-                                    {{result.Ville_adr}}
-                                </p>
-                                <p id="star-rating" class="is-size-5">
-                                <p class="starability-result" data-rating="{{result.Note_ent}}"></p>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+    <div class="card">
+        <div class="card-image">
+            <figure class="image is-4by3">
+                <img src="{{result.Banniere_album}}" alt="{{result.Banniere_album}} Bannière de l'entreprise">
+            </figure>
+            <figure class="image is-4by3">
+                <img src="{{result.Banniere_album}}" alt="{{result.Banniere_album}} Bannière de l'entreprise">
+                <img src="{{result.Banniere_album}}" alt="{{result.Banniere_album}} Bannière de l'entreprise"
+                    style="width: 128px;height: 128px;margin-top:auto;margin-bottom:1rem;margin-left:1rem;margin-right:auto;">
+            </figure>
+        </div>
+        <div class="card-content">
+            <div class="content">
+                <h1 class="title">
+                    <a href="details/?id={{result.ID_ent}}">{{result.Nom_ent}}</a>
+                </h1>
+                <div class="info-entreprise" style="margin-bottom: 1rem">
+                    <p id="slogan" class="is-size-5">
+                        <span class="icon">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </span>
+                        {{result.Slogan_ent}}
+                    </p>
+                    <p id="secteur" class="is-size-5">
+                        <span class="icon">
+                            <i class="fa-solid fa-chart-pie"></i>
+                        </span>
+                        {{result.Sect_ent}}
+                    </p>
+                    <p id="location" class="is-size-5">
+                        <span class="icon">
+                            <i class="fa-solid fa-map-pin"></i>
+                        </span>
+                        {{result.CP_adr}}
+                        {{result.Ville_adr}}
+                    </p>
+                    <p id="star-rating" class="is-size-5">
+                    <p class="starability-result" data-rating="{{result.Note_ent}}"></p>
+                    </p>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
