@@ -23,7 +23,7 @@ if ($id == null && !empty($_SESSION['USER_ID'])) {
 }
 
 if (!empty($data->chkUserID($id))) {
-  echo 'UTILISATEUR EXISTANT';
+  // echo 'UTILISATEUR EXISTANT';
 } else {
   echo "UTILISATEUR INCONNU";
   exit();

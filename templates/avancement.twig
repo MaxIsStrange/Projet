@@ -1,0 +1,88 @@
+<ul class="steps is-medium is-centered has-content-centered">
+    {% if step == 0 %}
+    Commencez à postuler dans une entreprise pour voir votre avancement !
+    {% else %}
+    <li class="steps-segment
+        {% if step == 1 %}
+            is-active
+        {% endif %}
+    ">
+        <span class="steps-marker">
+            <span class="icon">
+                <i class="fa-solid fa-play"></i>
+            </span>
+        </span>
+        <div class="steps-content">
+            <p class="heading">Postulation</p>
+        </div>
+    </li>
+    <li class="steps-segment 
+        {% if step == 2 %}
+            is-active
+        {% endif %}
+        ">
+        <span class="steps-marker">
+            <span class="icon">
+                <i class="fa-solid fa-reply"></i>
+            </span>
+        </span>
+        <div class="steps-content">
+            <p class="heading">Réponse</p>
+        </div>
+    </li>
+    <li class="steps-segment
+        {% if step == 3 %}
+            is-active
+        {% endif %}
+    ">
+        <span class="steps-marker">
+            <span class="icon">
+                <i class="fa-solid fa-paper-plane"></i>
+            </span>
+        </span>
+        <div class="steps-content">
+            <p class="heading">Fiche de validation émise</p>
+        </div>
+    </li>
+    <li class="steps-segment
+        {% if step == 4 %}
+            is-active
+        {% endif %}">
+        <span class="steps-marker">
+            <span class="icon">
+                <i class="fa-solid fa-signature"></i>
+            </span>
+        </span>
+        <div class="steps-content">
+            <p class="heading">Fiche de validation signée</p>
+        </div>
+    </li>
+    <li class="steps-segment
+        {% if step == 5 %}
+            is-active
+        {% endif %}">
+        <span class="steps-marker ">
+            <span class="icon">
+                <i class="fa-solid fa-paper-plane"></i>
+            </span>
+        </span>
+        <div class="steps-content">
+            <p class="heading">Convention émise</p>
+        </div>
+    </li>
+    <li class="steps-segment
+        {% if step == 6 %}
+            is-active
+        {% endif %}
+    ">
+        <span class="steps-marker">
+            <span class="icon">
+                <i class="fa fa-check"></i>
+            </span>
+        </span>
+        <div class="steps-content">
+            <p class="heading">Convention signée</p>
+        </div>
+    </li>
+</ul>
+{% endif %}
