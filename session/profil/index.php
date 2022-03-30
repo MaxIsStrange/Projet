@@ -17,8 +17,9 @@ if (isset($_SESSION['USER_FNAME'])) {
   $data->getPostulate($id);
 
   echo "<br><br><pre>";
+  $desc=$infos["Desc_user"];
   print_r($desc);
-  $desc=htmlspecialchars_decode($infos["Desc_user"]);
+  $desc=htmlspecialchars_decode($desc);
   print_r($desc);
   echo "</pre><br>";
   echo $twig->render('profil.html.twig', ['session' => $_SESSION, 'album' => $album, 'infos' => $infos, 'comps' => $comps, 'grp' => $grp, 'desc' => $desc, 'id' => $id]);
