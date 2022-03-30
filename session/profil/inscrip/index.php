@@ -1,6 +1,7 @@
 <?php
 include_once "../../../func/func_session.php";
-include '../../../func/func_login.php';
+include_once '../../../func/func_login.php';
+include_once "../../../func/func_mail.php";
 
   require_once('../../../vendor/autoload.php');
   $loader = new \Twig\Loader\FilesystemLoader('../../../templates');
@@ -41,6 +42,9 @@ if (
     ];
 
     $result = $log->inscription($tabInfo['mail'], $tabInfo);
+
+    $mailer->setMail('inscri');
+    $mailer->sendMail($_POST['mail']);
 
     echo "<code><pre><br>";
     print_r($result);
