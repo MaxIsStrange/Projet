@@ -345,6 +345,16 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         return $result;
     }
 
+    function chkEntID($input)
+    {
+        $this->conn->setQuery("SELECT ID_ent FROM Entreprise WHERE ID_ent = :input");
+        $this->conn->execQuery(['input' => $input], 0);
+
+        $result = $this->conn->getResult();
+
+        return $result;
+    }
+
     function chkMail($input)
     {
         $this->conn->setQuery('SELECT (mail_user) from User Where mail_user = :mail;');

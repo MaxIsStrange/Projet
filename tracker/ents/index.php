@@ -11,6 +11,8 @@ include_once "../../func/func_perm.php";
 if (isset($_POST['ent-rb'])) {
   
   $ents = $searchEngine->search($_POST['ent-rb'], 'ent');
+} else {
+  $ents = $searchEngine->search('', 'ent');
 }
 // echo "<code><pre><br>";
 // echo "RECHERCHE : " . $_POST['ent-rb'] . "<br><br>";
@@ -25,7 +27,7 @@ foreach ($ents as $idEnt) {
 }
 
 if (empty($cartes)) {
-  $msg = "Aucune offre trouvée avec cette recherche.";
+  $msg = "Aucune entreprise trouvée avec cette recherche.";
 } else {
   $msg = '';
 }
