@@ -551,6 +551,27 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         return $result;
     }
 
+    function getEntCard(
+        $id,
+        $offset
+    ) {
+        $this->conn->setQuery(
+            'SELECT Entreprise.ID_ent,Entreprise.Nom_ent,Entreprise.Sect_ent,Entreprise.Note_ent,
+            Adresse.Ville_adr,Adresse.CP_adr,Entreprise.Slogan_ent,Album.Banniere_album,
+            Album.Logo_album FROM Entreprise
+            INNER JOIN Est_localise ON Entreprise.ID_ent=Est_localise.ID_ent
+            INNER JOIN Adresse ON Est_localise.ID_adr=Adresse.ID_adr
+            INNER JOIN Album On Entreprise.ID_album=Album.ID_album where Entreprise.ID_ent=:id LIMIT 1 OFFSET :offset;'
+        );
+        $this->conn->execQuery(['id' => $id, 'offset' => $offset], 0);
+
+        $result = $this->conn->getResult();
+        //  echo "<br><br><pre>";
+        //  print_r($result);
+        //  echo "</pre><br>";
+        return $result;
+    }
+
     public function addAlbum($input)
     {
         $this->conn->setQuery("INSERT into Album (Avatar_album,Banniere_album,Logo_album) 

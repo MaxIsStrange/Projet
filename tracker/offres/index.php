@@ -22,12 +22,7 @@ if (isset($_POST['main-rb'])) {
 
 
     foreach ($offres as $idOffre) {
-        array_push(
-            $cartes,
-            $data->getOffreCard($idOffre['ID_offre'],
-                0
-            )
-        );
+        array_push($cartes, $data->getOffreCard($idOffre['ID_offre'], 0));
     }
 }
 

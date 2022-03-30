@@ -9,15 +9,31 @@ include_once "../../func/func_perm.php";
   $twig = new \Twig\Environment($loader);
 
 if (isset($_POST['ent-rb'])) {
+  
   $ents = $searchEngine->search($_POST['ent-rb'], 'ent');
 }
-
+// echo "<code><pre><br>";
+// echo "RECHERCHE : " . $_POST['ent-rb'] . "<br><br>";
+// echo "RESULTAT : ";
+// print_r($ents);
+// echo "<br><br>";
 $cartes = [];
 
-foreach ($ents as $ent) {
+foreach ($ents as $idEnt) {
   //FAIRE CARTES ENTREPRISES
-  array_push($cartes, $data->)
+  array_push($cartes, $data->getEntCard($idEnt['ID_ent'], 0));
 }
+
+if (empty($cartes)) {
+  $msg = "Aucune offre trouvée avec cette recherche.";
+} else {
+  $msg = '';
+}
+$i = 0;
+$limit = 99;
+
+// print_r($cartes);
+// echo "<br></pre></code>";
 
 
 if (isset($_SESSION['USER_FNAME'])) {
