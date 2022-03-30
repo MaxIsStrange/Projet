@@ -14,11 +14,11 @@ $nboffres = $data->getNbOffres();
 $nbstages = $data->getNbStages();
 $nbinsc = $data->getNbInsc();
 
-print_r($nbinsc);
+// DEBUG
 
 // if (isset($_POST['main-rb'])) {
 //   echo "<code><pre><br><br><br>";
-//   print_r($searchEngine->search($_POST['main-rb']));
+//   print_r($searchEngine->search($_POST['main-rb'], 'offre'));
 //   //print_r($searchEngine->outputSearch($_POST['main-rb']));
 //   //$perm->chkPerm(1) ? "Vous pouvez vous identifier" : "Vous ne pouvez pas vous identifier boloss.");
 //   echo "<br></pre></code>";

@@ -10,22 +10,23 @@ class Recherche
     public function __construct($newData)
     {
         $this->data = $newData;
-        // $this->setDico();
+        $this->setDico();
     }
 
-    // public function setDico()
-    // {
-    //     $path = $_SERVER['DOCUMENT_ROOT'] . "/func/dico.json";
-    //     $dicoBrut = file_get_contents($path);
+    public function setDico()
+    {
+        $path = $_SERVER['DOCUMENT_ROOT'] . "/func/dico.json";
+        echo "<br><br><br>" . $path;
+        $dicoBrut = file_get_contents($path);
 
 
-    //     $dicoNet = json_decode($dicoBrut, true);
+        $dicoNet = json_decode($dicoBrut, true);
 
-    //     foreach ($dicoNet as $mot) {
+        foreach ($dicoNet as $mot) {
 
-    //         array_push($this->dico, $mot);
-    //     }
-    // }
+            array_push($this->dico, $mot);
+        }
+    }
 
     public function search($input, $type)
     {

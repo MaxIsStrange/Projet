@@ -4,26 +4,37 @@ include_once "../../func/func_bdd.php";
 include_once "../../func/func_search.php";
 include_once "../../func/func_perm.php";
 
-if (isset($_POST['main-rb'])) {
-    echo "<code><pre><br><br><br>";
-    echo "Texte de recherche entré : " . $_POST['main-rb'] . "<br>";
+$cartes = [];
 
-    print_r($searchEngine->search($_POST['main-rb'], 'offre'));
+if (isset($_POST['main-rb'])) {
+    // echo "<code><pre><br><br><br>";
+    // echo "Texte de recherche entré : " . $_POST['main-rb'] . "<br>";
+
+    // print_r($searchEngine->search($_POST['main-rb'], 'offre'));
 
 
 
     $offres = $searchEngine->search($_POST['main-rb'], 'offre');
 
-    echo "<br>";
-    echo "<br></pre></code>";
+    // echo "<br>";
+    // echo "<br></pre></code>";
+
+
+
+    foreach ($offres as $idOffre) {
+        array_push(
+            $cartes,
+            $data->getOffreCard($idOffre['ID_offre'],
+                0
+            )
+        );
+    }
 }
 
-$cartes = [];
+
 $offset = 0;
 
-foreach ($offres as $idOffre) {
-    array_push($cartes, $data->getOffreCard($idOffre['ID_offre'],0));
-}
+
 echo "<code><pre><br>";
 print_r($cartes);
 echo "<br></pre></code>";
