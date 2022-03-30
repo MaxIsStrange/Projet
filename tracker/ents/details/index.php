@@ -18,6 +18,7 @@ if ($perm->chkPerm(7)) {
 
 if ($id == null) {
   echo "ERREUR : PAGE INTROUVABLE";
+  exit();
 }
 
 if (!empty($data->chkEntID($id))) {
@@ -36,7 +37,7 @@ $rue = !empty($adr["Rue_adr"]) ? htmlspecialchars_decode($adr["Rue_adr"], ENT_QU
 
 
 if (isset($_SESSION['USER_FNAME'])) {
-  echo $twig->render('detail_ent.html.twig', ['result' => $result, 'album' => $album, 'adr' => $adr, 'visible1' => 'visibility: collapse', 'comp' => $comp]);
+  echo $twig->render('detail_ent.html.twig', ['result' => $result, 'album' => $album, 'adr' => $adr, 'visible1' => 'visibility: collapse']);
 } else {
-  echo $twig->render('detail_ent.html.twig', ['result' => $result, 'album' => $album, 'adr' => $adr, 'visible2' => 'visibility: collapse', 'comp' => $comp]);
+  echo $twig->render('detail_ent.html.twig', ['result' => $result, 'album' => $album, 'adr' => $adr, 'visible2' => 'visibility: collapse']);
 }
