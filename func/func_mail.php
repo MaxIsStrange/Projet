@@ -20,12 +20,12 @@ class Mail
 
             case 'inscri':
                 $this->message = "Bonjour,\nVotre compte StageTracker à bien été crée !\nNous vous souhaitons la bienvenue sur StageTracker et espérons que vous trouverez vite un stage parmi les nombreux proposés.\n\nMerci de nous faire confiance,\nToute l'équipe StageTracker.";
-                $this->message = "Inscription réussie - StageTracker";
+                $this->subject = "Inscription réussie - StageTracker";
                 break;
 
             default:
                 $this->message = "Bonjour,\nCe message est surement une erreur.\n\nMerci de nous faire confiance,\nToute l'équipe StageTracker.";
-                $this->message = "StageTracker";
+                $this->subject = "StageTracker";
                 break;
         }
     }
