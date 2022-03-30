@@ -16,10 +16,12 @@ class Permissions
 
     function parPerm()
     {
+        if (!empty($_SESSION['PERM'])) {
         array_push($this->list, 0);
         foreach ($_SESSION['PERM'] as $perm) {
             array_push($this->list, $perm['ID_perm']);
         }
+    }
     }
 
     function getPerm()
@@ -39,6 +41,6 @@ class Permissions
     }
 }
 
-if (isset($_SESSION['PERM'])) {
+
     $perm = new Permissions($data);
-}
+

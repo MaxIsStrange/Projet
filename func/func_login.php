@@ -1,5 +1,6 @@
 <?php
 include_once "func_bdd.php";
+include_once "func_perm.php";
 
 
 // Objet gérant la connexion des utilisateurs
@@ -71,6 +72,8 @@ class login
         //On récupère le role de l'utilisateur et ses permissions
         $_SESSION['ROLE'] = $this->data->getRole($id);
         $_SESSION['PERM'] = $this->data->getPerm($id);
+
+        
     }
 
     function inscription($mail, $tabInfo)
