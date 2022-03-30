@@ -3,6 +3,7 @@ include_once "../../../func/func_bdd.php";
 include_once "../../../func/func_session.php";
 include_once "../../../func/func_login.php";
 include_once "../../../func/func_upload.php";
+include_once "../../../func/func_mail.php";
 
 echo "<code><pre><br><br><br>";
 $idRes = isset($_GET['id']) ? $_GET['id'] : null;
@@ -58,13 +59,20 @@ if (
 
   print_r($log->editBasic($tabInfo));
 
-  $message = "Bonjour,\n Votre compte StageTracker vient d'être modifié. \n Si ce n'est pas votre action, veuillez modifier tout de suite votre mot de passe et mail.";
-  $mailSent = mail($user['Mail_user'], 'StageTracker - Modification de vos informations', $message);
-  echo $mailSent;
-  if (!$mailSent) {
-    $errorMessage = error_get_last()['message'];
-    echo $errorMessage;
-  }
+
+  $mail->send();
+
+  // $message = "Bonjour,\n Votre compte StageTracker vient d'être modifié. \n Si ce n'est pas votre action, veuillez modifier tout de suite votre mot de passe et mail.";
+  // $headers = [
+  //   'From: StageTracker <stagetracker@hsbay.space>',
+  // ];
+  // $mailSent = mail('evan.pasquon@gmail.com', 'StageTracker - Modification de vos informations', $message, $headers);
+  // echo $mailSent;
+
+  // if (!$mailSent) {
+  //   $errorMessage = error_get_last()['message'];
+  //   echo $errorMessage;
+  // }
 
 } elseif (
   isset($_POST['result']) && $_POST['result'] == "account_edit"
