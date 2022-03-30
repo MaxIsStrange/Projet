@@ -11,6 +11,7 @@ echo "<br><br><br>";
 
 $perm->parPerm();
 echo "Permissions : ";
+echo "DOCUMENT ROOT : " . $_SERVER["DOCUMENT_ROOT"];
 print_r($perm->getPerm());
 if ($perm->chkPerm(7)) {
   $id = isset($_GET['id']) ? $_GET['id'] : null;
