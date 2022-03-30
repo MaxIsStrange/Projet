@@ -10,6 +10,8 @@ include_once "../../../func/func_perm.php";
 echo "<br><br><br>";
 
 $perm->parPerm();
+echo "Permissions : ";
+print_r($perm->getPerm());
 if ($perm->chkPerm(7)) {
   $id = isset($_GET['id']) ? $_GET['id'] : null;
   echo "<br><br><br>ID : $id";
