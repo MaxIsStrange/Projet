@@ -261,19 +261,31 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         return $result;
     }
 
-    
 
 
 
 
-    public function getUser($mail)
+
+    public function getUser($mail,$type)
     {
 
         $id = self::getUserID($mail);
 
         $this->conn->setQuery("SELECT * FROM User WHERE ID_user = :id");
 
-        $this->conn->execQuery(['id' => $id], 0);
+        switch ($type) {
+            case 'one':
+                $this->conn->execQuery(['id' => $id], 0);
+                break;
+
+            case 'all':
+                $this->conn->execQuery(['id' => $id], 1);
+                break;
+            default:
+                # code...
+                break;
+        }
+
 
         $result = $this->conn->getResult();
         // $result["Desc_user"]=htmlspecialchars_decode($result["Desc_user"]);
@@ -686,7 +698,7 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
     public function getUserById($id)
     {
 
-        $this->conn->setQuery("SELECT * FROM User WHERE ID_user = :id");
+        $this->conn->setQuery("SELECT * FROM User WHERE ID_user = :id INNER JOIN Album ON User.ID_album=Album.ID_album ");
 
         $this->conn->execQuery(['id' => $id], 0);
 
@@ -719,7 +731,7 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
 
     public function searchUser($input)
     {
-        $this->conn->setQuery("SELECT Mail_User FROM User WHERE (Nom_User LIKE :inputN) OR (Prenom_User LIKE :inputP) OR (Mail_User LIKE :inputM) LIMIT 1");
+        $this->conn->setQuery("SELECT Mail_User FROM User WHERE (Nom_User LIKE :inputN) OR (Prenom_User LIKE :inputP) OR (Mail_User LIKE :inputM) ");
         $input = '%' . htmlspecialchars($input) . '%';
         $this->conn->execQuery(['inputN' => $input, 'inputP' => $input, 'inputM' => $input], 1);
 
