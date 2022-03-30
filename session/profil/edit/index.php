@@ -3,7 +3,7 @@ include_once "../../../func/func_bdd.php";
 include_once "../../../func/func_session.php";
 include_once "../../../func/func_login.php";
 include_once "../../../func/func_upload.php";
-include_once "../../../func/func_mail.php";
+
 
 echo "<code><pre><br><br><br>";
 $idRes = isset($_GET['id']) ? $_GET['id'] : null;
@@ -60,9 +60,9 @@ if (
   $log->editBasic($tabInfo);
 
 
-  $from = "stagetracker@hsbay.space";
+  $from = "StageTracker <stagetracker@hsbay.space>";
   $to = "evan.pasquon@gmail.com";
-  $subject = "Checking PHP mail";
+  $subject = "StageTracker - Modification de vos informations";
 
   $headers = "From:" . $from;
 
