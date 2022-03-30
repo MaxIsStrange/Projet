@@ -62,7 +62,7 @@ class login
         $_SESSION['USER_ID'] = $id;
 
         //On récupère les informations de l'utilisateur
-        $user_info = $this->data->getUser($_SESSION['USER_MAIL']);
+        $user_info = $this->data->getUser($_SESSION['USER_MAIL'],'one');
 
         //On récupère le nom et prénom
         $_SESSION['USER_NAME'] = $user_info['Nom_user'];
