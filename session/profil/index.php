@@ -17,13 +17,8 @@ if (isset($_SESSION['USER_FNAME'])) {
   $data->getPostulate($id);
 
   $desc=htmlspecialchars_decode($infos["Desc_user"]);
-<<<<<<< Updated upstream
   echo $twig->render('profil.html.twig', ['session' => $_SESSION, 'album' => $album, 'infos' => $infos, 'comps' => $comps, 'grp' => $grp, 'desc' => $desc, 'id' => $id]);
   $data->getPostulate(18);
-=======
-  echo $twig->render('profil.html.twig', ['session' => $_SESSION, 'album' => $album, 'infos' =>$infos,'comps' => $comps,'grp' => $grp,'desc' => $desc]);
-
->>>>>>> Stashed changes
 
 
 
