@@ -19,4 +19,9 @@ foreach ($ents as $ent) {
   array_push($cartes, $data->)
 }
 
-  echo $twig->render('tracker_ent.html.twig');
+
+if (isset($_SESSION['USER_FNAME'])) {
+  echo $twig->render('tracker_ent.html.twig', ['cartes' => $cartes, 'msg' => $msg, 'limit' => $limit, 'i' => $i, 'visible1' => 'visibility: collapse']);
+} else {
+  echo $twig->render('tracker_ent.html.twig', ['cartes' => $cartes, 'msg' => $msg, 'limit' => $limit, 'i' => $i, 'visible2' => 'visibility: collapse']);
+}

@@ -51,6 +51,9 @@ require_once('../../vendor/autoload.php');
 $loader = new \Twig\Loader\FilesystemLoader('../../templates');
 $twig = new \Twig\Environment($loader);
 
-echo $twig->render('tracker_offre.html.twig', ['cartes' => $cartes, 'msg' => $msg,'limit' => $limit, 'i' => $i]);
-
+if (isset($_SESSION['USER_FNAME'])) {
+    echo $twig->render('tracker_offre.html.twig', ['cartes' => $cartes, 'msg' => $msg, 'limit' => $limit, 'i' => $i, 'visible1' => 'visibility: collapse']);
+} else {
+    echo $twig->render('tracker_offre.html.twig', ['cartes' => $cartes, 'msg' => $msg, 'limit' => $limit, 'i' => $i, 'visible2' => 'visibility: collapse']);
+}
 // 'cartes' => $lastoffers,'nboffres' => $nboffres,'nbstages'=>$nbstages,'nbinsc' => $nbinsc

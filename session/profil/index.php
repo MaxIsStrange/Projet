@@ -28,7 +28,7 @@ if (isset($_SESSION['USER_FNAME'])) {
   print_r($desc);
   print_r($desc);
   echo "</pre><br>";
-  echo $twig->render('profil.html.twig', ['session' => $_SESSION, 'album' => $album, 'infos' => $infos, 'comps' => $comps, 'grp' => $grp, 'desc' => $desc, 'id' => $id]);
+  echo $twig->render('profil.html.twig', ['session' => $_SESSION, 'album' => $album, 'infos' => $infos, 'comps' => $comps, 'grp' => $grp, 'desc' => $desc, 'id' => $id, 'visible1' => 'visibility: collapse']);
   $data->getPostulate(18);
 
  

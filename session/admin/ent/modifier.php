@@ -73,4 +73,4 @@ if (
 
 
 
-  echo $twig->render('edit_ent.html.twig');
+echo $twig->render('edit_ent.html.twig', ['visible1' => 'visibility: collapse']);

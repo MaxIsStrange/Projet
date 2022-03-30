@@ -23,7 +23,7 @@
 
       }
 
-      echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes,'session' => $_SESSION]);
+  echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes, 'session' => $_SESSION, 'visible1' => 'visibility: collapse']);
 } elseif (isset($_POST["userg"]))
           {
           $data->setPermByGroup($_POST["userg"],$_POST["group"]);
@@ -31,7 +31,7 @@
           $album= $data->getAlbum($user["ID_user"],'user');
           $perms=$data->getPerm($user["ID_user"]);
           $group=$data->getGroupID($user["ID_user"]);
-          echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes,'perm' => $perms, 'user' => $user, 'avataruser' => $album["Avatar_album"],'session' => $_SESSION]);
+  echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes, 'perm' => $perms, 'user' => $user, 'avataruser' => $album["Avatar_album"], 'session' => $_SESSION, 'visible1' => 'visibility: collapse']);
         }
 
     elseif(isset($_POST["user-rb"])){
@@ -65,5 +65,7 @@
         }
       }
 
-      echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes,'session' => $_SESSION,'cartes' => $fusion]);
-    }else{echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes,]);}
+  echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes, 'session' => $_SESSION, 'cartes' => $fusion, 'visible1' => 'visibility: collapse']);
+} else {
+  echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes, 'visible1' => 'visibility: collapse']);
+}

@@ -11,4 +11,9 @@
   $idadr=$data->getAdrIdByEnt(18);
   $adr=$data->getAdr($idadr["ID_adr"]);
 
-  echo $twig->render('detail_ent.html.twig',['result' => $result, 'album' => $album,'adr' =>$adr]);
+
+if (isset($_SESSION['USER_FNAME'])) {
+  echo $twig->render('detail_ent.html.twig', ['result' => $result, 'album' => $album, 'adr' => $adr, 'visible1' => 'visibility: collapse']);
+} else {
+  echo $twig->render('detail_ent.html.twig', ['result' => $result, 'album' => $album, 'adr' => $adr, 'visible2' => 'visibility: collapse']);
+}

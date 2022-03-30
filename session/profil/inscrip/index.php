@@ -6,7 +6,10 @@ include '../../../func/func_login.php';
   $loader = new \Twig\Loader\FilesystemLoader('../../../templates');
   $twig = new \Twig\Environment($loader);
 
-  echo $twig->render('inscrip.html.twig', ['userfname' => 'Fabien']);
+echo $twig->render('inscrip.html.twig', ['userfname' => 'Fabien', 'visible2' => 'visibility: collapse']);
+
+
+
 
 if (
   isset($_POST['mail']) && isset($_POST['pass']) && isset($_POST['pass2'])

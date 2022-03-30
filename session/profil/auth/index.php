@@ -13,10 +13,10 @@ if (isset($_POST['mail']) && isset($_POST['pass'])) {
     header("Location: ../../../index.php");
     exit();
   } else {
-    echo $twig->render('connection.html.twig');
+    echo $twig->render('connection.html.twig', ['visible2' => 'visibility: collapse']);
 
     echo $twig->render('err_connect.twig');
   }
 } else {
-  echo $twig->render('connection.html.twig');
+  echo $twig->render('connection.html.twig', ['visible2' => 'visibility: collapse']);
 }
