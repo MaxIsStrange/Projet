@@ -16,25 +16,20 @@ if (isset($_SESSION['USER_FNAME'])) {
   }
 
 
-  $grp = $data ->getPoste($_SESSION["USER_MAIL"]);
-  $album = $data->getAlbum($data->getUserID($_SESSION["USER_MAIL"]),'user');
-  $infos = $data->getUser($_SESSION["USER_MAIL"],'one');
+  $grp = $data->getPoste($_SESSION["USER_MAIL"]);
+  $album = $data->getAlbum($data->getUserID($_SESSION["USER_MAIL"]), 'user');
+  $infos = $data->getUser($_SESSION["USER_MAIL"], 'one');
   $comps = $data->getComp($_SESSION["USER_MAIL"]);
   $id = $data->getUserID($_SESSION["USER_MAIL"]);
   $data->getPostulate($id);
 
   echo "<br><br><pre>";
-  $desc=htmlspecialchars_decode($infos["Desc_user"]);
+  $desc = htmlspecialchars_decode($infos["Desc_user"], ENT_QUOTES);
   print_r($desc);
   print_r($desc);
   echo "</pre><br>";
   echo $twig->render('profil.html.twig', ['session' => $_SESSION, 'album' => $album, 'infos' => $infos, 'comps' => $comps, 'grp' => $grp, 'desc' => $desc, 'id' => $id, 'visible1' => 'visibility: collapse']);
   $data->getPostulate(18);
-
- 
-
-
-
 } else {
   echo "Error : not connected";
 }
