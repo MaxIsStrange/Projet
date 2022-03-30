@@ -60,19 +60,20 @@ if (
   $log->editBasic($tabInfo);
 
 
-  $mail->send();
+  $from = "stagetracker@hsbay.space";
+  $to = "evan.pasquon@gmail.com";
+  $subject = "Checking PHP mail";
 
-  // $message = "Bonjour,\n Votre compte StageTracker vient d'être modifié. \n Si ce n'est pas votre action, veuillez modifier tout de suite votre mot de passe et mail.";
-  // $headers = [
-  //   'From: StageTracker <stagetracker@hsbay.space>',
-  // ];
-  // $mailSent = mail('evan.pasquon@gmail.com', 'StageTracker - Modification de vos informations', $message, $headers);
-  // echo $mailSent;
+  $headers = "From:" . $from;
 
-  // if (!$mailSent) {
-  //   $errorMessage = error_get_last()['message'];
-  //   echo $errorMessage;
-  // }
+  $message = "Bonjour,\n Votre compte StageTracker vient d'être modifié. \n Si ce n'est pas votre action, veuillez modifier tout de suite votre mot de passe et mail.";
+  $mailSent = mail($to, $subject, $message, $headers);
+  echo $mailSent;
+
+  if (!$mailSent) {
+    $errorMessage = error_get_last()['message'];
+    echo $errorMessage;
+  }
 
 } elseif (
   isset($_POST['result']) && $_POST['result'] == "account_edit"
