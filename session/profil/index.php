@@ -9,6 +9,13 @@ $twig = new \Twig\Environment($loader);
 $id = 16;
 
 if (isset($_SESSION['USER_FNAME'])) {
+
+  if (isset($_POST['result']) && $_POST['result'] == "Se déconnecter") {
+
+    header("Location: auth/logout.php");
+  }
+
+
   $grp = $data ->getPoste($_SESSION["USER_MAIL"]);
   $album = $data->getAlbum($data->getUserID($_SESSION["USER_MAIL"]),'user');
   $infos = $data->getUser($_SESSION["USER_MAIL"],'one');
@@ -24,6 +31,7 @@ if (isset($_SESSION['USER_FNAME'])) {
   echo $twig->render('profil.html.twig', ['session' => $_SESSION, 'album' => $album, 'infos' => $infos, 'comps' => $comps, 'grp' => $grp, 'desc' => $desc, 'id' => $id]);
   $data->getPostulate(18);
 
+ 
 
 
 

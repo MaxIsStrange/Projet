@@ -525,7 +525,7 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
     function getOffreCard($id,$offset)
     {
         $this->conn->setQuery(
-            'SELECT Offre.Nom_offre,Offre.Nom_poste_offre,Offre.Date_offre,
+            'SELECT Offre.ID_offre,Offre.Nom_offre,Offre.Nom_poste_offre,Offre.Date_offre,
             Adresse.Ville_adr,Adresse.CP_adr,Offre.Desc_offre,Entreprise.Nom_ent,Album.Banniere_album,
             Mineure_offre,Remun_offre,Nb_poste_offre,Logo_album FROM Offre
             INNER JOIN Adresse ON Offre.ID_adr=Adresse.ID_adr
