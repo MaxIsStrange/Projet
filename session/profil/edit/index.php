@@ -15,8 +15,8 @@ if ($idRes == null) {
 $user = $data->getUserById($idRes);
 $adr = $data->getAdrByUser($idRes);
 $alb = $data->getAlbum($idRes, 'user');
-$desc = htmlspecialchars_decode($user['Desc_user']);
-
+$desc = !empty($user['Desc_user']) ? htmlspecialchars_decode($user['Desc_user'], ENT_QUOTES) : null;
+$comp = !empty($adr['Comp_adr']) ? htmlspecialchars_decode($adr['Comp_adr'], ENT_QUOTES) : null;
 //print_r($_FILES['img_pp']);
 
 //Modification des informations
