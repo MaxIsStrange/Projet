@@ -37,7 +37,7 @@ $comps = !empty($data->getComp($id)) ? $data->getComp($id) : 'ERROR';
 //$data->getPostulate($id);
 
 $desc = !empty($infos["Desc_user"]) ? htmlspecialchars_decode($infos["Desc_user"], ENT_QUOTES) : null;
-echo $twig->render('profil.html.twig', ['album' => $album, 'infos' => $infos, 'comps' => $comps, 'grp' => $grp, 'desc' => $desc, 'id' => $id, 'visible1' => 'visibility: collapse', 'deco' => $canDeco]);
+echo $twig->render('profil.html.twig', ['album' => $album, 'infos' => $infos, 'comps' => $comps, 'grp' => $grp, 'desc' => $desc, 'id' => $id, 'visible1' => 'visibility: collapse', 'deco' => $canDeco, 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
 
 
 

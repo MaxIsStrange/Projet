@@ -102,4 +102,4 @@ echo "</pre></code>";
   $loader = new \Twig\Loader\FilesystemLoader('../../../templates');
   $twig = new \Twig\Environment($loader);
 
-echo $twig->render('edit.html.twig', ['user' => $user, 'adr' => $adr, 'alb' => $alb, 'desc' => $desc, 'visible1' => 'visibility: collapse']);
+echo $twig->render('edit.html.twig', ['user' => $user, 'adr' => $adr, 'alb' => $alb, 'desc' => $desc, 'visible1' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);

@@ -30,7 +30,7 @@ if (!empty($offre)) {
   echo $twig->render('detail_offre.html.twig',['result' => $offre]);
 
 if (isset($_SESSION['USER_FNAME'])) {
-  echo $twig->render('detail_offre.html.twig', ['result' => $offre, 'visible1' => 'visibility: collapse']);
+  echo $twig->render('detail_offre.html.twig', ['result' => $offre, 'visible1' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
 } else {
-  echo $twig->render('detail_offre.html.twig', ['result' => $offre, 'visible2' => 'visibility: collapse']);
+  echo $twig->render('detail_offre.html.twig', ['result' => $offre, 'visible2' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
 }

@@ -15,4 +15,4 @@ if (
   && isset($_POST['adr_pays'])
 )
 
-echo $twig->render('add_offre.html.twig', ['visible1' => 'visibility: collapse']);
+  echo $twig->render('add_offre.html.twig', ['visible1' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);

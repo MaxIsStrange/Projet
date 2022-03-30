@@ -112,4 +112,4 @@ if (
 
 
 
-echo $twig->render('edit_ent.html.twig', ['ent' => $ent, 'alb' => $alb, 'adr' => $adr, 'visible1' => 'visibility: collapse']);
+echo $twig->render('edit_ent.html.twig', ['ent' => $ent, 'alb' => $alb, 'adr' => $adr, 'visible1' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);

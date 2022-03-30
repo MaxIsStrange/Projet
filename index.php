@@ -25,10 +25,10 @@ $nbinsc = $data->getNbInsc();
 // }
 
 if (isset($_SESSION['USER_FNAME'])) {
-  echo $twig->render('accueil.html.twig', ['userfname' => $_SESSION['USER_FNAME'], 'cartes' => $lastoffers, 'nboffres' => $nboffres, 'nbstages' => $nbstages, 'nbinsc' => $nbinsc, 'visible1' => 'visibility: collapse']);
+  echo $twig->render('accueil.html.twig', ['userfname' => $_SESSION['USER_FNAME'], 'cartes' => $lastoffers, 'nboffres' => $nboffres, 'nbstages' => $nbstages, 'nbinsc' => $nbinsc, 'visible1' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
 } else {
 
-  echo $twig->render('accueil.html.twig', ['userfname' => 'utilisateur', 'cartes' => $lastoffers, 'nboffres' => $nboffres, 'nbstages' => $nbstages, 'nbinsc' => $nbinsc, 'visible2' => 'visibility: collapse']);
+  echo $twig->render('accueil.html.twig', ['userfname' => 'utilisateur', 'cartes' => $lastoffers, 'nboffres' => $nboffres, 'nbstages' => $nbstages, 'nbinsc' => $nbinsc, 'visible2' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
 }
 
 if (isset($_POST['main-rb'])) {

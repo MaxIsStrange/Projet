@@ -17,5 +17,5 @@ if (isset($_POST['mail']) && isset($_POST['pass'])) {
 
   }
 } else {
-  echo $twig->render('connection.html.twig', ['visible2' => 'visibility: collapse']);
+  echo $twig->render('connection.html.twig', ['visible2' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
 }
