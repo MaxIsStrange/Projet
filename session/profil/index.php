@@ -17,7 +17,7 @@ if (isset($_SESSION['USER_FNAME'])) {
   $data->getPostulate($id);
 
   echo "<br><br><pre>";
-  $desc=htmlspecialchars_decode($infos["Desc_user"]);
+  $desc=htmlspecialchars_decode($infos["Desc_user"],ENT_QUOTES);
   print_r($desc);
   print_r($desc);
   echo "</pre><br>";
