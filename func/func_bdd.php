@@ -465,9 +465,9 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
 
         $result = $this->conn->getResult();
 
-        echo "<br><br><pre>";
-        print_r($result);
-        echo "</pre><br>";
+        // echo "<br><br><pre>";
+        // print_r($result);
+        // echo "</pre><br>";
 
         return $result;
     }
