@@ -106,6 +106,8 @@ if (
   $mailer->setMail('modif');
   $mailer->sendMail($user['Mail_user']);
 
+  header("Location: ../");
+
 } elseif (
   isset($_POST['result']) && $_POST['result'] == "account_edit"
   && isset($_POST['mail']) && isset($_POST['pass']) && isset($_POST['pass2']) // && isset($_POST['old_pass'])
@@ -123,6 +125,9 @@ if (
 
     $log->editAccount($tabInfo);
   }
+
+  header("Location: ../");
+
 } elseif (
   isset($_POST['result']) && $_POST['result'] == 'img'
   && $_FILES['img_pp']
@@ -131,14 +136,11 @@ if (
   $pathURL = $upload->uploadFile("Avatar", $idRes);
 
 
-  
 
   $tabInfo = [
     'av' => $pathURL,
     'id' => $alb['ID_album']
   ];
-
-
 
   $data->editAlb(
     $tabInfo,

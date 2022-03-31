@@ -37,20 +37,20 @@
 								<div class="column">
 									<h2 class="title is-2">Informations générales</h2>
 									<div class="field">
-										<label class="label">Titre de l'offre *</label>
+										<label class="label">Résumé de l'offre *</label>
 										<div class="control">
-											<input class="input" name="name" type="text" placeholder="Ex: Stage de 3 mois en entreprise">
+											<input class="input" name="name" type="text" required placeholder="Ex: Stage de 3 mois en entreprise">
 										</div>
 									</div>
 									<div class="field">
 										<label class="label">Intitulé du poste *</label>
 										<div class="control">
-											<input class="input" name="titre" type="text" placeholder="Ex: Developpeur front end">
+											<input class="input" name="titre" type="text" required placeholder="Ex: Developpeur front end">
 										</div>
 									</div>
 									<div class="field">
 										<label class="label">Description de l'offre *</label>
-										<textarea class="textarea" name="desc" placeholder="Lorem ipsum, dolor..." rows="10"></textarea>
+										<textarea class="textarea" name="desc" required placeholder="Lorem ipsum, dolor..." rows="10"></textarea>
 									</div>
 								</div>
 								<div class="column">
@@ -58,25 +58,38 @@
 									<div class="field">
 										<label class="label">Gratification *</label>
 										<div class="control">
-											<input class="input" name="salary" type="text" placeholder="Ex: Stage de 3 mois en entreprise">
+											<input class="input" name="salary" required type="text" placeholder="Si stage supérieur à 2 mois, minimum 3.90€ / heure">
 										</div>
 									</div>
 									<div class="field">
 										<label class="label">Promotion concernée *</label>
 										<div class="control">
-											<input class="input" name="prom" type="text" placeholder="Ex: 20/22">
+											<input class="input" name="prom" required type="text" placeholder="Ex: 20/22">
+										</div>
+									</div>
+									<div class="field">
+										<label class="label">Mineure concernée *</label>
+										<div class="control select">
+											<select name="min">
+												<option value="def">Choisir la mineure</option>
+												<option value="Informatique">Informatique</option>
+												<option value="Généraliste">Généraliste</option>
+												<option value="BTP">BTP</option>
+												<option value="S3E">S3E</option>
+											</select>
+
 										</div>
 									</div>
 									<div class="field">
 										<label class="label">Nombre de poste à pourvoir *</label>
 										<div class="control">
-											<input class="input" name="nbrPoste" type="text" placeholder="Ex: 1">
+											<input class="input" required name="nbrPoste" type="text" placeholder="Ex: 1">
 										</div>
 									</div>
 									<div class="field">
 										<label class="label">Durée du stage (en semaine) *</label>
 										<div class="control">
-											<input class="input" name="duree" type="text" placeholder="Ex: 15">
+											<input class="input" required name="duree" type="text" placeholder="Ex: 15">
 										</div>
 									</div>
 									<div class="field">
@@ -88,7 +101,7 @@
 								</div>
 							</div>
 
-<div class="box">
+						<div class="box">
 							<h3 class="title is-3">Adresse postale</h3>
 							<div class="columns">
 								<div class="column">
@@ -103,7 +116,7 @@
 									<div class="field">
 										<label class="label">Rue *</label>
 										<div class="control">
-											<input class="input" name="adr_rue" type="text" placeholder="Ex: Champs de mars">
+											<input class="input" required name="adr_rue" type="text" placeholder="Ex: Champs de mars">
 										</div>
 									</div>
 								</div>
@@ -113,7 +126,7 @@
 									<div class="field">
 										<label class="label">Code Postal/ZIP *</label>
 										<div class="control">
-											<input class="input" name="adr_cp" type="text" placeholder="Ex: 16000">
+											<input class="input" required name="adr_cp" type="text" placeholder="Ex: 16000">
 										</div>
 									</div>
 								</div>
@@ -121,7 +134,7 @@
 									<div class="field">
 										<label class="label">Ville *</label>
 										<div class="control">
-											<input class="input" name="adr_ville" type="text" placeholder="Ex: Angoulême">
+											<input class="input" required name="adr_ville" type="text" placeholder="Ex: Angoulême">
 										</div>
 									</div>
 								</div>
@@ -139,7 +152,7 @@
 									<div class="field">
 										<label class="label">Pays *</label>
 										<div class="control">
-											<input class="input" name="adr_pays" type="text" placeholder="Ex: France">
+											<input class="input" required value="France" name="adr_pays" type="text" placeholder="Ex: France">
 
 										</div>
 									</div>

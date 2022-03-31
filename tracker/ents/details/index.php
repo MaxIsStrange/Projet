@@ -7,11 +7,11 @@ include_once "../../../func/func_perm.php";
   $loader = new \Twig\Loader\FilesystemLoader('../../../templates');
   $twig = new \Twig\Environment($loader);
 
-echo "<br><br><br>";
+//echo "<br><br><br>";
 
 if ($perm->chkPerm(7)) {
   $id = isset($_GET['id']) ? $_GET['id'] : null;
-  echo "<br><br><br>ID : $id";
+  //echo "<br><br><br>ID : $id";
 } else {
   $id = null;
 }
@@ -37,7 +37,7 @@ $rue = !empty($adr["Rue_adr"]) ? htmlspecialchars_decode($adr["Rue_adr"], ENT_QU
 
 
 if (isset($_SESSION['USER_FNAME'])) {
-  echo $twig->render('detail_ent.html.twig', ['result' => $result, 'album' => $album, 'adr' => $adr, 'visible1' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
+  echo $twig->render('detail_ent.html.twig', ['id' => $id, 'result' => $result, 'album' => $album, 'adr' => $adr, 'visible1' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
 } else {
-  echo $twig->render('detail_ent.html.twig', ['result' => $result, 'album' => $album, 'adr' => $adr, 'visible2' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
+  echo $twig->render('detail_ent.html.twig', ['id' => $id, 'result' => $result, 'album' => $album, 'adr' => $adr, 'visible2' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
 }

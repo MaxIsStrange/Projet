@@ -215,6 +215,34 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         return;
     }
 
+    public function addOffre($offre)
+    {
+
+        $this->conn->setQuery(
+            "INSERT INTO Offre (Nom_offre,Desc_offre,Duree_offre,Promo_Offre,IsDistanciel_offre,Remun_offre,Nom_poste_offre,
+            Nb_poste_offre,ID_ent,ID_adr, Mineure_offre,Date_offre)
+            VALUES (:nom, :descr ,:duree,:prom,:dist,:salary,:titre,:nb,:ID_ent,:ID_adr,:min,CURDATE())"
+        );
+
+        $this->conn->execQuery([
+            'nom' => $offre['name'],
+            'descr' => $offre['desc'],
+            'titre' => $offre['titre'],
+            'salary' => $offre['salary'],
+            'nb' => $offre['nbrPoste'],
+            'prom' => $offre['prom'],
+            'duree' => $offre['duree'],
+            'dist' => $offre['dist'],
+            'min' => $offre['min'],
+
+            'ID_ent' => $offre['ID_ent'],
+
+            'ID_adr' => $offre['ID_adr']
+        ], 0);
+
+        return;
+    }
+
     public function getUserID($mail_user)
     {
 

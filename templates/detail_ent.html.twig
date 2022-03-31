@@ -50,8 +50,15 @@
 				</div>
 			</article>
 			</p>
+			
 			<div class="buttons" style="margin-left:auto; margin-right:1rem;">
-				<a href="#" class="button is-link"> Modifier l'entreprise</a>
+				<form action="../../../session/admin/offre/?id={{id}}" style="margin-left: 1rem; margin-right: 1 rem;" method="POST">
+					<input type="submit" class="button is-link" value="Ajouter une offre">
+				</form>
+				<form action="../../../session/admin/ent/modifier.php?id={{id}}" style="margin-left: 1rem; margin-right: 1 rem;" method="POST">
+					<input type="submit" class="button is-link" value="Modifier l'entreprise">
+				</form>
+				
 				<a href="#" class="button is-link">
 					<span class="icon">
 						<i class="fa-solid fa-trash"></i>
