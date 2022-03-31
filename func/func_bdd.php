@@ -642,7 +642,7 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
                 break;
 
             case 'lm':
-                echo "LES GO";
+               
                 $this->conn->setQuery("UPDATE Album SET LM_album = :lm WHERE ID_album = :idAlb");
                 $this->conn->execQuery([
 
