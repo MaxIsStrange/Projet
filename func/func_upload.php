@@ -78,8 +78,7 @@ class Upload
         } else {
             //return $nameFile; // Is ok
             if (file_exists($pathRel)) {
-
-                //echo "<br><br><br>Fichier existant, SUPPRESSION";
+                echo "<br><br><br>Fichier existant, SUPPRESSION";
                 $this->deleteFile($pathRel);
             }
             
@@ -87,8 +86,8 @@ class Upload
 
             move_uploaded_file($_FILES[$this->name]["tmp_name"],  $pathRel);
 
-           // echo "<img src='" . $pathRel . "' height = '100px' width='100px'>";
-            //echo "<br>URL : $pathURL <br>";
+            // echo "<img src='" . $pathRel . "' height = '100px' width='100px'>";
+            echo "<br>URL : $pathURL <br>";
 
             return $pathURL;
         }
