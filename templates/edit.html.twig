@@ -62,7 +62,7 @@
 				</div>
 				<div class="is-divider-vertical"></div>
 				<div class="column">
-					<form action="" method="POST">
+					<form action="" method="POST" enctype="multipart/form-data">
 						<h2 class="title is-2">Informations générales</h2>
 						<div class="field">
 							<label class="label">Nom *</label>
@@ -156,11 +156,13 @@
 								<textarea class="textarea" name="desc" placeholder="Ex: Lorem ipsum ...">{{desc}}</textarea>
 							</div>
 						</div>
-						<div class="field">
+						
+						<div class="is-flex">
+						<div class="field" style="margin-left: 1rem; margin-right: 1rem;">
 							<label class="label">Curriculum Vitae</label>
 							<div class="file">
 								<label class="file-label">
-									<input class="file-input" type="file" name="file_cv">
+									<input class="file-input" type="file" name="file_cv" accept=".pdf">
 									<span class="file-cta">
 										<span class="file-icon">
 											<i class="fas fa-upload"></i>
@@ -172,6 +174,40 @@
 								</label>
 							</div>
 						</div>
+						<div class="field" style="margin-left: 1rem; margin-right: 1rem;">
+							<label class="label">Lettre de motivation</label>
+							<div class="file">
+								<label class="file-label">
+									<input class="file-input" type="file" name="file_lm" accept=".pdf">
+									<span class="file-cta">
+										<span class="file-icon">
+											<i class="fas fa-upload"></i>
+										</span>
+										<span class="file-label">
+											Choisir un fichier...
+										</span>
+									</span>
+								</label>
+							</div>
+						</div>
+						<div class="field" style="margin-left: 1rem; margin-right: 1rem;">
+							<label class="label">Fiche de validation</label>
+							<div class="file">
+								<label class="file-label">
+									<input class="file-input" type="file" name="file_fv" accept=".pdf">
+									<span class="file-cta">
+										<span class="file-icon">
+											<i class="fas fa-upload"></i>
+										</span>
+										<span class="file-label">
+											Choisir un fichier...
+										</span>
+									</span>
+								</label>
+							</div>
+						</div>
+						</div>
+						
 						<div class="field is-grouped is-grouped-right">
 							<div class="control">
 								<button class="button is-link is-light ">Annuler</button>

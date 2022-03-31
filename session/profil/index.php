@@ -2,6 +2,7 @@
 include_once "../../func/func_session.php";
 include_once "../../func/func_bdd.php";
 include_once "../../func/func_perm.php";
+include_once "../../func/func_upload.php";
 
 require_once('../../vendor/autoload.php');
 $loader = new \Twig\Loader\FilesystemLoader('../../templates');
@@ -35,9 +36,9 @@ $infos = !empty($data->getUserById($id)) ? $data->getUserById($id) : 'ERROR';
 $comps = !empty($data->getComp($id)) ? $data->getComp($id) : 'ERROR';
 
 $postulation= $data->getPostulate($id);
-echo "<br><br><pre>";
-print_r($_POST);
-echo"</pre>";
+// echo "<br><br><pre>";
+// print_r($_POST);
+// echo"</pre>";
 if(isset($postulation[0])){
   print_r("hihi");
   $step=1;
@@ -45,9 +46,11 @@ if(isset($postulation[0])){
   $step=0;
 }
 if(isset($_POST["abandon"])){
-  print_r("lacheur");
+  //print_r("lacheur");
   $data->leaveCandid($id,$_POST["id"]);
 }
+
+
 
 
 

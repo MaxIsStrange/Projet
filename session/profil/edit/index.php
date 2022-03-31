@@ -59,6 +59,50 @@ if (
   ];
 
   $log->editBasic($tabInfo);
+
+  if (!empty($_FILES['file_cv']['name'])) {
+    $upload->setOrigin('file_cv');
+    $path = $upload->uploadFile('CV', $idRes);
+
+    $album = [
+      'cv' => $path,
+      'id' => $alb['ID_alb']
+    ];
+
+
+    $data->editAlb($album, 'cv');
+  }
+
+  if (!empty($_FILES['file_lm']['name'])) {
+    $upload->setOrigin('file_lm');
+    $path = $upload->uploadFile('Motiv', $idRes);
+
+    $album = [
+      'lm' => $path,
+      'id' => $alb['ID_alb']
+    ];
+
+
+
+    $data->editAlb($album, 'lm');
+  }
+
+  if (!empty($_FILES['file_fv']['name'])) {
+    $upload->setOrigin('file_fv');
+    $path = $upload->uploadFile('Fiche', $idRes);
+
+    $album = [
+      'fv' => $path,
+      'id' => $alb['ID_alb']
+    ];
+
+
+    $data->editAlb($album, 'fv');
+  }
+
+
+
+
   $mailer->setMail('modif');
   $mailer->sendMail($user['Mail_user']);
 
@@ -103,6 +147,9 @@ if (
 
   header("Location: ../");
 }
+
+
+print_r($_FILES);
 echo "</pre></code>";
 
 

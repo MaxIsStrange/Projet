@@ -71,29 +71,24 @@ class Upload
         $pathRel = "../../../docs/" . $this->folder . "/" . $nameFile;
         $pathURL = "https://hsbay.space/cesi/stagetracker/docs/" .  $this->folder . "/" . $nameFile;
 
-        if ($_FILES[$this->name]['size'] >= 5000000) {
+        if ($_FILES[$this->name]['size'] >= 10000000) {
             echo "<br><br><br>Fichier trop lourd";
             //return '1'; //Fichier trop lourd
-        } elseif ($extFile != "png" && $extFile != "jpg" && $extFile != "jpeg") {
-            echo "<br><br><br>Extension non supportée";
-            //return '2'; //Extension incorrecte
-
+        
         } else {
             //return $nameFile; // Is ok
             if (file_exists($pathRel)) {
 
-                echo "<br><br><br>Fichier existant, SUPPRESSION";
+                //echo "<br><br><br>Fichier existant, SUPPRESSION";
                 $this->deleteFile($pathRel);
             }
             
-            echo "<br><br>";
+            //echo "<br><br>";
 
             move_uploaded_file($_FILES[$this->name]["tmp_name"],  $pathRel);
 
-            echo "<img src='" . $pathRel . "' height = '100px' width='100px'>";
-            echo "<br>URL : $pathURL <br>";
-
-
+           // echo "<img src='" . $pathRel . "' height = '100px' width='100px'>";
+            //echo "<br>URL : $pathURL <br>";
 
             return $pathURL;
         }
