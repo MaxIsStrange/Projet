@@ -30,7 +30,7 @@
     {% include 'navbar.twig' %}
     <!-- Block numero 1-->
 
-    <section class="section">
+    <section class="section" style="margin-top: 3rem;">
         <!-- Search bar -->
         <h1 class="title is-1 has-text-centered">
             Traque les entreprises présentes sur StageTracker</h1>
@@ -43,25 +43,6 @@
                     </div>
                     <div class="control">
                         <input type="submit" value="Rechercher" name="submit" class="button is-link">
-                    </div>
-                </div>
-
-                <div>
-                    <h1 class="title is-4">
-                        Filtres
-                    </h1>
-                    <div class="select block">
-                        <select>
-                            <option>Choisit ta filière</option>
-                            <option>{{result.promo}}</option>
-                        </select>
-                    </div>
-
-                    <div class="select block">
-                        <select>
-                            <option>Choisit ...</option>
-                            <option>With options</option>
-                        </select>
                     </div>
                 </div>
                 <div class="is-divider"></div>
