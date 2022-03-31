@@ -39,7 +39,7 @@ $limit = 99;
 
 
 if (isset($_SESSION['USER_FNAME'])) {
-  echo $twig->render('tracker_ent.html.twig', ['cartes' => $cartes, 'msg' => $msg, 'limit' => $limit, 'i' => $i, 'visible1' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
+  echo $twig->render('tracker_ent.html.twig', ['cartes' => $cartes, 'msg' => $msg, 'limit' => $limit, 'i' => $i, 'visible1' => 'visibility: collapse', 'visiAdmin' => $visiAdmin]);
 } else {
-  echo $twig->render('tracker_ent.html.twig', ['cartes' => $cartes, 'msg' => $msg, 'limit' => $limit, 'i' => $i, 'visible2' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
+  echo $twig->render('tracker_ent.html.twig', ['cartes' => $cartes, 'msg' => $msg, 'limit' => $limit, 'i' => $i, 'visible2' => 'visibility: collapse', 'visiAdmin' => $visiAdmin]);
 }

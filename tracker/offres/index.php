@@ -30,9 +30,9 @@ if (isset($_POST['main-rb'])) {
 $offset = 0;
 
 
-echo "<code><pre><br>";
-print_r($cartes);
-echo "<br></pre></code>";
+// echo "<code><pre><br>";
+// print_r($cartes);
+// echo "<br></pre></code>";
 
 if (empty($cartes)) {
     $msg = "Aucune offre trouvée avec cette recherche.";
@@ -40,15 +40,15 @@ if (empty($cartes)) {
     $msg = '';
 }
 $i = 0;
-$limit=2-1;
+$limit = 9000;
 //array_splice($cartes,$i);
 require_once('../../vendor/autoload.php');
 $loader = new \Twig\Loader\FilesystemLoader('../../templates');
 $twig = new \Twig\Environment($loader);
 
 if (isset($_SESSION['USER_FNAME'])) {
-    echo $twig->render('tracker_offre.html.twig', ['cartes' => $cartes, 'msg' => $msg, 'limit' => $limit, 'i' => $i, 'visible1' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
+    echo $twig->render('tracker_offre.html.twig', ['cartes' => $cartes, 'msg' => $msg, 'limit' => $limit, 'i' => $i, 'visible1' => 'visibility: collapse', 'visiAdmin' => $visiAdmin]);
 } else {
-    echo $twig->render('tracker_offre.html.twig', ['cartes' => $cartes, 'msg' => $msg, 'limit' => $limit, 'i' => $i, 'visible2' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
+    echo $twig->render('tracker_offre.html.twig', ['cartes' => $cartes, 'msg' => $msg, 'limit' => $limit, 'i' => $i, 'visible2' => 'visibility: collapse',  'visiAdmin' => $visiAdmin]);
 }
 // 'cartes' => $lastoffers,'nboffres' => $nboffres,'nbstages'=>$nbstages,'nbinsc' => $nbinsc

@@ -750,9 +750,22 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
 
         return $result;
     }
-   
 
 
+    public function deleteUser($input)
+    {
+        $this->conn->setQuery(
+            "SELECT @id := :id;SELECT @idal := Album.ID_album FROM Album INNER JOIN User ON Album.ID_album=User.ID_album WHERE ID_user=@id; SELECT @idad := Adresse.ID_adr FROM Adresse INNER JOIN User ON Adresse.ID_adr=User.ID_adr WHERE ID_user=@id; DELETE FROM Peut WHERE ID_user = @id; DELETE FROM User WHERE ID_user=@id; DELETE FROM Album WHERE ID_album = @idal; DELETE FROM Adresse WHERE ID_adr = @idad;"
+        );
+        $this->conn->execQuery(
+            ['id' => $input],
+            0
+        );
+
+        $result = $this->conn->getResult();
+
+        return $result;
+    }
 
 
 

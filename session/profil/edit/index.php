@@ -115,7 +115,7 @@ if (
 
 
   if (
-    $_POST['pass'] === $_POST['pass2'] //&& $log->verifMDP($_POST['old_pass'], $user['MDP_user'])
+    $_POST['pass'] === $_POST['pass2'] && $log->verifMDP($_POST['old_pass'], $user['MDP_user'])
   ) {
     $tabInfo = [
       'mail' => htmlspecialchars($_POST['mail']),
@@ -150,6 +150,12 @@ if (
   header("Location: ../");
 }
 
+if (
+  isset($_POST['delAccount']) && $_POST['delAccount'] === "Supprimer le compte"
+  && (!empty($_POST['del_pass'])) && $log->verifMDP($_POST['del_pass'], $user['MDP_user'])
+) {
+  $data->deleteUser($idRes);
+}
 
 //print_r($_FILES);
 echo "</pre></code>";
@@ -161,4 +167,4 @@ echo "</pre></code>";
   $loader = new \Twig\Loader\FilesystemLoader('../../../templates');
   $twig = new \Twig\Environment($loader);
 
-echo $twig->render('edit.html.twig', ['user' => $user, 'adr' => $adr, 'alb' => $alb, 'desc' => $desc, 'visible1' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
+echo $twig->render('edit.html.twig', ['user' => $user, 'adr' => $adr, 'alb' => $alb, 'desc' => $desc, 'visible1' => 'visibility: collapse', 'visiAdmin' => $visiAdmin]);

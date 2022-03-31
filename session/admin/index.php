@@ -14,7 +14,7 @@
       $album= $data->getAlbum($user["ID_user"],'user');
       $perms=$data->getPerm($user["ID_user"]);
       $group=$data->getGroupID($user["ID_user"]);
-      echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes,'perm' => $perms, 'user' => $user, 'avataruser' => $album["Avatar_album"],'group' => $group,'session' => $_SESSION]);
+  echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes, 'perm' => $perms, 'user' => $user, 'avataruser' => $album["Avatar_album"], 'group' => $group, 'session' => $_SESSION, 'visiAdmin' => $visiAdmin]);
 } elseif (isset($_POST["user"])) {
       $iduser = $_POST["user"];
       array_pop($_POST);
@@ -31,7 +31,7 @@
           $album= $data->getAlbum($user["ID_user"],'user');
           $perms=$data->getPerm($user["ID_user"]);
           $group=$data->getGroupID($user["ID_user"]);
-  echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes, 'perm' => $perms, 'user' => $user, 'avataruser' => $album["Avatar_album"], 'session' => $_SESSION, 'visible1' => 'visibility: collapse']);
+  echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes, 'perm' => $perms, 'user' => $user, 'avataruser' => $album["Avatar_album"], 'session' => $_SESSION, 'visible1' => 'visibility: collapse',  'visiAdmin' => $visiAdmin]);
         }
 
     elseif(isset($_POST["user-rb"])){

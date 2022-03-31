@@ -69,7 +69,7 @@ if (
 
   $data->linkAdrEnt($data->chkMaxIDAdr()['ID_adr'], $data->chkMaxIDEnt()['ID_ent']);
 } else {
-  echo "ERREUR : Veuillez renseigner tout les champs";
+  //echo "ERREUR : Veuillez renseigner tout les champs";
 }
 
-echo $twig->render('add_ent.html.twig', ['visible1' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
+echo $twig->render('add_ent.html.twig', ['visible1' => 'visibility: collapse', 'visiAdmin' => $visiAdmin]);

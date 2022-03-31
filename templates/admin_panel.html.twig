@@ -40,6 +40,7 @@
 					<li data-tab="search_user" class="is-active"><a>Rechercher des utilisateurs</a></li>
 					<li data-tab="perms"><a>Permissions</a></li>
 					<li data-tab="list_pilote"><a>Pilotes</a></li>
+					<li data-tab="add"><a>Ajouter</a></li>
 				</ul>
 			</div>
 			<div class="js-tab-content box" id="search_user">
@@ -545,6 +546,16 @@
 					{% for result in pilotes %}
 					{% include 'pilot_card.twig' %}
 					{% endfor %}
+				</div>
+			</div>
+			<div class="has-display-none js-tab-content" id="add">
+				<h2 class="title is-2 has-text-centered">
+					Ajouter
+				</h2>
+				<div class="field">
+					<div class="control is-centered">
+						<a class="button is-link" href="ent/">Ajouter une entreprise</a>
+					</div>
 				</div>
 			</div>
 		</div>

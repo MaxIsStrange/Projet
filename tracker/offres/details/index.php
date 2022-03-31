@@ -21,12 +21,12 @@ if (isset($_POST['ID_offre'])) {
 
 $offre = $data->getOffre($id);
 
-  echo "<br><br><code><pre>";
-  print_r($data->getPostulate($id));
-  echo "</pre></code>";
+  // echo "<br><br><code><pre>";
+  // print_r($data->getPostulate($id));
+  // echo "</pre></code>";
 
 if (!empty($offre)) {
-  // echo "HAHAHAHA";
+  
   // echo "<br><br><code><pre>";
   // print_r($offre);
   // echo "</pre></code>";
@@ -38,7 +38,7 @@ if (!empty($offre)) {
   echo $twig->render('detail_offre.html.twig',['result' => $offre ,'session' => $_SESSION]);
 
 if (isset($_SESSION['USER_FNAME'])) {
-  echo $twig->render('detail_offre.html.twig', ['result' => $offre, 'visible1' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT'],'session' => $_SESSION]);
+  echo $twig->render('detail_offre.html.twig', ['result' => $offre, 'visible1' => 'visibility: collapse', 'visiAdmin' => $visiAdmin, 'session' => $_SESSION]);
 } else {
-  echo $twig->render('detail_offre.html.twig', ['result' => $offre, 'visible2' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT'],'session' => $_SESSION]);
+  echo $twig->render('detail_offre.html.twig', ['result' => $offre, 'visible2' => 'visibility: collapse', 'visiAdmin' => $visiAdmin, 'session' => $_SESSION]);
 }

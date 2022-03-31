@@ -57,4 +57,4 @@ if (
 }
 
 
-echo $twig->render('inscrip.html.twig', ['visible2' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
+echo $twig->render('inscrip.html.twig', ['visible2' => 'visibility: collapse',  'visiAdmin' => $visiAdmin]);

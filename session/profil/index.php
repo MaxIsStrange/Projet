@@ -55,7 +55,7 @@ if(isset($_POST["abandon"])){
 
 
 $desc = !empty($infos["Desc_user"]) ? htmlspecialchars_decode($infos["Desc_user"], ENT_QUOTES) : null;
-echo $twig->render('profil.html.twig', ['album' => $album, 'infos' => $infos, 'comps' => $comps, 'grp' => $grp, 'desc' => $desc, 'id' => $id, 'visible1' => 'visibility: collapse', 'deco' => $canDeco, 'docRoot' => $_SERVER['DOCUMENT_ROOT'],'postulation' => $postulation ,'step' => $step]);
+echo $twig->render('profil.html.twig', ['album' => $album, 'infos' => $infos, 'comps' => $comps, 'grp' => $grp, 'desc' => $desc, 'id' => $id, 'visible1' => 'visibility: collapse', 'deco' => $canDeco, 'visiAdmin' => $visiAdmin, 'postulation' => $postulation, 'step' => $step]);
 
 
 
