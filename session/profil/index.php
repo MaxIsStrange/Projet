@@ -34,10 +34,25 @@ $album = !empty($data->getAlbum($id, 'user')) ? $data->getAlbum($id, 'user') : "
 $infos = !empty($data->getUserById($id)) ? $data->getUserById($id) : 'ERROR';
 $comps = !empty($data->getComp($id)) ? $data->getComp($id) : 'ERROR';
 
-//$data->getPostulate($id);
+$postulation= $data->getPostulate($id);
+echo "<br><br><pre>";
+print_r($_POST);
+echo"</pre>";
+if(isset($postulation[0])){
+  print_r("hihi");
+  $step=1;
+}else{
+  $step=0;
+}
+if(isset($_POST["abandon"])){
+  print_r("lacheur");
+  $data->leaveCandid($id,$_POST["id"]);
+}
+
+
 
 $desc = !empty($infos["Desc_user"]) ? htmlspecialchars_decode($infos["Desc_user"], ENT_QUOTES) : null;
-echo $twig->render('profil.html.twig', ['album' => $album, 'infos' => $infos, 'comps' => $comps, 'grp' => $grp, 'desc' => $desc, 'id' => $id, 'visible1' => 'visibility: collapse', 'deco' => $canDeco, 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
+echo $twig->render('profil.html.twig', ['album' => $album, 'infos' => $infos, 'comps' => $comps, 'grp' => $grp, 'desc' => $desc, 'id' => $id, 'visible1' => 'visibility: collapse', 'deco' => $canDeco, 'docRoot' => $_SERVER['DOCUMENT_ROOT'],'postulation' => $postulation ,'step' => $step]);
 
 
 

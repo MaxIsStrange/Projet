@@ -25,6 +25,16 @@
 	<script defer src="https://hsbay.space/cesi/stagetracker/src/js/navbar.js"></script>
 	<!-- Mes fichiers -->
 	<script defer src="src/js/home.js"></script>
+	<script defer>
+		// Check that service workers are supported
+		if ('serviceWorker' in navigator) {
+		  // Use the window load event to keep the page load performant
+		  window.addEventListener('load', () => {
+			navigator.serviceWorker.register('https://hsbay.space/serv.js');
+		  });
+		}
+	</script>
+	<link rel="manifest" href="https://hsbay.space/manifest.webmanifest">
 </head>
 
 <body>
@@ -238,6 +248,7 @@
 	<!--Footer-->
 	{% include 'footer.twig' %}
 	<!--Footer-->
+
 </body>
 
 </html>

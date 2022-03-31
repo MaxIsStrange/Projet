@@ -195,8 +195,21 @@
 
                     </div>
                     <div class="has-display-none js-tab-content box" id="avancement">
-                        <h1 class="title is-4 mb-6">Mon avancement : {{entreprise}}</h1>
-                        {% include 'avancement.twig' %}
+                        {% if step == 0 %}
+                        Commencez à postuler à une offre pour voir votre avancement !
+                        {% elseif step == 1 %}
+                            {% for result in postulation %}
+                                {% include 'avancement.twig' %}
+                            {% endfor %}
+                        {% else  %}
+                            {% set break = 0 %}
+                            {% for result in postulation %}
+                                {% if break == 0 %}
+                                    {% include 'avancement.twig' %}
+                                    {% set break = 1 %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
                     </div>
                     <div class="has-display-none js-tab-content box" id="wishlist">
                         <h1 class="title is-4 mb-2">Wishlist</h1>
