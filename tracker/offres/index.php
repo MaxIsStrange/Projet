@@ -6,7 +6,9 @@ include_once "../../func/func_perm.php";
 
 $cartes = [];
 
-if (isset($_POST['main-rb'])) {
+$toSearch = isset($_POST['main-rb']) ? $_POST['main-rb'] : '';
+
+
     // echo "<code><pre><br><br><br>";
     // echo "Texte de recherche entré : " . $_POST['main-rb'] . "<br>";
 
@@ -24,7 +26,7 @@ if (isset($_POST['main-rb'])) {
     foreach ($offres as $idOffre) {
         array_push($cartes, $data->getOffreCard($idOffre['ID_offre'], 0));
     }
-}
+
 
 
 $offset = 0;

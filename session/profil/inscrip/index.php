@@ -49,6 +49,8 @@ if (
     // echo "<code><pre><br>";
     // print_r($result);
     // echo "<br></pre></code>";
+
+    header('Location: ../auth');
   } else {
     echo "Les mots de passe ne correspondent pas";
   }

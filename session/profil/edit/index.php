@@ -126,6 +126,9 @@ if (
     $log->editAccount($tabInfo);
   }
 
+  $mailer->setMail('modif');
+  $mailer->sendMail($user['Mail_user']);
+
   header("Location: ../");
 
 } elseif (
