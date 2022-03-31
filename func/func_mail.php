@@ -32,7 +32,11 @@ class Mail
 
     public function sendMail($to)
     {
-        mail($to, $this->subject, $this->message, $this->headers);
+        $mailSent = mail($to, $this->subject, $this->message, $this->headers);
+        if (!$mailSent) {
+            echo "<br><br>$mailSent";
+        };
+        
     }
 }
 
