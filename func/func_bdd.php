@@ -169,8 +169,8 @@ class dataBDD
     {
 
         $this->conn->setQuery(
-            "INSERT INTO User (Nom_user,Prenom_user,BD_user,Tel_user,Mail_user,Step,MDP_user,ID_adr,ID_Grp)
-   VALUES (:nom,:prenom,:bd,:tel,:mail,:step,:pass,:idAdr,:idGrp);"
+            "INSERT INTO User (Nom_user,Prenom_user,BD_user,Tel_user,Mail_user,Step,MDP_user,ID_adr,ID_Grp, ID_album)
+   VALUES (:nom,:prenom,:bd,:tel,:mail,:step,:pass,:idAdr,:idGrp, :idAlb);"
         );
 
         $this->conn->execQuery([
@@ -182,7 +182,8 @@ class dataBDD
             'step' => $user['step'],
             'pass' => $user['pass'],
             'idAdr' => $user['idAdr'],
-            'idGrp' => $user['idGrp']
+            'idGrp' => $user['idGrp'],
+            'idAlb' => $user['idAlb']
         ], 0);
 
         return;
@@ -418,6 +419,16 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
     public function chkMaxIDAdr()
     {
         $this->conn->setQuery('SELECT ID_adr FROM Adresse ORDER BY ID_ADR DESC limit 1 ');
+        $this->conn->execQuery([], 0);
+
+        $result = $this->conn->getResult();
+
+        return $result;
+    }
+
+    public function chkMaxIDUser()
+    {
+        $this->conn->setQuery('SELECT ID_user FROM User ORDER BY ID_user DESC limit 1 ');
         $this->conn->execQuery([], 0);
 
         $result = $this->conn->getResult();

@@ -1,6 +1,7 @@
 <?php
 include_once "func_bdd.php";
 include_once "func_perm.php";
+include_once "func_upload.php";
 
 
 // Objet gérant la connexion des utilisateurs
@@ -12,6 +13,7 @@ class login
     public function __construct($newData)
     {
         $this->data = $newData;
+        
     }
 
     // Gestion de la connexion
@@ -90,6 +92,17 @@ class login
                 'comp' => $tabInfo['comp']
             ];
 
+            global $upload;
+            $path = $upload->defaultAvatar($this->data->chkMaxIDUser()['ID_user'] + 1);
+
+            $alb = [
+                'ba' => null,
+                'lo' => null,
+                'av' => $path
+            ];
+
+            $this->data->addAlbum($alb);
+
             $this->data->addAddr($adr);
 
             $user = [
@@ -101,14 +114,16 @@ class login
                 'step' => 0,
                 'pass' => $this->hashMDP($tabInfo['pass']),
                 'idAdr' => $this->data->chkMaxIDAdr()['ID_adr'],
-                'idGrp' => 4
+                'idGrp' => 4,
+                'idAlb' => $this->data->chkMaxIDAlb()['ID_album']
             ];
 
             $this->data->addUser($user);
 
             $result = [
                 $user,
-                $adr
+                $adr,
+                $alb
             ];
 
             return $result;

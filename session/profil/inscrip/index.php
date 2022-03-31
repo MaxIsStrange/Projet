@@ -12,10 +12,10 @@ include_once "../../../func/func_mail.php";
 
 
 if (
-  isset($_POST['mail']) && isset($_POST['pass']) && isset($_POST['pass2'])
-  && isset($_POST['name']) && isset($_POST['fname']) && isset($_POST['adr_rue'])
-  && isset($_POST['adr_cp']) && isset($_POST['adr_city'])
-  && isset($_POST['adr_pays']) && isset($_POST['tel'])
+  !empty($_POST['mail']) && !empty($_POST['pass']) && !empty($_POST['pass2'])
+  && !empty($_POST['name']) && !empty($_POST['fname']) && !empty($_POST['adr_rue'])
+  && !empty($_POST['adr_cp']) && !empty($_POST['adr_city'])
+  && !empty($_POST['adr_pays']) && !empty($_POST['tel'])
   && isset($_POST['result']) && ($_POST['result'] == 'valide')
 ) {
   //Si les mots de passe correspondent
@@ -53,8 +53,8 @@ if (
     echo "Les mots de passe ne correspondent pas";
   }
 } else {
-  
 
+  echo "<br><br> ERREUR : FORMULAIRE INCOMPLET";
 }
 
 
