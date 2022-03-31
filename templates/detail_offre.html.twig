@@ -62,15 +62,21 @@
 			</div>
 			<div class="is-flex">
 				<div class="buttons" style="margin-top:auto;margin-bottom:auto;">
-					<div class="button is-link" style="margin-top:auto;margin-bottom:auto;">Postuler à l'offre</div>
-					<div class="button is-light" style="margin-top:auto;margin-bottom:auto;">
-						<figure class="icon">
-							<i class="fa-regular fa-heart"></i>
-						</figure>
-					</div>
+					<form 	style="margin-top:auto;margin-bottom:auto;" method="POST" action="">
+							<input type="hidden" name="ID_offre" value="{{result.ID_offre}}">
+							<input type="hidden" name="ID_user" value="{{session.USER_ID}}">
+							<input type="submit" name="postuler" value="Postuler à l'offre" class="button is-link" style="margin-top:auto;margin-bottom:auto;">
+					</form>
+					<form action="" enctype="multipart/form-data" method="GET">
+						<button class="button is-light" style="margin-top:auto;margin-bottom:auto;" name="Wish" value="{{result.ID_offre}}">
+							<figure class="icon">
+								<i class="fa-regular fa-heart"></i>
+							</figure>
+						</button>
+					</form>
 				</div>
 				<div class="buttons" style="margin-left:auto;margin-right:1rem;">
-					<a href="#" class="button is-link"> Modifer l'offre</a>
+					<a href="#" class="button is-link"> Modifier l'offre</a>
 					<a href="#" class="button is-link">
 						<span class="icon">
 							<i class="fa-solid fa-trash"></i>

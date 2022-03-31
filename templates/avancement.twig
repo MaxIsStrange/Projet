@@ -1,6 +1,7 @@
+<h1 class="title is-4 mb-6">Mon avancement : {{result.Nom_ent}} - {{result.Nom_poste_offre}} </h1>
 <ul class="steps is-medium is-centered has-content-centered">
     {% if step == 0 %}
-    Commencez à postuler dans une entreprise pour voir votre avancement !
+    Commencez à postuler à une offre pour voir votre avancement !
     {% else %}
     <li class="steps-segment
         {% if step == 1 %}
@@ -16,7 +17,7 @@
             <p class="heading">Postulation</p>
         </div>
     </li>
-    <li class="steps-segment 
+    <li class="steps-segment
         {% if step == 2 %}
             is-active
         {% endif %}
@@ -84,5 +85,17 @@
             <p class="heading">Convention signée</p>
         </div>
     </li>
+    {% endif %}
 </ul>
-{% endif %}
+<div class="is-divider"></div>
+    <div class="buttons">
+        <form action="" method="POST">
+            <input type="hidden" name="id" value="{{result.ID_offre}}" readonly>
+            <input type="submit" name="abandon" value="Abandonner ma candidature" class="button is-link is-light" style="margin-left: auto;margin-right:1rem;">
+        </form>
+        <form action="" method="POST">
+            <input type="hidden" name="id" value="{{result.ID_offre}}" readonly>
+            <input type="submit" name="answer" value="Signaler réponse de l'entreprise" class="button is-link" style="margin-right:0;">
+        </form>
+    </div>
+

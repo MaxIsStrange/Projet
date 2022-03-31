@@ -480,7 +480,7 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
     }
 
     public function getPostulate($id){
-        $this->conn->setQuery("SELECT * FROM Postule INNER JOIN Offre ON Postule.ID_offre=Offre.ID_offre WHERE ID_user = :id ;");
+        $this->conn->setQuery("SELECT * FROM Postule INNER JOIN Offre ON Postule.ID_offre=Offre.ID_offre INNER JOIN Entreprise ON Offre.ID_ent=Entreprise.ID_ent WHERE ID_user = :id ;");
         $this->conn->execQuery(['id' => $id], 1);
 
         $result = $this->conn->getResult();
@@ -796,7 +796,7 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
 
     public function getOffre($id)
     {
-        $this->conn->setQuery('SELECT Offre.Nom_offre,Offre.Nom_poste_offre,Offre.Date_offre,Offre.Duree_offre,Adresse.Ville_adr,Adresse.CP_adr,Offre.Desc_offre,Entreprise.Nom_ent,Album.Banniere_album,Mineure_offre,Remun_offre,Nb_poste_offre,Logo_album FROM Offre INNER JOIN Adresse ON Offre.ID_adr=Adresse.ID_adr INNER JOIN Entreprise ON Offre.ID_ent=Entreprise.ID_ent INNER JOIN Album On Entreprise.ID_album=Album.ID_album where ID_offre=:id;');
+        $this->conn->setQuery('SELECT Offre.Nom_offre,Offre.Nom_poste_offre,Offre.Date_offre,Offre.Duree_offre,Adresse.Ville_adr,Adresse.CP_adr,Offre.Desc_offre,Entreprise.Nom_ent,Album.Banniere_album,Mineure_offre,Remun_offre,Nb_poste_offre,Logo_album,Offre.ID_offre FROM Offre INNER JOIN Adresse ON Offre.ID_adr=Adresse.ID_adr INNER JOIN Entreprise ON Offre.ID_ent=Entreprise.ID_ent INNER JOIN Album On Entreprise.ID_album=Album.ID_album where ID_offre=:id;');
         $this->conn->execQuery(['id' => $id], 0);
 
         $result = $this->conn->getResult();
@@ -853,6 +853,36 @@ VALUES (:nom,:descr,:taille,:mail,:web,:sect,:slog,:NbStage,:NbConf,:Note,:Album
         $this->conn->setQuery("SELECT * FROM Entreprise WHERE ID_ent = :id");
 
         $this->conn->execQuery(['id' => $id], 0);
+
+        $result = $this->conn->getResult();
+
+        // echo "<br><br><pre>";
+        // print_r($result);
+        // echo "</pre><br>";
+
+        return $result;
+    }
+
+    public function leaveCandid($id,$idoffre)
+
+    {
+        $this->conn->setQuery("DELETE FROM Postule WHERE ID_offre = :idoffre AND ID_user = :id;");
+
+        $this->conn->execQuery(['id' => $id, 'idoffre' => $idoffre], 1);
+
+        $result = $this->conn->getResult();
+
+        // echo "<br><br><pre>";
+        // print_r($result);
+        // echo "</pre><br>";
+
+        return $result;
+    }
+
+    public function Postuler($id,$idoffre){
+        $this->conn->setQuery("INSERT INTO Postule VALUES (:idoffre,:id);");
+
+        $this->conn->execQuery(['id' => $id, 'idoffre' => $idoffre], 0);
 
         $result = $this->conn->getResult();
 
