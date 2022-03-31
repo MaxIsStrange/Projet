@@ -87,7 +87,7 @@ if (
   $pathURL = $upload->uploadFile("Avatar", $idRes);
 
 
-  //print_r($alb);
+  
 
   $tabInfo = [
     'av' => $pathURL,
@@ -101,7 +101,7 @@ if (
     'user'
   );
 
-  
+  header("Location: ../");
 }
 echo "</pre></code>";
 
