@@ -3,6 +3,10 @@
   include_once "../../func/func_bdd.php";
   include_once "../../func/func_search.php";
 
+if (empty($visiAdmin)) {
+  header("Location: ../../");
+}
+
   require_once('../../vendor/autoload.php');
   $loader = new \Twig\Loader\FilesystemLoader('../../templates');
   $twig = new \Twig\Environment($loader);
