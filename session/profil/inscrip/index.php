@@ -54,7 +54,6 @@ if (
   }
 } else {
 
-  echo "<br><br> ERREUR : FORMULAIRE INCOMPLET";
 }
 
 
