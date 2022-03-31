@@ -6,7 +6,7 @@ include_once "../../../func/func_upload.php";
 include_once "../../../func/func_mail.php";
 
 
-echo "<code><pre><br><br><br>";
+//echo "<code><pre><br><br><br>";
 $idRes = isset($_GET['id']) ? $_GET['id'] : null;
 
 if ($idRes == null) {
