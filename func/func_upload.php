@@ -101,6 +101,23 @@ class Upload
 
     }
 
+    public function defaultAvatar($id)
+    {
+
+        $nameFile = 'Avatar' . $id . ".png";
+
+        $pathRel = "../../../docs/avatar/" . $nameFile;
+
+        $pathURL = "https://hsbay.space/cesi/stagetracker/docs/avatar/" . $nameFile;
+
+        if (file_exists($pathRel)) {
+            $this->deleteFile($pathRel);
+        }
+        copy('../../../src/img/avatar/avatar.png', $pathRel);
+
+        return $pathURL;
+    }
+
     // public function chkUpload()
     // {
     //     $result = $this->uploadFile();
