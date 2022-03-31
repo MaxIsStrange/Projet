@@ -21,7 +21,7 @@ $desc = !empty($user['Desc_user']) ? htmlspecialchars_decode($user['Desc_user'],
 $comp = !empty($adr['Comp_adr']) ? htmlspecialchars_decode($adr['Comp_adr'], ENT_QUOTES) : null;
 
 // echo "<br><br><pre>";
-// print_r($user);
+// print_r($alb);
 // echo "</pre><br>";
 
 //Modification des informations
@@ -66,7 +66,7 @@ if (
 
     $album = [
       'cv' => $path,
-      'id' => $alb['ID_alb']
+      'id' => $alb['ID_album']
     ];
 
 
@@ -79,7 +79,7 @@ if (
 
     $album = [
       'lm' => $path,
-      'id' => $alb['ID_alb']
+      'id' => $alb['ID_album']
     ];
 
 
@@ -93,7 +93,7 @@ if (
 
     $album = [
       'fv' => $path,
-      'id' => $alb['ID_alb']
+      'id' => $alb['ID_album']
     ];
 
 
@@ -149,7 +149,7 @@ if (
 }
 
 
-print_r($_FILES);
+//print_r($_FILES);
 echo "</pre></code>";
 
 
