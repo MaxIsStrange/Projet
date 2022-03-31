@@ -46,9 +46,9 @@ if (
     $mailer->setMail('inscri');
     $mailer->sendMail($_POST['mail']);
 
-    echo "<code><pre><br>";
-    print_r($result);
-    echo "<br></pre></code>";
+    // echo "<code><pre><br>";
+    // print_r($result);
+    // echo "<br></pre></code>";
   } else {
     echo "Les mots de passe ne correspondent pas";
   }

@@ -40,7 +40,7 @@ $postulation= $data->getPostulate($id);
 // print_r($_POST);
 // echo"</pre>";
 if(isset($postulation[0])){
-  print_r("hihi");
+  //print_r("hihi");
   $step=1;
 }else{
   $step=0;

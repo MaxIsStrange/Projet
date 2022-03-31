@@ -13,7 +13,6 @@ class login
     public function __construct($newData)
     {
         $this->data = $newData;
-        
     }
 
     // Gestion de la connexion
@@ -65,7 +64,7 @@ class login
         $_SESSION['USER_ID'] = $id;
 
         //On récupère les informations de l'utilisateur
-        $user_info = $this->data->getUser($_SESSION['USER_MAIL'],'one');
+        $user_info = $this->data->getUser($_SESSION['USER_MAIL'], 'one');
 
         //On récupère le nom et prénom
         $_SESSION['USER_NAME'] = $user_info['Nom_user'];
@@ -74,13 +73,11 @@ class login
         //On récupère le role de l'utilisateur et ses permissions
         $_SESSION['ROLE'] = $this->data->getRole($id);
         $_SESSION['PERM'] = $this->data->getPerm($id);
-
-        
     }
 
     function inscription($mail, $tabInfo)
     {
-      
+
         if (!$this->data->chkMail($mail)) {
 
             $adr = [
@@ -177,8 +174,6 @@ class login
 
         $this->data->editCredentials($account);
     }
-
-    
 }
 
 
