@@ -5,4 +5,4 @@
   $loader = new \Twig\Loader\FilesystemLoader('../templates');
   $twig = new \Twig\Environment($loader);
 
-echo $twig->render('legal.html.twig', ['visiAdmin' => $visiAdmin]);
+echo $twig->render('legal.html.twig', ['visiAdmin' => $_SESSION['ADMIN']]);

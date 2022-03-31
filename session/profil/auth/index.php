@@ -13,9 +13,9 @@ if (isset($_POST['mail']) && isset($_POST['pass'])) {
     header("Location: ../../../index.php");
     exit();
   } else {
-    echo $twig->render('connection.html.twig', ['visible2' => 'visibility: collapse', 'visiAdmin' => $visiAdmin, 'error' => true]);
+    echo $twig->render('connection.html.twig', ['visible2' => 'visibility: collapse', 'visiAdmin' => $_SESSION['ADMIN'], 'error' => true]);
 
   }
 } else {
-  echo $twig->render('connection.html.twig', ['visible2' => 'visibility: collapse', 'visiAdmin' => $visiAdmin]);
+  echo $twig->render('connection.html.twig', ['visible2' => 'visibility: collapse', 'visiAdmin' => $_SESSION['ADMIN']]);
 }

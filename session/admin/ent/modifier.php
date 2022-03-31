@@ -114,4 +114,4 @@ if (
 
 
 
-echo $twig->render('edit_ent.html.twig', ['ent' => $ent, 'alb' => $alb, 'adr' => $adr, 'visible1' => 'visibility: collapse', 'visiAdmin' => $visiAdmin]);
+echo $twig->render('edit_ent.html.twig', ['ent' => $ent, 'alb' => $alb, 'adr' => $adr, 'visible1' => 'visibility: collapse', 'visiAdmin' => $_SESSION['ADMIN']]);

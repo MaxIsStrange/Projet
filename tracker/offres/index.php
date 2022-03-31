@@ -49,8 +49,8 @@ $loader = new \Twig\Loader\FilesystemLoader('../../templates');
 $twig = new \Twig\Environment($loader);
 
 if (isset($_SESSION['USER_FNAME'])) {
-    echo $twig->render('tracker_offre.html.twig', ['cartes' => $cartes, 'msg' => $msg, 'limit' => $limit, 'i' => $i, 'visible1' => 'visibility: collapse', 'visiAdmin' => $visiAdmin]);
+    echo $twig->render('tracker_offre.html.twig', ['cartes' => $cartes, 'msg' => $msg, 'limit' => $limit, 'i' => $i, 'visible1' => 'visibility: collapse', 'visiAdmin' => $_SESSION['ADMIN']]);
 } else {
-    echo $twig->render('tracker_offre.html.twig', ['cartes' => $cartes, 'msg' => $msg, 'limit' => $limit, 'i' => $i, 'visible2' => 'visibility: collapse',  'visiAdmin' => $visiAdmin]);
+    echo $twig->render('tracker_offre.html.twig', ['cartes' => $cartes, 'msg' => $msg, 'limit' => $limit, 'i' => $i, 'visible2' => 'visibility: collapse',  'visiAdmin' => $_SESSION['ADMIN']]);
 }
 // 'cartes' => $lastoffers,'nboffres' => $nboffres,'nbstages'=>$nbstages,'nbinsc' => $nbinsc

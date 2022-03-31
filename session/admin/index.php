@@ -3,8 +3,10 @@
   include_once "../../func/func_bdd.php";
   include_once "../../func/func_search.php";
 
-if (empty($visiAdmin)) {
+if (!is_null($_SESSION['ADMIN'])) {
+  
   header("Location: ../../");
+  exit;
 }
 
   require_once('../../vendor/autoload.php');
@@ -18,7 +20,7 @@ if (empty($visiAdmin)) {
       $album= $data->getAlbum($user["ID_user"],'user');
       $perms=$data->getPerm($user["ID_user"]);
       $group=$data->getGroupID($user["ID_user"]);
-  echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes, 'perm' => $perms, 'user' => $user, 'avataruser' => $album["Avatar_album"], 'group' => $group, 'session' => $_SESSION, 'visiAdmin' => $visiAdmin]);
+  echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes, 'perm' => $perms, 'user' => $user, 'avataruser' => $album["Avatar_album"], 'group' => $group, 'session' => $_SESSION, 'visiAdmin' => $_SESSION['ADMIN']]);
 } elseif (isset($_POST["user"])) {
       $iduser = $_POST["user"];
       array_pop($_POST);
@@ -35,7 +37,7 @@ if (empty($visiAdmin)) {
           $album= $data->getAlbum($user["ID_user"],'user');
           $perms=$data->getPerm($user["ID_user"]);
           $group=$data->getGroupID($user["ID_user"]);
-  echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes, 'perm' => $perms, 'user' => $user, 'avataruser' => $album["Avatar_album"], 'session' => $_SESSION, 'visible1' => 'visibility: collapse',  'visiAdmin' => $visiAdmin]);
+  echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes, 'perm' => $perms, 'user' => $user, 'avataruser' => $album["Avatar_album"], 'session' => $_SESSION, 'visible1' => 'visibility: collapse',  'visiAdmin' => $_SESSION['ADMIN']]);
         }
 
     elseif(isset($_POST["user-rb"])){

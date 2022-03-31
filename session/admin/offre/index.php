@@ -66,4 +66,4 @@ if (
   // echo "</pre></code><br><br>";
 }
 
-echo $twig->render('add_offre.html.twig', ['visible1' => 'visibility: collapse', 'visiAdmin' => $visiAdmin]);
+echo $twig->render('add_offre.html.twig', ['visible1' => 'visibility: collapse', 'visiAdmin' => $_SESSION['ADMIN']]);

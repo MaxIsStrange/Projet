@@ -59,4 +59,4 @@ if (
 }
 
 
-echo $twig->render('inscrip.html.twig', ['visible2' => 'visibility: collapse',  'visiAdmin' => $visiAdmin]);
+echo $twig->render('inscrip.html.twig', ['visible2' => 'visibility: collapse',  'visiAdmin' => $_SESSION['ADMIN']]);

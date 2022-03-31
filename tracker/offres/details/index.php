@@ -37,7 +37,7 @@ if (!empty($offre)) {
 
 
 if (isset($_SESSION['USER_FNAME'])) {
-  echo $twig->render('detail_offre.html.twig', ['result' => $offre, 'visible1' => 'visibility: collapse', 'visiAdmin' => $visiAdmin, 'session' => $_SESSION]);
+  echo $twig->render('detail_offre.html.twig', ['result' => $offre, 'visible1' => 'visibility: collapse', 'visiAdmin' => $_SESSION['ADMIN'], 'session' => $_SESSION]);
 } else {
-  echo $twig->render('detail_offre.html.twig', ['result' => $offre, 'visible2' => 'visibility: collapse', 'visiAdmin' => $visiAdmin, 'session' => $_SESSION]);
+  echo $twig->render('detail_offre.html.twig', ['result' => $offre, 'visible2' => 'visibility: collapse', 'visiAdmin' => $_SESSION['ADMIN'], 'session' => $_SESSION]);
 }

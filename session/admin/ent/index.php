@@ -72,4 +72,4 @@ if (
   //echo "ERREUR : Veuillez renseigner tout les champs";
 }
 
-echo $twig->render('add_ent.html.twig', ['visible1' => 'visibility: collapse', 'visiAdmin' => $visiAdmin]);
+echo $twig->render('add_ent.html.twig', ['visible1' => 'visibility: collapse', 'visiAdmin' => $_SESSION['ADMIN']]);

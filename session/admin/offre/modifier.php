@@ -3,4 +3,4 @@
   $loader = new \Twig\Loader\FilesystemLoader('../../../templates');
   $twig = new \Twig\Environment($loader);
 
-echo $twig->render('edit_offre.html.twig', ['visible1' => 'visibility: collapse', 'visiAdmin' => $visiAdmin]);
+echo $twig->render('edit_offre.html.twig', ['visible1' => 'visibility: collapse', 'visiAdmin' => $_SESSION['ADMIN']]);

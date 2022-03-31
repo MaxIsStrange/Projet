@@ -170,4 +170,4 @@ echo "</pre></code>";
   $loader = new \Twig\Loader\FilesystemLoader('../../../templates');
   $twig = new \Twig\Environment($loader);
 
-echo $twig->render('edit.html.twig', ['user' => $user, 'adr' => $adr, 'alb' => $alb, 'desc' => $desc, 'visible1' => 'visibility: collapse', 'visiAdmin' => $visiAdmin]);
+echo $twig->render('edit.html.twig', ['user' => $user, 'adr' => $adr, 'alb' => $alb, 'desc' => $desc, 'visible1' => 'visibility: collapse', 'visiAdmin' => $_SESSION['ADMIN']]);
