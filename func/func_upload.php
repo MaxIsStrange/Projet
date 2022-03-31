@@ -87,7 +87,7 @@ class Upload
             move_uploaded_file($_FILES[$this->name]["tmp_name"],  $pathRel);
 
             // echo "<img src='" . $pathRel . "' height = '100px' width='100px'>";
-            echo "<br>URL : $pathURL <br>";
+            //echo "<br>URL : $pathURL <br>";
 
             return $pathURL;
         }

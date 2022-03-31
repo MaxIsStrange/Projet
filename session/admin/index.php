@@ -67,5 +67,5 @@
 
   echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes, 'session' => $_SESSION, 'cartes' => $fusion, 'visible1' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
 } else {
-  echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes, 'visible1' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
+  echo $twig->render('admin_panel.html.twig', ['pilotes' => $pilotes, 'session' => $_SESSION, 'visible1' => 'visibility: collapse', 'docRoot' => $_SERVER['DOCUMENT_ROOT']]);
 }

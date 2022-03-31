@@ -23,7 +23,7 @@ if (
   && !empty($_POST['adr_ville']) && !empty($_POST['adr_rue']) && !empty($_POST['adr_pays'])
   && !empty($_POST['min'])
 ) {
-  $dist = !empty($_POST['dist']) ? true : false;
+  $dist = !empty($_POST['dist']) ? 1 : 0;
   $adr_num = isset($_POST['adr_num']) ? htmlspecialchars($_POST['adr_num']) : null;
   $adr_comp = isset($_POST['adr_comp']) ? htmlspecialchars($_POST['adr_comp']) : null;
 
