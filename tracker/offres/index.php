@@ -30,9 +30,9 @@ if (isset($_POST['main-rb'])) {
 $offset = 0;
 
 
-echo "<code><pre><br>";
-print_r($cartes);
-echo "<br></pre></code>";
+// echo "<code><pre><br>";
+// print_r($cartes);
+// echo "<br></pre></code>";
 
 if (empty($cartes)) {
     $msg = "Aucune offre trouvée avec cette recherche.";

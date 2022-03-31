@@ -21,9 +21,9 @@ if (isset($_POST['ID_offre'])) {
 
 $offre = $data->getOffre($id);
 
-  echo "<br><br><code><pre>";
-  print_r($data->getPostulate($id));
-  echo "</pre></code>";
+  // echo "<br><br><code><pre>";
+  // print_r($data->getPostulate($id));
+  // echo "</pre></code>";
 
 if (!empty($offre)) {
   // echo "HAHAHAHA";
