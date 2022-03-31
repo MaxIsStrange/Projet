@@ -97,7 +97,7 @@ if (
 
   $data->editEnt($tabInfoEnt);
 
-  header("Location: ../../../tracker/offres/details/?id=$idRes");
+  header("Location: ../../../tracker/ents/details/?id=$idRes");
   // print_r($alb);
   // echo "<br><br>";
   // // print_r($tabInfoAdr);
