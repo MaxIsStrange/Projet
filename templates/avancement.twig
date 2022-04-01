@@ -88,14 +88,9 @@
     {% endif %}
 </ul>
 <div class="is-divider"></div>
-    <div class="buttons">
-        <form action="" method="POST">
-            <input type="hidden" name="id" value="{{result.ID_offre}}" readonly>
-            <input type="submit" name="abandon" value="Abandonner ma candidature" class="button is-link is-light" style="margin-left: auto;margin-right:1rem;">
-        </form>
-        <form action="" method="POST">
-            <input type="hidden" name="id" value="{{result.ID_offre}}" readonly>
-            <input type="submit" name="answer" value="Signaler réponse de l'entreprise" class="button is-link" style="margin-right:0;">
-        </form>
-    </div>
-
+<div class="buttons">
+    <form action="" method="POST" style="margin-left: auto;margin-right:1rem;">
+        <input type="hidden" name="id" value="{{result.ID_offre}}" readonly>
+        <input type="submit" name="abandon" value="Abandonner ma candidature" class="button is-link is-light">
+    </form>
+</div>

@@ -55,8 +55,8 @@
 							</label>
 						</div>
 						<input type="hidden" name="result" value="img">
-						<input type="submit" value="Changer de photo de profil" name="sub_img" class="button is-link">
-					
+						<input type="submit" value="Changer de photo de profil" name="sub_img" class="button is-link"
+							style="left: 50%;transform: translateX(-50%); margin-top: 1rem;">
 					</form>
 
 				</div>
@@ -67,14 +67,16 @@
 						<div class="field">
 							<label class="label">Nom *</label>
 							<div class="control">
-								<input class="input" name="name" type="text" placeholder="Ex: Smith" value="{{user.Nom_user}}">
-								
+								<input class="input" name="name" type="text" placeholder="Ex: Smith"
+									value="{{user.Nom_user}}">
+
 							</div>
 						</div>
 						<div class="field">
 							<label class="label">Prénom *</label>
 							<div class="control">
-								<input class="input" name="fname" type="text" placeholder="Ex: Alex" value="{{user.Prenom_user}}">
+								<input class="input" name="fname" type="text" placeholder="Ex: Alex"
+									value="{{user.Prenom_user}}">
 							</div>
 						</div>
 						<div class="field">
@@ -92,7 +94,8 @@
 									<div class="field">
 										<label class="label">Numero</label>
 										<div class="control">
-											<input class="input" name="adr_num" type="text" placeholder="Ex: 1bis (Falcutatif)" value="{{adr.Num_adr}}">
+											<input class="input" name="adr_num" type="text"
+												placeholder="Ex: 1bis (Falcutatif)" value="{{adr.Num_adr}}">
 										</div>
 									</div>
 								</div>
@@ -100,7 +103,8 @@
 									<div class="field">
 										<label class="label">Rue *</label>
 										<div class="control">
-											<input class="input" name="adr_rue" type="text" placeholder="Ex: Champs de mars" value="{{adr.Rue_adr}}">
+											<input class="input" name="adr_rue" type="text"
+												placeholder="Ex: Champs de mars" value="{{adr.Rue_adr}}">
 										</div>
 									</div>
 								</div>
@@ -110,7 +114,8 @@
 									<div class="field">
 										<label class="label">Code Postal/ZIP *</label>
 										<div class="control">
-											<input class="input" name="adr_cp" type="text" placeholder="Ex: 16000" value="{{adr.CP_adr}}">
+											<input class="input" name="adr_cp" type="text" placeholder="Ex: 16000"
+												value="{{adr.CP_adr}}">
 										</div>
 									</div>
 								</div>
@@ -118,7 +123,8 @@
 									<div class="field">
 										<label class="label">Ville *</label>
 										<div class="control">
-											<input class="input" name="adr_city" type="text" placeholder="Ex: Angoulême" value="{{adr.Ville_adr}}">
+											<input class="input" name="adr_city" type="text" placeholder="Ex: Angoulême"
+												value="{{adr.Ville_adr}}">
 										</div>
 									</div>
 								</div>
@@ -128,7 +134,8 @@
 									<div class="field">
 										<label class="label">Complément d'adresse</label>
 										<div class="control">
-											<input class="input" name="adr_comp" type="text" placeholder="Appartement 5" value="{{adr.Comp_adr}}">
+											<input class="input" name="adr_comp" type="text" placeholder="Appartement 5"
+												value="{{adr.Comp_adr}}">
 										</div>
 									</div>
 								</div>
@@ -136,7 +143,8 @@
 									<div class="field">
 										<label class="label">Pays *</label>
 										<div class="control">
-											<input class="input" name="adr_pays" type="text" placeholder="Ex: France" value="{{adr.Pays_adr}}">
+											<input class="input" name="adr_pays" type="text" placeholder="Ex: France"
+												value="{{adr.Pays_adr}}">
 										</div>
 									</div>
 								</div>
@@ -145,7 +153,8 @@
 						<div class="field">
 							<label class="label">Téléphone *</label>
 							<div class="control">
-								<input class="input" name="tel" type="text" placeholder="Ex: 0102030405" value="{{user.Tel_user}}">
+								<input class="input" name="tel" type="text" placeholder="Ex: 0102030405"
+									value="{{user.Tel_user}}">
 							</div>
 						</div>
 						<div class="is-divider"></div>
@@ -153,61 +162,62 @@
 						<div class="field">
 							<label class="label">Description</label>
 							<div class="control">
-								<textarea class="textarea" name="desc" placeholder="Ex: Lorem ipsum ...">{{desc}}</textarea>
+								<textarea class="textarea" name="desc"
+									placeholder="Ex: Lorem ipsum ...">{{desc}}</textarea>
 							</div>
 						</div>
-						
+
 						<div class="is-flex">
-						<div class="field" style="margin-left: 1rem; margin-right: 1rem;">
-							<label class="label">Curriculum Vitae</label>
-							<div class="file">
-								<label class="file-label">
-									<input class="file-input" type="file" name="file_cv" accept=".pdf">
-									<span class="file-cta">
-										<span class="file-icon">
-											<i class="fas fa-upload"></i>
+							<div class="field" style="margin-left: 1rem; margin-right: 1rem;">
+								<label class="label">Curriculum Vitae</label>
+								<div class="file">
+									<label class="file-label">
+										<input class="file-input" type="file" name="file_cv" accept=".pdf">
+										<span class="file-cta">
+											<span class="file-icon">
+												<i class="fas fa-upload"></i>
+											</span>
+											<span class="file-label">
+												Choisir un fichier...
+											</span>
 										</span>
-										<span class="file-label">
-											Choisir un fichier...
+									</label>
+								</div>
+							</div>
+							<div class="field" style="margin-left: 1rem; margin-right: 1rem;">
+								<label class="label">Lettre de motivation</label>
+								<div class="file">
+									<label class="file-label">
+										<input class="file-input" type="file" name="file_lm" accept=".pdf">
+										<span class="file-cta">
+											<span class="file-icon">
+												<i class="fas fa-upload"></i>
+											</span>
+											<span class="file-label">
+												Choisir un fichier...
+											</span>
 										</span>
-									</span>
-								</label>
+									</label>
+								</div>
+							</div>
+							<div class="field" style="margin-left: 1rem; margin-right: 1rem;">
+								<label class="label">Fiche de validation</label>
+								<div class="file">
+									<label class="file-label">
+										<input class="file-input" type="file" name="file_fv" accept=".pdf">
+										<span class="file-cta">
+											<span class="file-icon">
+												<i class="fas fa-upload"></i>
+											</span>
+											<span class="file-label">
+												Choisir un fichier...
+											</span>
+										</span>
+									</label>
+								</div>
 							</div>
 						</div>
-						<div class="field" style="margin-left: 1rem; margin-right: 1rem;">
-							<label class="label">Lettre de motivation</label>
-							<div class="file">
-								<label class="file-label">
-									<input class="file-input" type="file" name="file_lm" accept=".pdf">
-									<span class="file-cta">
-										<span class="file-icon">
-											<i class="fas fa-upload"></i>
-										</span>
-										<span class="file-label">
-											Choisir un fichier...
-										</span>
-									</span>
-								</label>
-							</div>
-						</div>
-						<div class="field" style="margin-left: 1rem; margin-right: 1rem;">
-							<label class="label">Fiche de validation</label> 
-							<div class="file">
-								<label class="file-label">
-									<input class="file-input" type="file" name="file_fv" accept=".pdf">
-									<span class="file-cta">
-										<span class="file-icon">
-											<i class="fas fa-upload"></i>
-										</span>
-										<span class="file-label">
-											Choisir un fichier...
-										</span>
-									</span>
-								</label>
-							</div>
-						</div>
-						</div>
-						
+
 						<div class="field is-grouped is-grouped-right">
 							<div class="control">
 								<a href="../" class="button is-link is-light ">Annuler</a>
@@ -272,25 +282,6 @@
 							</div>
 						</div>
 						<input type="hidden" name="result" value="account_edit">
-					</form>
-					<div class="is-divider"></div>
-					<form action="" method="POST">
-						<div class="field is-grouped is-grouped-right">
-							<div class="field">
-							
-							<div class="control has-icons-left" style="margin-right: 1rem;">
-								<input class="input" name="del_pass" type="password" placeholder="Mot de passe actuel">
-								<span class="icon is-small is-left">
-									<i class="fa-solid fa-lock"></i>
-								</span>
-							</div>
-						</div>
-						
-							<div class="control">
-								<input type="submit" name="delAccount" class="button is-danger" value="Supprimer le compte">
-							</div>
-
-						</div>
 					</form>
 				</div>
 			</div>

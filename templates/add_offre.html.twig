@@ -1,105 +1,108 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-	<head>
-		<!-- Meta données -->
-		<meta charset="UTF-8"/>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<title>Ajouter une offre - StageTracker</title>
-		<meta
-		name="description" content="Bonjour et bienvenue sur StageTracker ! Ce site vous permettra à toi et ton pilote de pouvoir suivre et proposer des stages plus facilement ! Ce site a été créé dans le cadre de la réalisation du Projet 4. Ce fut l'un des plus gros projets de l'année et nous vous présentons fièrement le rendu ici présent !"/>
+<head>
+	<!-- Meta données -->
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Ajouter une offre - StageTracker</title>
+	<meta name="description"
+		content="Bonjour et bienvenue sur StageTracker ! Ce site vous permettra à toi et ton pilote de pouvoir suivre et proposer des stages plus facilement ! Ce site a été créé dans le cadre de la réalisation du Projet 4. Ce fut l'un des plus gros projets de l'année et nous vous présentons fièrement le rendu ici présent !" />
 
-		<!-- Framework Bulma (custom) -->
-		<link
-		rel="stylesheet" href="https://www.hsbay.space/cesi/stagetracker/res/bulma/css/mystyles.css"/>
-		<!-- Font awesome (icon) -->
-		<script src="https://kit.fontawesome.com/d2fdcc8c83.js" crossorigin="anonymous"></script>
-		<!-- Extention Bulma-divider -->
-		<link
-		rel="stylesheet" href="https://hsbay.space/cesi/stagetracker/res/@creativebulma/bulma-divider/dist/bulma-divider.min.css"/>
-		<!-- Navbar -->
-		<script defer src="https://hsbay.space/cesi/stagetracker/src/js/navbar.js"></script>
-		<!-- Mes fichiers -->
-	</head>
+	<!-- Framework Bulma (custom) -->
+	<link rel="stylesheet" href="https://www.hsbay.space/cesi/stagetracker/res/bulma/css/mystyles.css" />
+	<!-- Font awesome (icon) -->
+	<script src="https://kit.fontawesome.com/d2fdcc8c83.js" crossorigin="anonymous"></script>
+	<!-- Extention Bulma-divider -->
+	<link rel="stylesheet"
+		href="https://hsbay.space/cesi/stagetracker/res/@creativebulma/bulma-divider/dist/bulma-divider.min.css" />
+	<!-- Navbar -->
+	<script defer src="https://hsbay.space/cesi/stagetracker/src/js/navbar.js"></script>
+	<!-- Mes fichiers -->
+</head>
 
-	<body>
-		<!-- Block numero 1-->
-		{% include 'navbar.twig' %}
-		<!-- Block numero 1-->
-		<section class="section">
-			<div class="box">
-				<h1 class="title is-1">Créer une nouvelle offre</h1>
-				<div class="columns">
-					<div class="column">
-						<form action="" method="POST" enctype="multipart/form-data">
-							<div class="columns">
-								<div class="column">
-									<h2 class="title is-2">Informations générales</h2>
-									<div class="field">
-										<label class="label">Résumé de l'offre *</label>
-										<div class="control">
-											<input class="input" name="name" type="text" required placeholder="Ex: Stage de 3 mois en entreprise">
-										</div>
-									</div>
-									<div class="field">
-										<label class="label">Intitulé du poste *</label>
-										<div class="control">
-											<input class="input" name="titre" type="text" required placeholder="Ex: Developpeur front end">
-										</div>
-									</div>
-									<div class="field">
-										<label class="label">Description de l'offre *</label>
-										<textarea class="textarea" name="desc" required placeholder="Lorem ipsum, dolor..." rows="10"></textarea>
+<body>
+	<!-- Block numero 1-->
+	{% include 'navbar.twig' %}
+	<!-- Block numero 1-->
+	<section class="section">
+		<div class="box">
+			<h1 class="title is-1">Créer une nouvelle offre</h1>
+			<div class="columns">
+				<div class="column">
+					<form action="" method="POST" enctype="multipart/form-data">
+						<div class="columns">
+							<div class="column">
+								<h2 class="title is-2">Informations générales</h2>
+								<div class="field">
+									<label class="label">Résumé de l'offre *</label>
+									<div class="control">
+										<input class="input" name="name" type="text" required
+											placeholder="Ex: Stage de 3 mois en entreprise">
 									</div>
 								</div>
-								<div class="column">
-									<h2 class="title is-2">Autres Informations</h2>
-									<div class="field">
-										<label class="label">Gratification *</label>
-										<div class="control">
-											<input class="input" name="salary" required type="text" placeholder="Si stage supérieur à 2 mois, minimum 3.90€ / heure">
-										</div>
+								<div class="field">
+									<label class="label">Intitulé du poste *</label>
+									<div class="control">
+										<input class="input" name="titre" type="text" required
+											placeholder="Ex: Developpeur front end">
 									</div>
-									<div class="field">
-										<label class="label">Promotion concernée *</label>
-										<div class="control">
-											<input class="input" name="prom" required type="text" placeholder="Ex: 20/22">
-										</div>
-									</div>
-									<div class="field">
-										<label class="label">Mineure concernée *</label>
-										<div class="control select">
-											<select name="min">
-												<option value="def">Choisir la mineure</option>
-												<option value="Informatique">Informatique</option>
-												<option value="Généraliste">Généraliste</option>
-												<option value="BTP">BTP</option>
-												<option value="S3E">S3E</option>
-											</select>
-
-										</div>
-									</div>
-									<div class="field">
-										<label class="label">Nombre de poste à pourvoir *</label>
-										<div class="control">
-											<input class="input" required name="nbrPoste" type="text" placeholder="Ex: 1">
-										</div>
-									</div>
-									<div class="field">
-										<label class="label">Durée du stage (en semaine) *</label>
-										<div class="control">
-											<input class="input" required name="duree" type="text" placeholder="Ex: 15">
-										</div>
-									</div>
-									<div class="field">
-										<label class="label checkbox is-flex">
-											<input type="checkbox" name="dist" value="valid">
-											<div class="ml-3">Stage en distanciel</div>
-										</label>
-									</div>
+								</div>
+								<div class="field">
+									<label class="label">Description de l'offre *</label>
+									<textarea class="textarea" name="desc" required placeholder="Lorem ipsum, dolor..."
+										rows="10"></textarea>
 								</div>
 							</div>
+							<div class="column">
+								<h2 class="title is-2">Autres Informations</h2>
+								<div class="field">
+									<label class="label">Gratification *</label>
+									<div class="control">
+										<input class="input" name="salary" required type="text"
+											placeholder="Si stage supérieur à 2 mois, minimum 3.90€ / heure">
+									</div>
+								</div>
+								<div class="field">
+									<label class="label">Promotion concernée *</label>
+									<div class="control">
+										<input class="input" name="prom" required type="text" placeholder="Ex: 20/22">
+									</div>
+								</div>
+								<div class="field">
+									<label class="label">Mineure concernée *</label>
+									<div class="control select">
+										<select name="min">
+											<option value="def">Choisir la mineure</option>
+											<option value="Informatique">Informatique</option>
+											<option value="Généraliste">Généraliste</option>
+											<option value="BTP">BTP</option>
+											<option value="S3E">S3E</option>
+										</select>
+
+									</div>
+								</div>
+								<div class="field">
+									<label class="label">Nombre de poste à pourvoir *</label>
+									<div class="control">
+										<input class="input" required name="nbrPoste" type="text" placeholder="Ex: 1">
+									</div>
+								</div>
+								<div class="field">
+									<label class="label">Durée du stage (en semaine) *</label>
+									<div class="control">
+										<input class="input" required name="duree" type="text" placeholder="Ex: 15">
+									</div>
+								</div>
+								<div class="field">
+									<label class="label checkbox is-flex">
+										<input type="checkbox" name="dist" value="valid">
+										<div class="ml-3">Stage en distanciel</div>
+									</label>
+								</div>
+							</div>
+						</div>
 
 						<div class="box">
 							<h3 class="title is-3">Adresse postale</h3>
@@ -108,7 +111,8 @@
 									<div class="field">
 										<label class="label">Numero</label>
 										<div class="control">
-											<input class="input" name="adr_num" type="text" placeholder="Ex: 1bis (Falcutatif)">
+											<input class="input" name="adr_num" type="text"
+												placeholder="Ex: 1bis (Falcutatif)">
 										</div>
 									</div>
 								</div>
@@ -116,7 +120,8 @@
 									<div class="field">
 										<label class="label">Rue *</label>
 										<div class="control">
-											<input class="input" required name="adr_rue" type="text" placeholder="Ex: Champs de mars">
+											<input class="input" required name="adr_rue" type="text"
+												placeholder="Ex: Champs de mars">
 										</div>
 									</div>
 								</div>
@@ -126,7 +131,8 @@
 									<div class="field">
 										<label class="label">Code Postal/ZIP *</label>
 										<div class="control">
-											<input class="input" required name="adr_cp" type="text" placeholder="Ex: 16000">
+											<input class="input" required name="adr_cp" type="text"
+												placeholder="Ex: 16000">
 										</div>
 									</div>
 								</div>
@@ -134,7 +140,8 @@
 									<div class="field">
 										<label class="label">Ville *</label>
 										<div class="control">
-											<input class="input" required name="adr_ville" type="text" placeholder="Ex: Angoulême">
+											<input class="input" required name="adr_ville" type="text"
+												placeholder="Ex: Angoulême">
 										</div>
 									</div>
 								</div>
@@ -144,7 +151,8 @@
 									<div class="field">
 										<label class="label">Complément d'adresse</label>
 										<div class="control">
-											<input class="input" name="adr_comp" type="text" placeholder="Appartement 5">
+											<input class="input" name="adr_comp" type="text"
+												placeholder="Appartement 5">
 										</div>
 									</div>
 								</div>
@@ -152,7 +160,8 @@
 									<div class="field">
 										<label class="label">Pays *</label>
 										<div class="control">
-											<input class="input" required value="France" name="adr_pays" type="text" placeholder="Ex: France">
+											<input class="input" required value="France" name="adr_pays" type="text"
+												placeholder="Ex: France">
 
 										</div>
 									</div>
@@ -161,19 +170,19 @@
 						</div>
 
 
-							<div class="field is-grouped is-grouped-right">
-								<input type="submit" name='submit' class="button is-link" value="Poster l'offre">
-							</div>
-						</form>
-					</div>
+						<div class="field is-grouped is-grouped-right">
+							<input type="submit" name='submit' class="button is-link" value="Poster l'offre">
+						</div>
+					</form>
 				</div>
 			</div>
-			
-		</section>
+		</div>
 
-		<!--Footer-->
-		{% include 'footer.twig' %}
-		<!--Footer-->
-	</body>
+	</section>
+
+	<!--Footer-->
+	{% include 'footer.twig' %}
+	<!--Footer-->
+</body>
 
 </html>

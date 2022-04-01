@@ -32,7 +32,7 @@
 			<div class="columns">
 				<div class="column">
 					{# FORM #}
-					
+
 					<form action="modifier.php?id={{ent.ID_ent}}" method="POST" enctype="multipart/form-data">
 						<div class="columns">
 							<div class="column">
@@ -40,7 +40,8 @@
 								<div class="field">
 									<label class="label">Nom *</label>
 									<div class="control">
-										<input class="input" type="text" name="name" placeholder="Ex: CESI Angoulême" value="{{ent.Nom_ent}}">
+										<input class="input" type="text" name="name" placeholder="Ex: CESI Angoulême"
+											value="{{ent.Nom_ent}}">
 									</div>
 								</div>
 								<div class="field">
@@ -68,25 +69,29 @@
 								<div class="field">
 									<label class="label">Effectif</label>
 									<div class="control">
-										<input class="input" name="nbr" type="number" placeholder="Ex: 32" value="{{ent.Taille_ent}}">
+										<input class="input" name="nbr" type="number" placeholder="Ex: 32"
+											value="{{ent.Taille_ent}}">
 									</div>
 								</div>
 								<div class="field">
 									<label class="label">Mail *</label>
 									<div class="control">
-										<input class="input" name="mail" type="text" placeholder="Ex: rh@example.com" value="{{ent.Mail_ent}}">
+										<input class="input" name="mail" type="text" placeholder="Ex: rh@example.com"
+											value="{{ent.Mail_ent}}">
 									</div>
 								</div>
 								<div class="field">
 									<label class="label">Numero de téléphone *</label>
 									<div class="control">
-										<input class="input" name="tel" type="text" placeholder="Ex: 0102030405" value="{{ent.Tel_ent}}">
+										<input class="input" name="tel" type="text" placeholder="Ex: 0102030405"
+											value="{{ent.Tel_ent}}">
 									</div>
 								</div>
 								<div class="field">
 									<label class="label">Site web</label>
 									<div class="control">
-										<input class="input" name="web" type="text" placeholder="Ex: www.hsbay.space" value="{{ent.Web_ent}}">
+										<input class="input" name="web" type="text" placeholder="Ex: www.hsbay.space"
+											value="{{ent.Web_ent}}">
 									</div>
 								</div>
 								<div class="field">
@@ -145,7 +150,8 @@
 									<div class="field">
 										<label class="label">Numero</label>
 										<div class="control">
-											<input class="input" name="adr_num" type="text" placeholder="Ex: 1bis (Falcutatif)" value="{{adr.Num_adr}}">
+											<input class="input" name="adr_num" type="text"
+												placeholder="Ex: 1bis (Falcutatif)" value="{{adr.Num_adr}}">
 										</div>
 									</div>
 								</div>
@@ -153,7 +159,8 @@
 									<div class="field">
 										<label class="label">Rue *</label>
 										<div class="control">
-											<input class="input" name="adr_rue" type="text" placeholder="Ex: Champs de mars" value="{{adr.Rue_adr}}">
+											<input class="input" name="adr_rue" type="text"
+												placeholder="Ex: Champs de mars" value="{{adr.Rue_adr}}">
 										</div>
 									</div>
 								</div>
@@ -163,7 +170,8 @@
 									<div class="field">
 										<label class="label">Code Postal/ZIP *</label>
 										<div class="control">
-											<input class="input" name="adr_cp" type="text" placeholder="Ex: 16000" value="{{adr.CP_adr}}">
+											<input class="input" name="adr_cp" type="text" placeholder="Ex: 16000"
+												value="{{adr.CP_adr}}">
 										</div>
 									</div>
 								</div>
@@ -171,7 +179,8 @@
 									<div class="field">
 										<label class="label">Ville *</label>
 										<div class="control">
-											<input class="input" name="adr_ville" type="text" placeholder="Ex: Angoulême" value="{{adr.Ville_adr}}">
+											<input class="input" name="adr_ville" type="text"
+												placeholder="Ex: Angoulême" value="{{adr.Ville_adr}}">
 										</div>
 									</div>
 								</div>
@@ -181,7 +190,8 @@
 									<div class="field">
 										<label class="label">Complément d'adresse</label>
 										<div class="control">
-											<input class="input" name="adr_comp" type="text" placeholder="Appartement 5" value="{{adr.Comp_adr}}">
+											<input class="input" name="adr_comp" type="text" placeholder="Appartement 5"
+												value="{{adr.Comp_adr}}">
 										</div>
 									</div>
 								</div>
@@ -189,7 +199,8 @@
 									<div class="field">
 										<label class="label">Pays *</label>
 										<div class="control">
-											<input class="input" name="adr_pays" type="text" placeholder="Ex: France" value="{{adr.Pays_adr}}">
+											<input class="input" name="adr_pays" type="text" placeholder="Ex: France"
+												value="{{adr.Pays_adr}}">
 
 										</div>
 									</div>
@@ -197,7 +208,8 @@
 							</div>
 						</div>
 						<div class="field is-grouped is-grouped-right">
-							<input name="submit" class="button is-link" type="submit" value="Sauvegarder les modifications">
+							<input name="submit" class="button is-link" type="submit"
+								value="Sauvegarder les modifications">
 						</div>
 					</form>
 					{# !FORM #}

@@ -50,20 +50,15 @@
 				</div>
 			</article>
 			</p>
-			
 			<div class="buttons" style="margin-left:auto; margin-right:1rem;">
-				<form action="../../../session/admin/offre/?id={{id}}" style="margin-left: 1rem; margin-right: 1 rem;" method="POST">
+				<form action="../../../session/admin/offre/?id={{id}}" style="margin-left: 1rem; margin-right: 1 rem;"
+					method="POST">
 					<input type="submit" class="button is-link" value="Ajouter une offre">
 				</form>
-				<form action="../../../session/admin/ent/modifier.php?id={{id}}" style="margin-left: 1rem; margin-right: 1 rem;" method="POST">
+				<form action="../../../session/admin/ent/modifier.php?id={{id}}"
+					style="margin-left: 1rem; margin-right: 1 rem;" method="POST">
 					<input type="submit" class="button is-link" value="Modifier l'entreprise">
 				</form>
-				
-				<a href="#" class="button is-link">
-					<span class="icon">
-						<i class="fa-solid fa-trash"></i>
-					</span>
-				</a>
 			</div>
 		</div>
 	</div>
@@ -109,7 +104,7 @@
 								{{adr.Rue_adr}}</p>
 							<p>{{adr.CP_adr}}
 								{{adr.Ville_adr}}</p>
-							
+
 						</div>
 						<div class="content">
 							<h3>Autre</h3>
@@ -125,75 +120,6 @@
 				</div>
 			</div>
 		</div>
-	</section>
-
-
-	<section class="section">
-		<div class="emplois">
-			<div class="columns is-multiline">
-				<!-- Twig des offres de stage de l'entreprise -->
-			</div>
-		</div>
-	</section>
-	<section class="section">
-		<h1 class="title is-1 has-text-centered">
-			Traque une autre entreprise</h1>
-		<form action="">
-			<div class="columns is is-centered">
-				<div class="column is-one-third">
-					<div class="field is-grouped">
-						<p class="control is-expanded">
-							<input class="input" type="text" placeholder="Rechercher une entreprise">
-						</p>
-						<p class="control">
-							<input type="submit" value="Rechercher" class="button is-link">
-						</p>
-					</div>
-				</div>
-			</div>
-		</form>
-	</section>
-	<section class="section elevaluation">
-		<h1 class="title">
-			N'hésite pas à laisser une apréciation sur cette entreprise !
-		</h1>
-		<article class="media">
-			<figure class="media-left">
-				<p class="image is-64x64">
-					<img src="https://bulma.io/images/placeholders/128x128.png">
-				</p>
-			</figure>
-			<div class="media-content">
-				<form action="" class="is-flex" style="padding-top: 1rem; padding-bottom: 1rem;">
-					<fieldset class="starability-basic">
-						<legend>{{result.Nom_ent}}</legend>
-						<input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked
-							aria-label="No rating." />
-
-						<input type="radio" id="rate1" name="rating" value="1" />
-						<label for="rate1">1 star.</label>
-
-						<input type="radio" id="rate2" name="rating" value="2" />
-						<label for="rate2">2 stars.</label>
-
-						<input type="radio" id="rate3" name="rating" value="3" />
-						<label for="rate3">3 stars.</label>
-
-						<input type="radio" id="rate4" name="rating" value="4" />
-						<label for="rate4">4 stars.</label>
-
-						<input type="radio" id="rate5" name="rating" value="5" />
-						<label for="rate5">5 stars.</label>
-
-						<span class="starability-focus-ring"></span>
-					</fieldset>
-					<input type="submit" name="" id="" value="Evaluer" class="button is-link"
-						style="margin-left: 3rem;">
-				</form>
-			</div>
-
-		</article>
-
 	</section>
 	<!--Footer-->
 	{% include 'footer.twig' %}
